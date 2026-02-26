@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 public class Rapier_sc : MonoBehaviour
 {
-    [SerializeField]float cooldown = 0.1f;
+    [SerializeField]float cooldown = 1f;
     public attack attack_script;
 
     public bool canAttack = true;
@@ -17,7 +17,7 @@ public class Rapier_sc : MonoBehaviour
         
         if(attack_script.isAttacking)
         {
-        //canAttack = false;
+        canAttack = false;
         yield return new WaitForSeconds(cooldown);
         canAttack = true;
         

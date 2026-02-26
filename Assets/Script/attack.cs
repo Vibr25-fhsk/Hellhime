@@ -63,12 +63,14 @@ public class attack : MonoBehaviour
                 else if(rapier_script.canAttack == false)
                 {
                     isAttacking = false;
-                }
+                } 
             }
+            /*
             else
             {
                 isAttacking = false;
             }
+            */
         }
         else if(parentName == "P2")
         {
