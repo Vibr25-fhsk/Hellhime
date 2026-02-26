@@ -361,8 +361,8 @@ TextureImporter:
     - name: armL
       guid: f78f6744cb9f42587a4b9c74b3918b09
       position: {x: 1.3231956, y: -0.000002937562, z: 1}
-      rotation: {x: 0, y: 0, z: -0.6974957, w: 0.7165891}
-      length: 15.300573
+      rotation: {x: 0, y: 0, z: -0.6974951, w: 0.71658957}
+      length: 8.50366
       parentId: 11
       color:
         serializedVersion: 2
@@ -371,20 +371,56 @@ TextureImporter:
       guid: 35ebef3698245b1c49ab3dbc41312fb9
       position: {x: 20.881908, y: 125.97623, z: 1}
       rotation: {x: 0, y: 0, z: -0.0149714155, w: 0.99988794}
-      length: 1.2700881
+      length: 1.2700919
       parentId: 3
       color:
         serializedVersion: 2
         rgba: 4278255360
     - name: armR
       guid: f1a286d013082a66ba193f032de429b3
-      position: {x: 1.2700908, y: -0.0000011076831, z: 1}
+      position: {x: 1.2700946, y: -0.000001107635, z: 1}
       rotation: {x: 0, y: 0, z: 0.7101966, w: 0.7040034}
-      length: 15.022448
+      length: 7.591973
       parentId: 13
       color:
         serializedVersion: 2
         rgba: 4294967040
+    - name: armL_1
+      guid: 8e3d926fa87f2a1049c79423f82d73b5
+      position: {x: 8.503662, y: -0.00000074450475, z: 0}
+      rotation: {x: 0, y: 0, z: -0, w: 1}
+      length: 6.7969117
+      parentId: 12
+      color:
+        serializedVersion: 2
+        rgba: 4294901760
+    - name: armL_2
+      guid: 29cf933e8d95135f6b635ec8f8e23a96
+      position: {x: 6.7969112, y: -0.000013219509, z: 0}
+      rotation: {x: 0, y: 0, z: 0.7342901, w: 0.6788358}
+      length: 0.9794065
+      parentId: 15
+      color:
+        serializedVersion: 2
+        rgba: 4294902015
+    - name: armR_3
+      guid: 54292554eacf2da3489232f997bb48fe
+      position: {x: 7.591967, y: 0.0000022789527, z: 0}
+      rotation: {x: 0, y: 0, z: -0, w: 1}
+      length: 7.430475
+      parentId: 14
+      color:
+        serializedVersion: 2
+        rgba: 4278190335
+    - name: armR_4
+      guid: 8ed339f4ccf6077aa8c4012b84313f4c
+      position: {x: 7.4304695, y: -0.000007463128, z: 0}
+      rotation: {x: 0, y: 0, z: -0.7589659, w: 0.65113044}
+      length: 1.2399433
+      parentId: 17
+      color:
+        serializedVersion: 2
+        rgba: 4278255488
     spriteID: 5e97eb03825dee720800000000000000
     internalID: 1537655665
     vertices:

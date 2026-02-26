@@ -1,3 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.Rendering;
+using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class attack : MonoBehaviour
@@ -5,16 +9,20 @@ public class attack : MonoBehaviour
     public CapsuleCollider2D  Rapier_col;
 
     string parentName;
+    
+    float cooldown;
+    public Rapier_sc rapier_script;
 
-    [SerializeField]private bool isAttacking;
+    [SerializeField] public bool isAttacking { get; private set; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
+        parentName = transform.parent.parent.parent.parent.parent.parent.parent.name;
+        
+        
 
-        parentName = transform.parent.parent.parent.parent.parent.name;
-        
-        
         //Rapier_col = GameObject.Find("Rapier_wp").GetComponent<CapsuleCollider2D>();
         Rapier_col.enabled = false;
         
@@ -39,24 +47,42 @@ public class attack : MonoBehaviour
         }
     }
 
-    /*
+    
     void FixedUpdate()
     {
-       if (parentName == "Player1")
+       if (parentName == "P1")
         {
-            if(Input.GetKey(KeyCode.Space))
+            if(Input.GetButton("Fire1"))
             {
-                isAttacking = true;
+                
+                if(rapier_script.canAttack == true)
+                {
+                    isAttacking = true;
+                    rapier_script.StartCoroutine(rapier_script.attack_cld());
+                }
+                else if(rapier_script.canAttack == false)
+                {
+                    isAttacking = false;
+                }
             }
             else
             {
                 isAttacking = false;
             }
         }
-        else if(parentName == "Player2")
+        else if(parentName == "P2")
         {
-            if(Input.GetKey(KeyCode.Mouse1))
+            if(Input.GetButton("Fire2"))
             {
+                rapier_script.StartCoroutine(rapier_script.attack_cld());
+                if(rapier_script.canAttack)
+                {
+                    isAttacking = true;
+                }
+                else if(rapier_script.canAttack == false)
+                {
+                    isAttacking = false;
+                }
                 isAttacking = true;
             }
             else
@@ -71,15 +97,17 @@ public class attack : MonoBehaviour
         else
         {
             Rapier_col.enabled = false;
-        } 
+        }
+        Debug.Log("Value: " + isAttacking); 
     }
-    */
+    
 
     void Update()
     {
-        Debug.Log("Value: " + isAttacking);
+        
     }
 
+/*
     public void P1_Attack(InputAction.CallbackContext context)
     {
     
@@ -107,5 +135,7 @@ public class attack : MonoBehaviour
             Rapier_col.enabled = false;
         }
     }
+    */
     
+
 }
