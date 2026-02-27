@@ -2,41 +2,21 @@ using UnityEngine;
 using System.Collections;
 public class Rapier_sc : MonoBehaviour
 {
-    [SerializeField]float cooldown = 1f;
-    public attack attack_script;
+    string parentName;
 
-    public Animator anim;
-
-    public bool canAttack = true;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        anim = GetComponent<Animator>();
-        anim.SetBool("isThrusting",false);
-
-    }
-
-    public IEnumerator attack_cld()
-    {
-        
-        if(attack_script.isAttacking)
+        parentName = transform.parent.parent.parent.parent.parent.parent.parent.name;
+        if(gameObject.tag == "P1")
         {
-
-            canAttack = false;
-            yield return new WaitForSeconds(cooldown);
-            canAttack = true;
-        
- 
+            
+            transform.rotation = Quaternion.Euler(0, 188, 0);
         }
-
-
-        //GetComponent<CapsuleCollider2D>().enabled = false;
+        else if(gameObject.tag == "P2")
+        {
+            
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

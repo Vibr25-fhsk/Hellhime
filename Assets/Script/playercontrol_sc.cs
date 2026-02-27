@@ -13,7 +13,7 @@ public class playercontorl_sc : MonoBehaviour
     float horizontalMovement;
     #endregion
 
-    private Index_sc index_Sc;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
