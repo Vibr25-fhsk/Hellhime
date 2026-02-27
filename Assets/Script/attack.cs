@@ -52,25 +52,26 @@ public class attack : MonoBehaviour
     {
        if (parentName == "P1")
         {
-            if(Input.GetButton("Fire1"))
+            if(Input.GetButtonDown("Fire1"))
             {
                 
                 if(rapier_script.canAttack == true)
                 {
                     isAttacking = true;
-                    rapier_script.StartCoroutine(rapier_script.attack_cld());
+                    
                 }
                 else if(rapier_script.canAttack == false)
                 {
                     isAttacking = false;
                 } 
             }
-            /*
-            else
+            
+            else if(Input.GetButtonUp("Fire1"))
             {
+                rapier_script.StartCoroutine(rapier_script.attack_cld());
                 isAttacking = false;
             }
-            */
+            
         }
         else if(parentName == "P2")
         {
