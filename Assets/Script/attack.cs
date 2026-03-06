@@ -6,30 +6,31 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class attack : MonoBehaviour
 {
-    public CapsuleCollider2D  Rapier_col;
+    
     [SerializeField]float cooldown = 1f;
 
     Transform Rapier_Transform;
     public bool canAttack = true;
+    Animator anim;
+    [SerializeField]public bool Attack_mainP1{get; private set;}
+    [SerializeField]public bool Attack_subP1{get; private set;}
+
+    [SerializeField]public bool Attack_mainP2{get; private set;}
+    [SerializeField]public bool Attack_subP2{get; private set;}
+    
+     [SerializeField]public bool isAttacking{get; private set;}
 
     
     
-    
-    
 
-    [SerializeField] public bool isAttacking { get; private set; }
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
-        Rapier_col = GameObject.FindGameObjectWithTag("rapier").GetComponent<CapsuleCollider2D>();
-        Rapier_col.enabled = false;
-        
-        /*
-        Rapier_col2 = GameObject.Find("rapier_sprt").GetComponent<CapsuleCollider2D>();
-        Rapier_col2.enabled = false;
-        */
+        anim = GetComponent<Animator>();
+        anim.SetBool("isIdle", true);
+
         Debug.Log(gameObject.tag);
     }
 
@@ -43,56 +44,97 @@ public class attack : MonoBehaviour
     {
        if (gameObject.tag == "Player1")
         {
-            if(Input.GetButtonDown("Fire1"))
+            //main attack
+            if(Input.GetButtonDown("Attack1_p1"))
             {
                 
                 if(canAttack == true)
                 {
-                    isAttacking = true;
+                    Attack_mainP1 = true;
                     
                 }
                 else if(canAttack == false)
                 {
-                    isAttacking = false;
+                    Attack_mainP1 = false;
                 } 
             }
-            
-            else if(Input.GetButtonUp("Fire1"))
+
+            else if(Input.GetButtonUp("Attack1_p1"))
             {
                 StartCoroutine(attack_cld());
-                isAttacking = false;
+                Attack_mainP1 = false;
+            }
+            //sub attack
+            else if(Input.GetButtonDown("Attack2_p1"))
+            {
+                if(canAttack == true)
+                {
+                    Attack_subP1 = true;
+                }
+                else if(canAttack == false)
+                {
+                    Attack_subP1 = false;
+                }
+
+            }
+            else if(Input.GetButtonUp("Attack2_p1"))
+            {
+                StartCoroutine(attack_cld());
+                Attack_subP1 = false;
             }
             
         }
         else if(gameObject.tag == "Player2")
         {
-            if(Input.GetButton("Fire2"))
+            //main attack
+            if(Input.GetButtonDown("Attack1_p2"))
             {
                 
                 if(canAttack)
                 {
-                    isAttacking = true;
+                    Attack_mainP2 = true;
                 }
                 else if(canAttack == false)
                 {
-                    isAttacking = false;
+                    Attack_mainP2 = false;
                 }
-                isAttacking = true;
+                
             }
-            else
+            else if(Input.GetButtonUp("Attack1_p2"))
             {
-                isAttacking = false;
+                StartCoroutine(attack_cld());
+                Attack_mainP2 = false;
+            }
+            //sub attack
+            if(Input.GetButtonDown("Attack2_p2"))
+            {
+                
+                if(canAttack)
+                {
+                    Attack_subP2 = true;
+                }
+                else if(canAttack == false)
+                {
+                    Attack_subP2 = false;
+                }
+                
+            }
+            else if(Input.GetButtonUp("Attack2_p2"))
+            {
+                StartCoroutine(attack_cld());
+                Attack_subP2 = false;
             }
         }
-        if(isAttacking)
+        if(Attack_mainP1 == true || Attack_subP1 == true || Attack_mainP2 == true || Attack_subP2 == true)
         {
-            Rapier_col.enabled = true;
+            isAttacking = true;
         }
-        else
+        else if(Attack_mainP1 == false && Attack_subP1 == false && Attack_mainP2 == false && Attack_subP2 == false)
         {
-            Rapier_col.enabled = false;
+            isAttacking = false;
         }
-        //Debug.Log("Value: " + isAttacking); 
+        
+        //Debug.Log("Value: " + cooldown); 
     }
     
     

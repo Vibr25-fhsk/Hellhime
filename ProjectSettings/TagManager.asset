@@ -7,6 +7,7 @@ TagManager:
   - rapier
   - Player1
   - Player2
+  - kastkniv
   layers:
   - Default
   - TransparentFX
