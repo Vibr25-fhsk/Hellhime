@@ -1,18 +1,30 @@
+using Unity.VisualScripting;
 using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class Projectil_sc : MonoBehaviour
 {
+    [SerializeField] float destructtime = 2f;
     Transform spawnpoint;
     Rigidbody2D rb;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         spawnpoint = GameObject.Find("spawnpunkt").GetComponent<Transform>();
-
+        
         rb = GetComponent<Rigidbody2D>();
         //rb.linearVelocity = spawnpoint.rotation.eulerAngles * 10f;
-        rb.AddForce(Vector2.right * 10f, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.right * 15f, ForceMode2D.Impulse);
+        
+
+
+        Destroy(gameObject, destructtime);
+        
+        
+        
+        
+        
     }
 
     // Update is called once per frame

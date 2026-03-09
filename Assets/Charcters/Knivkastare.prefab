@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5943502990515187633}
-  - component: {fileID: 5944641455730078114}
   m_Layer: 0
   m_Name: spawnpunkt
   m_TagString: Untagged
@@ -29,22 +28,9 @@ Transform:
   m_LocalPosition: {x: 0.33467913, y: 0.023, z: 0.0038223267}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4913098669683056507}
+  m_Children: []
   m_Father: {fileID: 8093515610759066002}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5944641455730078114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5214025258363864571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d1a5a3495d5652f685142626dbc4ef2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6595323887347958622
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +95,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &8149973009648695573
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -260,66 +246,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 1
+  spawnpoint: {fileID: 5943502990515187633}
+  Kastkniv: {fileID: 8170245770341956546, guid: aba044f1cd8b785f39b07cb8f5f9c50f, type: 3}
   canAttack: 1
---- !u!1001 &1538373435040740765
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 5943502990515187633}
-    m_Modifications:
-    - target: {fileID: 5870357763659868902, guid: aba044f1cd8b785f39b07cb8f5f9c50f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.30833578
-      objectReference: {fileID: 0}
-    - target: {fileID: 5870357763659868902, guid: aba044f1cd8b785f39b07cb8f5f9c50f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.1202414
-      objectReference: {fileID: 0}
-    - target: {fileID: 5870357763659868902, guid: aba044f1cd8b785f39b07cb8f5f9c50f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.011195183
-      objectReference: {fileID: 0}
-    - target: {fileID: 5870357763659868902, guid: aba044f1cd8b785f39b07cb8f5f9c50f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5870357763659868902, guid: aba044f1cd8b785f39b07cb8f5f9c50f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5870357763659868902, guid: aba044f1cd8b785f39b07cb8f5f9c50f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5870357763659868902, guid: aba044f1cd8b785f39b07cb8f5f9c50f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5870357763659868902, guid: aba044f1cd8b785f39b07cb8f5f9c50f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5870357763659868902, guid: aba044f1cd8b785f39b07cb8f5f9c50f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5870357763659868902, guid: aba044f1cd8b785f39b07cb8f5f9c50f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8170245770341956546, guid: aba044f1cd8b785f39b07cb8f5f9c50f, type: 3}
-      propertyPath: m_Name
-      value: Kastkniv
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: aba044f1cd8b785f39b07cb8f5f9c50f, type: 3}
---- !u!4 &4913098669683056507 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5870357763659868902, guid: aba044f1cd8b785f39b07cb8f5f9c50f, type: 3}
-  m_PrefabInstance: {fileID: 1538373435040740765}
-  m_PrefabAsset: {fileID: 0}

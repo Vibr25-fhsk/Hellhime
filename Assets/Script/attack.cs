@@ -9,6 +9,14 @@ public class attack : MonoBehaviour
     
     [SerializeField]float cooldown = 1f;
 
+    public Transform spawnpoint;
+    #region Weapons
+    
+    public GameObject Kastkniv;
+    public GameObject Dolk;
+
+    public GameObject Rapier;
+    #endregion
     Transform Rapier_Transform;
     public bool canAttack = true;
     Animator anim;
@@ -28,6 +36,7 @@ public class attack : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
         anim = GetComponent<Animator>();
         anim.SetBool("isIdle", true);
 
@@ -38,8 +47,47 @@ public class attack : MonoBehaviour
     {
         
     }
+    void Throw()
+    {
+        if(canAttack == true)
+        {
+        
+            if(Attack_mainP1 == true)
+            {
+                anim.SetTrigger("Throw");
+                Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
+                //knifeamount++;
+            }
+            else if(Attack_mainP1 == false)
+            {
+                anim.ResetTrigger("Throw");
+                
+            }
 
-    #region Attack
+        }
+        
+    }
+
+    void slash()
+    {
+        if(canAttack == true)
+        {
+            if(Attack_subP1 == true)
+            {
+                anim.SetTrigger("Slash");
+                Instantiate(Dolk, transform.position, transform.rotation);
+            }
+
+            else if(Attack_subP1 == false)
+            {
+                anim.ResetTrigger("Slash");
+            }  
+        }
+
+    }
+
+
+    #region Attack inputs
     void Update()
     {
        if (gameObject.tag == "Player1")
@@ -51,6 +99,7 @@ public class attack : MonoBehaviour
                 if(canAttack == true)
                 {
                     Attack_mainP1 = true;
+                    Throw();
                     
                 }
                 else if(canAttack == false)
@@ -70,6 +119,7 @@ public class attack : MonoBehaviour
                 if(canAttack == true)
                 {
                     Attack_subP1 = true;
+                    slash();
                 }
                 else if(canAttack == false)
                 {
@@ -125,6 +175,7 @@ public class attack : MonoBehaviour
                 Attack_subP2 = false;
             }
         }
+    #endregion
         if(Attack_mainP1 == true || Attack_subP1 == true || Attack_mainP2 == true || Attack_subP2 == true)
         {
             isAttacking = true;
@@ -133,14 +184,9 @@ public class attack : MonoBehaviour
         {
             isAttacking = false;
         }
-        
+
         //Debug.Log("Value: " + cooldown); 
     }
-    
-    
- 
-
-
     public IEnumerator attack_cld()
     {
         
@@ -157,7 +203,10 @@ public class attack : MonoBehaviour
 
         //GetComponent<CapsuleCollider2D>().enabled = false;
     }
-#endregion
 
 
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        
+    }
 }

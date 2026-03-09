@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5870357763659868902}
   - component: {fileID: 8019182129363025085}
-  - component: {fileID: 708307275551129770}
   - component: {fileID: 4136913628431156092}
   - component: {fileID: -6124182076302399934}
   m_Layer: 0
-  m_Name: Kastkniv
+  m_Name: Dagger
   m_TagString: kastkniv
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,19 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &708307275551129770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8170245770341956546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99fb59fd7622fb862b7d0333e310fab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destructtime: 2
 --- !u!50 &4136913628431156092
 Rigidbody2D:
   serializedVersion: 5
@@ -116,9 +102,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0.05
+  m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 0.05
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

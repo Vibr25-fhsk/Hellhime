@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Throwing : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class Throwing : MonoBehaviour
     Transform spawnpoint;
     attack attack_script;
     public GameObject Kastkniv;
+    
+    public int knifeamount;
    
 
    // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,7 +24,7 @@ public class Throwing : MonoBehaviour
 
         //attack_script =GameObject.FindWithTag("Player2").GetComponent<attack>();
         spawnpoint = GameObject.Find("spawnpunkt").GetComponent<Transform>();
-        //Kastkniv = GameObject.FindWithTag("kastkniv");
+        
 
    }
 
@@ -32,30 +35,21 @@ public class Throwing : MonoBehaviour
    void Update()
 
    {
+        
+        /*else if(knifeamount > 0)
+        {
+            knifeamount=0;
+        }
+        */
 
-       if(attack_script.Attack_mainP1 == true)
+        
+        
 
-       {
-            anim.SetTrigger("Throw");
-            Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
-       }
-
-       else if(attack_script.Attack_mainP1 == false)
-       {
-           anim.ResetTrigger("Throw");
-       }
-
-
-
-        if(attack_script.Attack_subP1 == true)
-       {
-           anim.SetTrigger("Slash");
-       }
-
-       else if(attack_script.Attack_subP1 == false)
-       {
-           anim.ResetTrigger("Slash");
-       }
 
    }
+    void FixedUpdate()
+    {   
+        
+        
+    }
 }
