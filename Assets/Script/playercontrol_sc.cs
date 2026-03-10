@@ -6,6 +6,13 @@ public class playercontorl_sc : MonoBehaviour
 {
     public bool isFirstPlayer;
 
+    /*
+    public Sprite[] IdleAnim;
+    public Sprite[] RunAnim;
+    public Animationscript animscript;
+    */
+    public attack attackscript;
+
     #region movement
     [SerializeField]private float moveSpeed = 5f;
     private Rigidbody2D rb;
@@ -18,6 +25,7 @@ public class playercontorl_sc : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); 
+        //animscript = GetComponent<Animationscript>();
     }
     void Awake()
     {
@@ -37,8 +45,18 @@ public class playercontorl_sc : MonoBehaviour
             horizontalMovement = Input.GetAxisRaw("Horizontal_P2");
         }
     
-       rb.linearVelocity = new Vector2(horizontalMovement * moveSpeed, rb.linearVelocity.y); 
+        rb.linearVelocity = new Vector2(horizontalMovement * moveSpeed, rb.linearVelocity.y);
+        /* 
+        if (rb.linearVelocity.x <= 0.5 && attackscript.isAttacking == false)
+        {
+            
+            animscript.ChangeAnimation(IdleAnim);
+        }
+        */
+
     }
+
+
     public void Move(InputAction.CallbackContext moveContext)
     {
         moveinput = moveContext.ReadValue<Vector2>();

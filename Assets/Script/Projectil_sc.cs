@@ -15,7 +15,7 @@ public class Projectil_sc : MonoBehaviour
         
         rb = GetComponent<Rigidbody2D>();
         //rb.linearVelocity = spawnpoint.rotation.eulerAngles * 10f;
-        rb.AddForce(Vector2.right * 15f, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.right * 5f, ForceMode2D.Impulse);
         
 
 

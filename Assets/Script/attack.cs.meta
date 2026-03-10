@@ -1,2 +1,16 @@
 fileFormatVersion: 2
 guid: 58711a296155c47f3abf94244651ffbd
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - animscript: {instanceID: 0}
+  - spawnpoint: {instanceID: 0}
+  - Kastkniv: {fileID: 8170245770341956546, guid: aba044f1cd8b785f39b07cb8f5f9c50f, type: 3}
+  - Dolk: {fileID: 8170245770341956546, guid: 01246ca788522a6de85c950318f5573b, type: 3}
+  - Rapier: {fileID: 5996198307754888519, guid: ed4eb2f3428a83b8ba5d149bd0bddb45, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

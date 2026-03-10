@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8019182129363025085}
   - component: {fileID: 4136913628431156092}
   - component: {fileID: -6124182076302399934}
+  - component: {fileID: 498996316733854075}
   m_Layer: 0
   m_Name: Dagger
   m_TagString: kastkniv
@@ -162,3 +163,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.40625, y: 0.078125}
   m_EdgeRadius: 0
+--- !u!114 &498996316733854075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8170245770341956546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87e0b0411f7e9d2f4b73bd5f275f70c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destructtime: 1
