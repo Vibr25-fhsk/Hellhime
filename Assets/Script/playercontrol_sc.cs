@@ -6,11 +6,11 @@ public class playercontorl_sc : MonoBehaviour
 {
     public bool isFirstPlayer;
 
-    /*
+    
     public Sprite[] IdleAnim;
     public Sprite[] RunAnim;
     public Animationscript animscript;
-    */
+    
     public attack attackscript;
 
     #region movement
@@ -24,8 +24,9 @@ public class playercontorl_sc : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        animscript.ChangeAnimation(IdleAnim);
         rb = GetComponent<Rigidbody2D>(); 
-        //animscript = GetComponent<Animationscript>();
+        animscript = GetComponent<Animationscript>();
     }
     void Awake()
     {

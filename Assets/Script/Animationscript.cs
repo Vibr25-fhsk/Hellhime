@@ -7,7 +7,7 @@ public class Animationscript : MonoBehaviour
     public Sprite[] CurrentAnimation;
     
     
-    public int Frame = 0;
+    public int Frameindex = 0;
     public float frameRate = 0.1f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,12 +24,12 @@ public class Animationscript : MonoBehaviour
         {
             if(CurrentAnimation != null && CurrentAnimation.Length > 0)
             {
-                if (Frame >= CurrentAnimation.Length)
+                if (Frameindex >= CurrentAnimation.Length)
                 {
-                    Frame = 0;
+                    Frameindex = 0;
                 }
-                spriteRenderer.sprite = CurrentAnimation[Frame];
-                Frame++;
+                spriteRenderer.sprite = CurrentAnimation[Frameindex];
+                Frameindex++;
                 yield return new WaitForSeconds(frameRate);
             }
                
@@ -43,7 +43,7 @@ public class Animationscript : MonoBehaviour
         if (CurrentAnimation != changeAnim)
         {
             CurrentAnimation = changeAnim;
-            Frame = 0;
+            Frameindex = 0;
         }
     }
     

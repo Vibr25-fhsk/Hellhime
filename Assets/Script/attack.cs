@@ -7,13 +7,14 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class attack : MonoBehaviour
 {
-    /*
+    
     public Animationscript animscript;
     public Sprite[] ThrowAnim;
     public Sprite[] SlashAnim;
-    */
+    
+    public bool Kast = false;
     [SerializeField]float cooldown = 1f;
-
+    //AnimatorStateInfo stateInfo;
     public Transform spawnpoint;
     #region Weapons
     
@@ -25,8 +26,8 @@ public class attack : MonoBehaviour
     
     public bool canAttack = true;
     Animator anim;
-    [SerializeField]public bool Attack_mainP1{get; private set;}
-    [SerializeField]public bool Attack_subP1{get; private set;}
+    [SerializeField]public bool Attack_mainP1;
+    [SerializeField]public bool Attack_subP1;
 
     [SerializeField]public bool Attack_mainP2{get; private set;}
     [SerializeField]public bool Attack_subP2{get; private set;}
@@ -39,19 +40,20 @@ public class attack : MonoBehaviour
     
 
     #region old code //inaktive
-    
+    /*
     void Start()
     {
 
         anim = GetComponent<Animator>();
         anim.SetBool("isIdle", true);
 
-        Debug.Log(gameObject.tag);
+        //Debug.Log(gameObject.tag);
     }
 
-    void Awake()
+    void FixedUpdate()
     {
         
+        Debug.Log("State: " + stateInfo.IsName("Throwattack") + " Time: " + stateInfo.normalizedTime);
     }
     void Throw()
     {
@@ -60,21 +62,26 @@ public class attack : MonoBehaviour
         
             if(Attack_mainP1 == true && Attack_subP1 == false)
             {
+                //AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+                
                 anim.SetTrigger("Throw");
-                if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f)
+                if(stateInfo.IsName("Throwattack") && stateInfo.normalizedTime >= 0.9f)
                 {
                     Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
+                    
                 }
+                
+            
                 //Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
                 //knifeamount++;
             }
             
             //else if(Attack_mainP1 == false)
             //{
-                anim.ResetTrigger("Throw");    
+                //anim.ResetTrigger("Throw");    
             //}
 
-        //Debug.Log("Throw:"+ anim.GetCurrentAnimatorStateInfo(0).IsName("Throwattack"));
+        
         }
         
     }
@@ -108,7 +115,7 @@ public class attack : MonoBehaviour
                 
             } 
             
-            Debug.Log("Slash:"+ anim.GetCurrentAnimatorStateInfo(0).IsName("Slashattack"));
+            //Debug.Log("Slash:"+ anim.GetCurrentAnimatorStateInfo(0).IsName("Slashattack"));
         }
 
     }
@@ -117,6 +124,7 @@ public class attack : MonoBehaviour
     #region Attack inputs
     void Update()
     {
+        
        if (gameObject.tag == "Player1")
         {
             //main attack
@@ -233,11 +241,11 @@ public class attack : MonoBehaviour
 
         //GetComponent<CapsuleCollider2D>().enabled = false;
     }
-    
+    */
     #endregion
 
     #region new code
-    /*
+    
         void Start()
     {
 
@@ -259,18 +267,17 @@ public class attack : MonoBehaviour
             if(Attack_mainP1 == true && Attack_subP1 == false)
             {
                 animscript.ChangeAnimation(ThrowAnim);
-                if(animscript.Frame ==ThrowAnim.Length-1)
-                {
-                    Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
-                }
+                
+                
                 //Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
                 //knifeamount++;
             }
             
-            //else if(Attack_mainP1 == false)
-            //{
+            else if(Attack_mainP1 == false)
+            {
+                Kast = false;
                 //anim.ResetTrigger("Throw");    
-            //}
+            }
 
         //Debug.Log("Throw:"+ anim.GetCurrentAnimatorStateInfo(0).IsName("Throwattack"));
         }
@@ -301,7 +308,7 @@ public class attack : MonoBehaviour
                 
             } 
             
-            Debug.Log("Slash:"+ anim.GetCurrentAnimatorStateInfo(0).IsName("Slashattack"));
+            //Debug.Log("Slash:"+ anim.GetCurrentAnimatorStateInfo(0).IsName("Slashattack"));
         }
 
     }
@@ -310,6 +317,7 @@ public class attack : MonoBehaviour
     #region Attack inputs
     void Update()
     {
+        
        if (gameObject.tag == "Player1")
         {
             //main attack
@@ -332,6 +340,7 @@ public class attack : MonoBehaviour
             {
                 StartCoroutine(attack_cld());
                 Attack_mainP1 = false;
+                
             }
             //sub attack
             else if(Input.GetButtonDown("Attack2_p1"))
@@ -394,9 +403,11 @@ public class attack : MonoBehaviour
                 StartCoroutine(attack_cld());
                 Attack_subP2 = false;
             }
+
             
 
         }
+        
     #endregion
         if(Attack_mainP1 == true || Attack_subP1 == true || Attack_mainP2 == true || Attack_subP2 == true)
         {
@@ -423,11 +434,24 @@ public class attack : MonoBehaviour
  
         }
 
-
-        //GetComponent<CapsuleCollider2D>().enabled = false;
-    
     }
-    */
+    
+    private IEnumerator Animate()
+    {
+        while(animscript.Frameindex ==ThrowAnim.Length-1 && Kast == true)
+        {
+            Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
+            
+          yield return null;  
+        }
+    }
+
+    void FixedUpdate()
+    {
+        
+        Debug.Log("Kast:" + Kast);
+    }
+
     #endregion
 
     void OnCollisionEnter2D(Collision2D other)
