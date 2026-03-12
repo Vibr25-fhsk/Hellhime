@@ -267,7 +267,12 @@ public class attack : MonoBehaviour
             if(Attack_mainP1 == true && Attack_subP1 == false)
             {
                 animscript.ChangeAnimation(ThrowAnim);
-                
+                if(animscript.Frameindex ==ThrowAnim.Length-1)
+                {
+                    Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
+                }
+
+                //Kast = true;
                 
                 //Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
                 //knifeamount++;
@@ -290,9 +295,14 @@ public class attack : MonoBehaviour
         {
             if(Attack_subP1 == true && Attack_mainP1 == false)
             {
-               
+               if(animscript.Frameindex ==ThrowAnim.Length-1 && Kast == true)
+                {
+                    Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
+                    
+                }
+                animscript.ChangeAnimation(SlashAnim);
                 
-                Instantiate(Dolk, transform.position, transform.rotation);
+                //Instantiate(Dolk, transform.position, transform.rotation);
                 
 
                 
@@ -435,20 +445,20 @@ public class attack : MonoBehaviour
         }
 
     }
-    
+    /*
     private IEnumerator Animate()
     {
-        while(animscript.Frameindex ==ThrowAnim.Length-1 && Kast == true)
+        while()
         {
             Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
             
           yield return null;  
         }
     }
-
+    */
     void FixedUpdate()
     {
-        
+        //StartCoroutine(Animate());
         Debug.Log("Kast:" + Kast);
     }
 
