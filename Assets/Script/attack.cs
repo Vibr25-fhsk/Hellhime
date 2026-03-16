@@ -5,19 +5,22 @@ using UnityEditor.Rendering;
 using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 public class attack : MonoBehaviour
 {
     
     public Animationscript animscript;
     public Sprite[] ThrowAnim;
     public Sprite[] SlashAnim;
+
+
     
     public bool Kast = false;
     [SerializeField]float cooldown = 1f;
     //AnimatorStateInfo stateInfo;
     public Transform spawnpoint;
     #region Weapons
-    
+    public int knivcount;
     public GameObject Kastkniv;
     public GameObject Dolk;
 
@@ -248,7 +251,7 @@ public class attack : MonoBehaviour
     
         void Start()
     {
-
+        
         anim = GetComponent<Animator>();
         //anim.SetBool("isIdle", true);
 
@@ -267,10 +270,7 @@ public class attack : MonoBehaviour
             if(Attack_mainP1 == true && Attack_subP1 == false)
             {
                 animscript.ChangeAnimation(ThrowAnim);
-                if(animscript.Frameindex ==ThrowAnim.Length-1)
-                {
-                    Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
-                }
+                
 
                 //Kast = true;
                 
@@ -280,7 +280,7 @@ public class attack : MonoBehaviour
             
             else if(Attack_mainP1 == false)
             {
-                Kast = false;
+                //Kast = false;
                 //anim.ResetTrigger("Throw");    
             }
 
@@ -440,6 +440,7 @@ public class attack : MonoBehaviour
             canAttack = false;
             yield return new WaitForSeconds(cooldown);
             canAttack = true;
+            
         
  
         }
@@ -458,8 +459,16 @@ public class attack : MonoBehaviour
     */
     void FixedUpdate()
     {
+        knivcount = GameObject.FindGameObjectsWithTag("kastkniv").Length;
+
+        if(animscript.Frameindex ==ThrowAnim.Length-1 && knivcount<1)
+        {
+            Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
+        }
         //StartCoroutine(Animate());
-        Debug.Log("Kast:" + Kast);
+        Debug.Log("knivar:" + knivcount);
+        
+        
     }
 
     #endregion
