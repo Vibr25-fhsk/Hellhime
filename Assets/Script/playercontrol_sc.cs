@@ -47,13 +47,13 @@ public class playercontorl_sc : MonoBehaviour
         }
     
         rb.linearVelocity = new Vector2(horizontalMovement * moveSpeed, rb.linearVelocity.y);
-        /* 
+         
         if (rb.linearVelocity.x <= 0.5 && attackscript.isAttacking == false)
         {
             
             animscript.ChangeAnimation(IdleAnim);
         }
-        */
+        
 
     }
 

@@ -260,7 +260,7 @@ public class attack : MonoBehaviour
 
     void Awake()
     {
-        
+        kast();
     }
     void Throw()
     {
@@ -460,17 +460,33 @@ public class attack : MonoBehaviour
     void FixedUpdate()
     {
         knivcount = GameObject.FindGameObjectsWithTag("kastkniv").Length;
-
-        if(animscript.Frameindex ==ThrowAnim.Length-1 && knivcount<1)
+        if(animscript.CurrentAnimation==ThrowAnim)
         {
-            Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
+            if(animscript.Frameindex ==ThrowAnim.Length-1 && knivcount<1)
+            {
+                Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
+            }
+
         }
+        
+        
+        
         //StartCoroutine(Animate());
         Debug.Log("knivar:" + knivcount);
         
         
     }
-
+    void kast()
+    {
+        /*for(animscript.Frameindex !=ThrowAnim,)
+        {
+            if(animscript.Frameindex ==ThrowAnim.Length-1 && knivcount<1)
+            {
+                Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
+            }
+        }
+        */
+    }
     #endregion
 
     void OnCollisionEnter2D(Collision2D other)
