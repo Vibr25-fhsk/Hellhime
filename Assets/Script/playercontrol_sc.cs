@@ -30,7 +30,10 @@ public class playercontorl_sc : MonoBehaviour
     }
     void Awake()
     {
-
+        if(gameObject.tag =="Player2")
+        {
+            transform.rotation = Quaternion.Euler(0,180,0);
+        }
 
         
     }

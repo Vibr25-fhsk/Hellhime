@@ -6,6 +6,7 @@ using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using UnityEngine.XR;
 public class attack : MonoBehaviour
 {
     
@@ -19,8 +20,10 @@ public class attack : MonoBehaviour
     [SerializeField]float cooldown = 1f;
     //AnimatorStateInfo stateInfo;
     public Transform spawnpoint;
+    public Transform hand;
     #region Weapons
-    public int knivcount;
+    public int Knivcount;
+    public int Dolkcount;
     public GameObject Kastkniv;
     public GameObject Dolk;
 
@@ -284,6 +287,11 @@ public class attack : MonoBehaviour
                 //anim.ResetTrigger("Throw");    
             }
 
+            if(Attack_mainP2 == true && Attack_subP1 == false)
+            {
+                animscript.ChangeAnimation(ThrowAnim);
+            }
+
         //Debug.Log("Throw:"+ anim.GetCurrentAnimatorStateInfo(0).IsName("Throwattack"));
         }
         
@@ -295,16 +303,9 @@ public class attack : MonoBehaviour
         {
             if(Attack_subP1 == true && Attack_mainP1 == false)
             {
-               if(animscript.Frameindex ==ThrowAnim.Length-1 && Kast == true)
-                {
-                    Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
-                    
-                }
                 animscript.ChangeAnimation(SlashAnim);
                 
                 //Instantiate(Dolk, transform.position, transform.rotation);
-                
-
                 
             }
             
@@ -315,6 +316,16 @@ public class attack : MonoBehaviour
                 //{
                  //   Destroy(Dolk);
                 //}
+                
+            }
+
+            if(canAttack == true)
+        
+            if(Attack_subP2 == true && Attack_mainP1 == false)
+            {
+                animscript.ChangeAnimation(SlashAnim);
+                
+                //Instantiate(Dolk, transform.position, transform.rotation);
                 
             } 
             
@@ -378,9 +389,11 @@ public class attack : MonoBehaviour
             //main attack
             if(Input.GetButtonDown("Attack1_p2"))
             {
+
                 
                 if(canAttack)
                 {
+                    Throw();
                     Attack_mainP2 = true;
                 }
                 else if(canAttack == false)
@@ -400,6 +413,7 @@ public class attack : MonoBehaviour
                 
                 if(canAttack)
                 {
+                    slash();
                     Attack_subP2 = true;
                 }
                 else if(canAttack == false)
@@ -459,20 +473,32 @@ public class attack : MonoBehaviour
     */
     void FixedUpdate()
     {
-        knivcount = GameObject.FindGameObjectsWithTag("kastkniv").Length;
+        Knivcount = GameObject.FindGameObjectsWithTag("kastkniv").Length;
+        Dolkcount = GameObject.FindGameObjectsWithTag("dolk").Length;
         if(animscript.CurrentAnimation==ThrowAnim)
         {
-            if(animscript.Frameindex ==ThrowAnim.Length-1 && knivcount<1)
+            if(animscript.Frameindex ==ThrowAnim.Length-1 && Knivcount<1)
             {
                 Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
             }
-
+        }
+        else if(animscript.CurrentAnimation==SlashAnim)
+        {
+            if(animscript.Frameindex ==SlashAnim.Length-3 && Dolkcount<1)
+            {
+                Instantiate(Dolk, hand.position, hand.rotation);
+            }
+            /*else if(animscript.Frameindex == SlashAnim.Length -1 && Dolkcount >=1)
+            {
+                Destroy(Dolk);
+            }
+            */
         }
         
         
         
         //StartCoroutine(Animate());
-        Debug.Log("knivar:" + knivcount);
+        Debug.Log("knivar:" + Knivcount);
         
         
     }
@@ -480,7 +506,7 @@ public class attack : MonoBehaviour
     {
         /*for(animscript.Frameindex !=ThrowAnim,)
         {
-            if(animscript.Frameindex ==ThrowAnim.Length-1 && knivcount<1)
+            if(animscript.Frameindex ==ThrowAnim.Length-1 && Knivcount<1)
             {
                 Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
             }

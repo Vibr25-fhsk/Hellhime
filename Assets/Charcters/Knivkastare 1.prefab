@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5173214854898145005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9136604213538099274}
+  m_Layer: 0
+  m_Name: hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9136604213538099274
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5173214854898145005}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0399, y: 0.024, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8093515610759066002}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5214025258363864571
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,6 +76,7 @@ GameObject:
   - component: {fileID: 3297144672781406510}
   - component: {fileID: 8089582827969260543}
   - component: {fileID: 4587408793910261152}
+  - component: {fileID: 4794650424632817684}
   m_Layer: 0
   m_Name: Knivkastare 1
   m_TagString: Player1
@@ -66,6 +98,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5943502990515187633}
+  - {fileID: 9136604213538099274}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &8275594785624436842
@@ -185,7 +218,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8718238297127163143, guid: b6863296260c576c0b6d7bedae956d8e, type: 3}
+  m_Sprite: {fileID: 122507586884095165, guid: b6863296260c576c0b6d7bedae956d8e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -209,7 +242,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFirstPlayer: 1
-  IdleAnim: []
+  IdleAnim:
+  - {fileID: 4421896009512145939, guid: 32cb28ef55c5c6a5d8de42efaca33813, type: 3}
+  - {fileID: -3895437068098144501, guid: 32cb28ef55c5c6a5d8de42efaca33813, type: 3}
+  - {fileID: 6872137739455858067, guid: 32cb28ef55c5c6a5d8de42efaca33813, type: 3}
+  - {fileID: -9007760948305922508, guid: 32cb28ef55c5c6a5d8de42efaca33813, type: 3}
+  - {fileID: -6972592438791862797, guid: 32cb28ef55c5c6a5d8de42efaca33813, type: 3}
+  RunAnim: []
+  animscript: {fileID: 4587408793910261152}
+  attackscript: {fileID: 4794650424632817684}
   moveSpeed: 5
 --- !u!114 &4587408793910261152
 MonoBehaviour:
@@ -224,4 +265,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentAnimation: []
-  frameRate: 0.1
+  Frameindex: 0
+  frameRate: 0.15
+--- !u!114 &4794650424632817684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6595323887347958622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58711a296155c47f3abf94244651ffbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animscript: {fileID: 4587408793910261152}
+  ThrowAnim:
+  - {fileID: 5557252087569382403, guid: 42ef7c75af1d43b83a2098110ce961ff, type: 3}
+  - {fileID: 2480191518047348715, guid: 42ef7c75af1d43b83a2098110ce961ff, type: 3}
+  - {fileID: 5386217901921767458, guid: 42ef7c75af1d43b83a2098110ce961ff, type: 3}
+  - {fileID: 6315608467040290387, guid: 42ef7c75af1d43b83a2098110ce961ff, type: 3}
+  SlashAnim:
+  - {fileID: 8718238297127163143, guid: b6863296260c576c0b6d7bedae956d8e, type: 3}
+  - {fileID: 1577523938707492633, guid: b6863296260c576c0b6d7bedae956d8e, type: 3}
+  - {fileID: 122507586884095165, guid: b6863296260c576c0b6d7bedae956d8e, type: 3}
+  - {fileID: -840545131263490583, guid: b6863296260c576c0b6d7bedae956d8e, type: 3}
+  - {fileID: 6136344150353689620, guid: b6863296260c576c0b6d7bedae956d8e, type: 3}
+  Kast: 0
+  cooldown: 1
+  spawnpoint: {fileID: 5943502990515187633}
+  hand: {fileID: 9136604213538099274}
+  Knivcount: 0
+  Dolkcount: 0
+  Kastkniv: {fileID: 8170245770341956546, guid: aba044f1cd8b785f39b07cb8f5f9c50f, type: 3}
+  Dolk: {fileID: 8170245770341956546, guid: 01246ca788522a6de85c950318f5573b, type: 3}
+  Rapier: {fileID: 5996198307754888519, guid: ed4eb2f3428a83b8ba5d149bd0bddb45, type: 3}
+  canAttack: 1
+  Attack_mainP1: 0
+  Attack_subP1: 0

@@ -20,7 +20,7 @@ public class Projectil_sc : MonoBehaviour
         
         spawnpoint = GameObject.Find("spawnpunkt").GetComponent<Transform>();
         Attack = GameObject.FindGameObjectWithTag("Player1").GetComponent<attack>();
-        if(Attack.knivcount>1)
+        if(Attack.Knivcount>1)
         {
             Destroy(gameObject);
         }
@@ -42,5 +42,13 @@ public class Projectil_sc : MonoBehaviour
     {
         
     }
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Player1"|| other.gameObject.tag =="Player2")
+        {
+            Destroy(gameObject);
+        }
+    }
+
     
 }

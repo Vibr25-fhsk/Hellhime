@@ -8,6 +8,7 @@ TagManager:
   - Player1
   - Player2
   - kastkniv
+  - dolk
   layers:
   - Default
   - TransparentFX

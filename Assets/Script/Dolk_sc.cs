@@ -2,11 +2,25 @@ using UnityEngine;
 
 public class Dolk_sc : MonoBehaviour
 {
-    [SerializeField] float destructtime = 1f;
+    //public Animationscript animscript;
+    attack Attack;
+    [SerializeField] float destructtime = 0.1f;
     void Awake()
     {
-        //Destroy(gameObject, destructtime);
+        Attack = GameObject.FindGameObjectWithTag("Player1").GetComponent<attack>();
+        if(Attack.Dolkcount>1)
+        {
+            Destroy(gameObject);
+        }
+        Destroy(gameObject, destructtime);
+    }
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Player1"|| other.gameObject.tag =="Player2")
+        {
+            Destroy(gameObject);
+        }
     }
 
-    
+
 }
