@@ -49,13 +49,14 @@ public class playercontorl_sc : MonoBehaviour
             horizontalMovement = Input.GetAxisRaw("Horizontal_P2");
         }
     
-        rb.linearVelocity = new Vector2(horizontalMovement * moveSpeed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(horizontalMovement * moveSpeed, rb.linearVelocity.y );
          
-        if (rb.linearVelocity.x <= 0.5 && attackscript.isAttacking == false)
+        if (rb.linearVelocity.x <= 0.5 && attackscript.isAttacking == false && animscript.CurrentAnimation != IdleAnim)
         {
             
             animscript.ChangeAnimation(IdleAnim);
         }
+         
         
 
     }

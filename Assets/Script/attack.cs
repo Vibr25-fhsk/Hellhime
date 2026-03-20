@@ -35,8 +35,8 @@ public class attack : MonoBehaviour
     [SerializeField]public bool Attack_mainP1;
     [SerializeField]public bool Attack_subP1;
 
-    [SerializeField]public bool Attack_mainP2{get; private set;}
-    [SerializeField]public bool Attack_subP2{get; private set;}
+    [SerializeField]public bool Attack_mainP2;
+    [SerializeField]public bool Attack_subP2;
     
     public bool isAttacking{get; private set;}
 
@@ -291,6 +291,8 @@ public class attack : MonoBehaviour
             {
                 animscript.ChangeAnimation(ThrowAnim);
             }
+
+
 
         //Debug.Log("Throw:"+ anim.GetCurrentAnimatorStateInfo(0).IsName("Throwattack"));
         }
