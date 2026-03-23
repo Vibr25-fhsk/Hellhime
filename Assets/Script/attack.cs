@@ -14,6 +14,7 @@ public class attack : MonoBehaviour
     public Sprite[] ThrowAnim;
     public Sprite[] SlashAnim;
 
+    public bool isFirstPlayer;
 
     
     public bool Kast = false;
@@ -31,6 +32,7 @@ public class attack : MonoBehaviour
     #endregion
     
     public bool canAttack = true;
+    public bool canAttackP2 = true;
     Animator anim;
     [SerializeField]public bool Attack_mainP1;
     [SerializeField]public bool Attack_subP1;
@@ -267,9 +269,9 @@ public class attack : MonoBehaviour
     }
     void Throw()
     {
-        if(canAttack == true)
+        if(canAttack == true && isFirstPlayer == true)
         {
-        
+            
             if(Attack_mainP1 == true && Attack_subP1 == false)
             {
                 animscript.ChangeAnimation(ThrowAnim);
@@ -286,22 +288,33 @@ public class attack : MonoBehaviour
                 //Kast = false;
                 //anim.ResetTrigger("Throw");    
             }
-
-            if(Attack_mainP2 == true && Attack_subP1 == false)
-            {
-                animscript.ChangeAnimation(ThrowAnim);
-            }
-
-
+        }
 
         //Debug.Log("Throw:"+ anim.GetCurrentAnimatorStateInfo(0).IsName("Throwattack"));
+        if(canAttack == true && isFirstPlayer==false)
+        {
+            if(Attack_mainP2 == true && Attack_subP1 == false)
+            {
+                Debug.Log("Is throwing knife");
+                animscript.ChangeAnimation(ThrowAnim);
+            }
+            else if(Attack_mainP2 == false)
+            {
+                
+            }
         }
+        
+
+            
+
+
+
         
     }
     
     void slash()
     {
-        if(canAttack == true)
+        if(canAttack == true && isFirstPlayer)
         {
             if(Attack_subP1 == true && Attack_mainP1 == false)
             {
@@ -320,18 +333,17 @@ public class attack : MonoBehaviour
                 //}
                 
             }
-
-            if(canAttack == true)
-        
+            
+            //Debug.Log("Slash:"+ anim.GetCurrentAnimatorStateInfo(0).IsName("Slashattack"));
+        }
+        if(canAttack == true && isFirstPlayer==false)
+        {
             if(Attack_subP2 == true && Attack_mainP1 == false)
             {
                 animscript.ChangeAnimation(SlashAnim);
-                
                 //Instantiate(Dolk, transform.position, transform.rotation);
-                
+                        
             } 
-            
-            //Debug.Log("Slash:"+ anim.GetCurrentAnimatorStateInfo(0).IsName("Slashattack"));
         }
 
     }

@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 public class playercontorl_sc : MonoBehaviour
 {
-    public bool isFirstPlayer;
+   public bool isFirstPlayer;
 
     
     public Sprite[] IdleAnim;
@@ -55,6 +55,8 @@ public class playercontorl_sc : MonoBehaviour
         {
             
             animscript.ChangeAnimation(IdleAnim);
+
+            
         }
          
         
