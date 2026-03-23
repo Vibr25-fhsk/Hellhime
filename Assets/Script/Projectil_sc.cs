@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using Unity.VisualScripting;
 using UnityEditor.Callbacks;
 using UnityEngine;
@@ -10,28 +11,55 @@ public class Projectil_sc : MonoBehaviour
 
 
     Transform spawnpoint;
+    
+    
+    
+    
     Rigidbody2D rb;
-    attack Attack;    
+    attack Attack;
+    //attack Attack2; 
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+         
         
         spawnpoint = GameObject.Find("spawnpunkt").GetComponent<Transform>();
+        
         Attack = GameObject.FindGameObjectWithTag("Player1").GetComponent<attack>();
+        //Attack2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<attack>();
         if(Attack.Knivcount>1)
         {
             Destroy(gameObject);
         }
+        /*
+        if(Attack2.Knivcount>1)
+        {
+            Destroy(gameObject);
+        }
+        */
         
         rb = GetComponent<Rigidbody2D>();
-        //rb.linearVelocity = spawnpoint.rotation.eulerAngles * 10f;
-        rb.AddForce(Vector2.right * 5f, ForceMode2D.Impulse);
+        if(Attack.isFirstPlayer ==false)
+        {
+           
+        }
         
-        
+        string parentname = spawnpoint.parent.tag;
+        //rb.AddForce(Vector2.right * 5f, ForceMode2D.Impulse);
+          
         Destroy(gameObject, destructtime);
-        
+        if(parentname=="Player1")
+        {
+            rb.AddForce(Vector2.right * 5f, ForceMode2D.Impulse);   
+        }
+        else
+        {
+            rb.AddForce(Vector2.left * 5f, ForceMode2D.Impulse);
+        }
+
+
 
         
         

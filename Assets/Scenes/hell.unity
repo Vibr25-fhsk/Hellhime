@@ -127,6 +127,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5943502990515187633, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.023000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5943502990515187633, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5943502990515187633, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5943502990515187633, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5943502990515187633, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5943502990515187633, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5943502990515187633, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6595323887347958622, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
       propertyPath: m_Name
       value: Knivkastare 2

@@ -24,7 +24,10 @@ public class playercontorl_sc : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
+
         animscript.ChangeAnimation(IdleAnim);
+
         rb = GetComponent<Rigidbody2D>(); 
         animscript = GetComponent<Animationscript>();
     }
@@ -32,6 +35,7 @@ public class playercontorl_sc : MonoBehaviour
     {
         if(gameObject.tag =="Player2")
         {
+            
             transform.rotation = Quaternion.Euler(0,180,0);
         }
 
@@ -56,9 +60,9 @@ public class playercontorl_sc : MonoBehaviour
             
             animscript.ChangeAnimation(IdleAnim);
 
-            
+
         }
-         
+        
         
 
     }

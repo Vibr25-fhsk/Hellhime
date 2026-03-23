@@ -256,7 +256,13 @@ public class attack : MonoBehaviour
     
         void Start()
     {
-        
+        /*
+        if (gameObject.tag=="Player2")
+        {
+            
+            animscript.ChangeAnimation(ThrowAnim);
+        }
+        */
         anim = GetComponent<Animator>();
         //anim.SetBool("isIdle", true);
 
@@ -265,6 +271,15 @@ public class attack : MonoBehaviour
 
     void Awake()
     {
+        if(gameObject.tag=="Player1")
+        {
+            isFirstPlayer = true;
+        }
+        else if (gameObject.tag=="Player2")
+        {
+            isFirstPlayer=false;
+            //animscript.ChangeAnimation(ThrowAnim);
+        }
         kast();
     }
     void Throw()
@@ -407,8 +422,8 @@ public class attack : MonoBehaviour
                 
                 if(canAttack)
                 {
-                    Throw();
                     Attack_mainP2 = true;
+                    Throw();
                 }
                 else if(canAttack == false)
                 {
@@ -485,15 +500,18 @@ public class attack : MonoBehaviour
         }
     }
     */
+    #region instnsiering
     void FixedUpdate()
     {
         Knivcount = GameObject.FindGameObjectsWithTag("kastkniv").Length;
         Dolkcount = GameObject.FindGameObjectsWithTag("dolk").Length;
+       //GameObject knivtemp;
         if(animscript.CurrentAnimation==ThrowAnim)
         {
             if(animscript.Frameindex ==ThrowAnim.Length-1 && Knivcount<1)
             {
-                Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
+                /*knivtemp =*/ Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
+                //knivtemp.transform.right = Vector2.left;
             }
         }
         else if(animscript.CurrentAnimation==SlashAnim)
@@ -509,7 +527,7 @@ public class attack : MonoBehaviour
             */
         }
         
-        
+    #endregion
         
         //StartCoroutine(Animate());
         Debug.Log("knivar:" + Knivcount);
