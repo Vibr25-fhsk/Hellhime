@@ -31,6 +31,7 @@ public class playercontorl_sc : MonoBehaviour
         rb = GetComponent<Rigidbody2D>(); 
         animscript = GetComponent<Animationscript>();
     }
+    /*
     void Awake()
     {
         if(gameObject.tag =="Player2")
@@ -41,6 +42,7 @@ public class playercontorl_sc : MonoBehaviour
 
         
     }
+    */
     // Update is called once per frame
     void Update()
     {
@@ -62,7 +64,16 @@ public class playercontorl_sc : MonoBehaviour
 
 
         }
-        
+        if(rb.linearVelocityX<0)
+        {
+            
+            transform.rotation = Quaternion.Euler(0,180,0);
+        }
+        if(rb.linearVelocityX>0)
+        {
+            
+            transform.rotation = Quaternion.Euler(0,0,0);
+        }
         
 
     }

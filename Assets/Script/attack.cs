@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using Mono.Cecil.Cil;
 using UnityEditor.Rendering;
 using UnityEditor.Timeline;
 using UnityEngine;
@@ -15,6 +16,8 @@ public class attack : MonoBehaviour
     public Sprite[] SlashAnim;
 
     public bool isFirstPlayer;
+
+    
 
     
     public bool Kast = false;
@@ -256,6 +259,7 @@ public class attack : MonoBehaviour
     
         void Start()
     {
+        
         /*
         if (gameObject.tag=="Player2")
         {
@@ -273,10 +277,12 @@ public class attack : MonoBehaviour
     {
         if(gameObject.tag=="Player1")
         {
+             
             isFirstPlayer = true;
         }
         else if (gameObject.tag=="Player2")
         {
+            
             isFirstPlayer=false;
             //animscript.ChangeAnimation(ThrowAnim);
         }
@@ -291,11 +297,6 @@ public class attack : MonoBehaviour
             {
                 animscript.ChangeAnimation(ThrowAnim);
                 
-
-                //Kast = true;
-                
-                //Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
-                //knifeamount++;
             }
             
             else if(Attack_mainP1 == false)
@@ -505,13 +506,18 @@ public class attack : MonoBehaviour
     {
         Knivcount = GameObject.FindGameObjectsWithTag("kastkniv").Length;
         Dolkcount = GameObject.FindGameObjectsWithTag("dolk").Length;
-       //GameObject knivtemp;
+       //;
         if(animscript.CurrentAnimation==ThrowAnim)
         {
             if(animscript.Frameindex ==ThrowAnim.Length-1 && Knivcount<1)
             {
-                /*knivtemp =*/ Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
-                //knivtemp.transform.right = Vector2.left;
+                GameObject knivtemp = Instantiate(Kastkniv, spawnpoint.position,Quaternion.identity);
+                knivtemp.transform.rotation = transform.rotation;
+                
+
+
+                
+                
             }
         }
         else if(animscript.CurrentAnimation==SlashAnim)

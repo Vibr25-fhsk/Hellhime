@@ -8,7 +8,7 @@ public class Projectil_sc : MonoBehaviour
     [SerializeField] float destructtime = 2f;
 
     
-
+    public bool left;
 
     Transform spawnpoint;
     
@@ -21,7 +21,7 @@ public class Projectil_sc : MonoBehaviour
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    void Start()
     {
          
         
@@ -41,16 +41,14 @@ public class Projectil_sc : MonoBehaviour
         */
         
         rb = GetComponent<Rigidbody2D>();
-        if(Attack.isFirstPlayer ==false)
-        {
-           
-        }
+        
         
         string parentname = spawnpoint.parent.tag;
         //rb.AddForce(Vector2.right * 5f, ForceMode2D.Impulse);
           
         Destroy(gameObject, destructtime);
-        if(parentname=="Player1")
+  
+        if(transform.rotation.y==0)
         {
             rb.AddForce(Vector2.right * 5f, ForceMode2D.Impulse);   
         }
@@ -59,10 +57,6 @@ public class Projectil_sc : MonoBehaviour
             rb.AddForce(Vector2.left * 5f, ForceMode2D.Impulse);
         }
 
-
-
-        
-        
     }
 
     // Update is called once per frame
