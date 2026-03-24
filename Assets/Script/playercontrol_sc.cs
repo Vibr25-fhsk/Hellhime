@@ -1,16 +1,20 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 public class playercontorl_sc : MonoBehaviour
 {
-   public bool isFirstPlayer;
 
-    
+    //Helph
+    public int PlayerHP = 100;
+    public bool isFirstPlayer;
+
+    #region Anim
     public Sprite[] IdleAnim;
     public Sprite[] RunAnim;
     public Animationscript animscript;
-    
+    #endregion
     public attack attackscript;
 
     #region movement
@@ -74,7 +78,10 @@ public class playercontorl_sc : MonoBehaviour
             
             transform.rotation = Quaternion.Euler(0,0,0);
         }
-        
+        if(PlayerHP<=0)
+        {
+            Destroy(gameObject);
+        }
 
     }
 
@@ -83,5 +90,19 @@ public class playercontorl_sc : MonoBehaviour
     {
         moveinput = moveContext.ReadValue<Vector2>();
     }
+
+    #region Colliders
+    public void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag=="kastkniv")
+        {
+            PlayerHP = PlayerHP -10;
+        } 
+        else if(other.gameObject.tag=="dolk")
+        {
+            PlayerHP = PlayerHP -20;
+        } 
+    }
+    #endregion
 
 }

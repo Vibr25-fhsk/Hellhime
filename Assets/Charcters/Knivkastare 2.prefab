@@ -55,13 +55,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5214025258363864571}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.33467913, y: 0.023, z: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0.33467913, y: 0.023000002, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8093515610759066002}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &6595323887347958622
 GameObject:
   m_ObjectHideFlags: 0
@@ -77,10 +77,9 @@ GameObject:
   - component: {fileID: 8089582827969260543}
   - component: {fileID: 4587408793910261152}
   - component: {fileID: 4794650424632817684}
-  - component: {fileID: 2131097674578779846}
   m_Layer: 0
-  m_Name: Knivkastare 1
-  m_TagString: Player1
+  m_Name: Knivkastare 2
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,7 +92,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6595323887347958622}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -3.7936792, y: -3.8466277, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -101,7 +100,7 @@ Transform:
   - {fileID: 5943502990515187633}
   - {fileID: 9136604213538099274}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!50 &8275594785624436842
 Rigidbody2D:
   serializedVersion: 5
@@ -243,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerHP: 100
-  isFirstPlayer: 1
+  isFirstPlayer: 0
   IdleAnim:
   - {fileID: 4421896009512145939, guid: 32cb28ef55c5c6a5d8de42efaca33813, type: 3}
   - {fileID: -3895437068098144501, guid: 32cb28ef55c5c6a5d8de42efaca33813, type: 3}
@@ -281,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58711a296155c47f3abf94244651ffbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animscript: {fileID: 2131097674578779846}
+  animscript: {fileID: 4587408793910261152}
   ThrowAnim:
   - {fileID: 5557252087569382403, guid: 42ef7c75af1d43b83a2098110ce961ff, type: 3}
   - {fileID: 2480191518047348715, guid: 42ef7c75af1d43b83a2098110ce961ff, type: 3}
@@ -309,18 +308,3 @@ MonoBehaviour:
   Attack_subP1: 0
   Attack_mainP2: 0
   Attack_subP2: 0
---- !u!114 &2131097674578779846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6595323887347958622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c93711659a37a5f48decd236d62cefc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CurrentAnimation: []
-  Frameindex: 0
-  frameRate: 0.1
