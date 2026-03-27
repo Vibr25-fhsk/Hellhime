@@ -9,6 +9,10 @@ public class playercontorl_sc : MonoBehaviour
     //Helph
     public int PlayerHP = 100;
     public bool isFirstPlayer;
+    public bool candie {get;protected set;}
+    
+
+    [SerializeField]protected bool God;
 
     #region Anim
     public Sprite[] IdleAnim;
@@ -23,30 +27,32 @@ public class playercontorl_sc : MonoBehaviour
     private Vector2 moveinput;
     float horizontalMovement;
     #endregion
-
+    BoxCollider2D PlayerColl;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        PlayerColl = GetComponent<BoxCollider2D>();
 
         animscript.ChangeAnimation(IdleAnim);
 
         rb = GetComponent<Rigidbody2D>(); 
         animscript = GetComponent<Animationscript>();
     }
-    /*
+    
     void Awake()
     {
-        if(gameObject.tag =="Player2")
+        if(God)
         {
-            
-            transform.rotation = Quaternion.Euler(0,180,0);
+            candie =false;
+            PlayerHP = PlayerHP * 100;
+            //PlayerColl =false;
+            rb.gravityScale=0;
         }
 
         
     }
-    */
+    
     // Update is called once per frame
     void Update()
     {
@@ -94,14 +100,18 @@ public class playercontorl_sc : MonoBehaviour
     #region Colliders
     public void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag=="kastkniv")
+        if(candie)
         {
+           if(other.gameObject.tag=="kastkniv")
+            {
             PlayerHP = PlayerHP -10;
-        } 
-        else if(other.gameObject.tag=="dolk")
-        {
+            } 
+            else if(other.gameObject.tag=="dolk")
+            {
             PlayerHP = PlayerHP -20;
-        } 
+            }  
+        }
+        
     }
     #endregion
 

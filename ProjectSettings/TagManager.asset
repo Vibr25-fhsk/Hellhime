@@ -9,7 +9,12 @@ TagManager:
   - Player2
   - kastkniv
   - dolk
+  - sten
+  - kastknivP2
+  - dolkP2
+  - stenP2
   - Defense
+  - DefenseP2
   layers:
   - Default
   - TransparentFX

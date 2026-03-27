@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 3626776899811381176}
   - component: {fileID: -9187694064326901917}
   m_Layer: 0
-  m_Name: Stenvegg
-  m_TagString: sten
+  m_Name: StenveggP2
+  m_TagString: stenP2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

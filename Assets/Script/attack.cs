@@ -18,7 +18,7 @@ public class attack : MonoBehaviour
     public bool isFirstPlayer;
 
     
-
+    [SerializeField]protected float cordx =0.5f;
     
     public bool Kast = false;
     [SerializeField]float cooldown = 1f;
@@ -28,10 +28,28 @@ public class attack : MonoBehaviour
     #region Weapons
     public int Knivcount;
     public int Dolkcount;
+    public int KnivcountP2;
+    public int DolkcountP2;
+
     public GameObject Kastkniv;
     public GameObject Dolk;
 
+    public GameObject KastknivP2;
+    public GameObject DolkP2;
+
     public GameObject Rapier;
+    #endregion
+    
+    #region misc
+    public GameObject Sten;
+    GameObject Stentemp;
+    public GameObject StenP2;
+    GameObject StentempP2;
+
+
+    protected int StenCount;
+    protected int StenCountP2;
+
     #endregion
     
     public bool canAttack = true;
@@ -42,13 +60,16 @@ public class attack : MonoBehaviour
 
     [SerializeField]public bool Attack_mainP2;
     [SerializeField]public bool Attack_subP2;
+
+    public bool Defens_mainP1;
+    public bool Defens_mainP2;
     
     public bool isAttacking{get; private set;}
 
     
     
 
-    
+    Vector2 stenpos;
 
     #region old code //inaktive
     /*
@@ -259,9 +280,9 @@ public class attack : MonoBehaviour
     
         void Start()
     {
-        
+
         /*
-        if (gameObject.tag=="Player2")
+        if (gameObject.tag=="Player1")
         {
             
             animscript.ChangeAnimation(ThrowAnim);
@@ -286,7 +307,7 @@ public class attack : MonoBehaviour
             isFirstPlayer=false;
             //animscript.ChangeAnimation(ThrowAnim);
         }
-        kast();
+        
     }
     void Throw()
     {
@@ -318,15 +339,41 @@ public class attack : MonoBehaviour
             {
                 
             }
-        }
-        
-
-            
-
-
-
-        
+        }   
     }
+    void Def()
+   {
+        if (Stentemp == null)
+        {
+            if(Defens_mainP1 ==true && Attack_mainP1 == false && Attack_subP1 == false)
+            {
+                canAttack=false;
+                Stentemp = Instantiate(Sten,stenpos,Quaternion.identity);
+                Stentemp.transform.rotation = transform.rotation;
+            }
+            
+        }
+        else
+        {
+            return;
+        }
+    
+        if (StentempP2 == null)
+        {
+            if(Defens_mainP2 ==true && Attack_mainP2 == false && Attack_subP2 == false)
+            {
+                canAttack=false;
+                StentempP2 = Instantiate(StenP2,stenpos,Quaternion.identity);
+                StentempP2.transform.rotation = transform.rotation;
+            }
+            
+        }
+        else
+        {
+            return;
+        }
+   }
+
     
     void slash()
     {
@@ -363,6 +410,7 @@ public class attack : MonoBehaviour
         }
 
     }
+   
 
 
     #region Attack inputs
@@ -389,8 +437,9 @@ public class attack : MonoBehaviour
 
             else if(Input.GetButtonUp("Attack1_p1"))
             {
-                StartCoroutine(attack_cld());
                 Attack_mainP1 = false;
+                StartCoroutine(attack_cld());
+                
                 
             }
             //sub attack
@@ -398,8 +447,9 @@ public class attack : MonoBehaviour
             {
                 if(canAttack == true)
                 {
-                    Attack_subP1 = true;
+                    
                     slash();
+                    Attack_subP1 = true;
                 }
                 else if(canAttack == false)
                 {
@@ -411,7 +461,20 @@ public class attack : MonoBehaviour
             {
                 StartCoroutine(attack_cld());
                 Attack_subP1 = false;
+            
             }
+            if(Input.GetButtonDown("Defens_p1"))
+            {
+                Defens_mainP1 =true;
+                Def();
+            }
+
+            else if(Input.GetButtonUp("Defens_p1"))
+            {
+                Defens_mainP1=false;  
+            }
+
+          
             
         }
         else if(gameObject.tag == "Player2")
@@ -443,8 +506,8 @@ public class attack : MonoBehaviour
                 
                 if(canAttack)
                 {
-                    slash();
                     Attack_subP2 = true;
+                    slash();
                 }
                 else if(canAttack == false)
                 {
@@ -457,12 +520,22 @@ public class attack : MonoBehaviour
                 StartCoroutine(attack_cld());
                 Attack_subP2 = false;
             }
+             if(Input.GetButtonDown("Defens_p2"))
+            {
+                Defens_mainP2 =true;
+                Def();
+            }
+
+            else if(Input.GetButtonUp("Defens_p2"))
+            {
+                Defens_mainP2=false;  
+            }
 
             
 
         }
         
-    #endregion
+        
         if(Attack_mainP1 == true || Attack_subP1 == true || Attack_mainP2 == true || Attack_subP2 == true)
         {
             isAttacking = true;
@@ -473,8 +546,21 @@ public class attack : MonoBehaviour
             //Debug.Log("Idle:"+ anim.GetCurrentAnimatorStateInfo(0).IsName("idel"));
         }
 
+        if(spawnpoint.rotation.y==0)
+        {
+            stenpos = new Vector2(spawnpoint.position.x +cordx,spawnpoint.position.y);
+        }
+        else if(spawnpoint.rotation.y!=0)
+        {
+            stenpos = new Vector2(spawnpoint.position.x -cordx,spawnpoint.position.y);
+        }
+
         //Debug.Log("Value: " + cooldown); 
+    
+
+    
     }
+    #endregion
     public IEnumerator attack_cld()
     {
         
@@ -506,32 +592,67 @@ public class attack : MonoBehaviour
     {
         Knivcount = GameObject.FindGameObjectsWithTag("kastkniv").Length;
         Dolkcount = GameObject.FindGameObjectsWithTag("dolk").Length;
+        KnivcountP2 = GameObject.FindGameObjectsWithTag("kastknivP2").Length;
+        DolkcountP2 = GameObject.FindGameObjectsWithTag("dolkP2").Length;
+        StenCount = GameObject.FindGameObjectsWithTag("sten").Length;
+        StenCountP2 = GameObject.FindGameObjectsWithTag("stenP2").Length;
        //;
-        if(animscript.CurrentAnimation==ThrowAnim)
+        if(gameObject.tag=="Player1")
         {
-            if(animscript.Frameindex ==ThrowAnim.Length-1 && Knivcount<1)
+            if(animscript.CurrentAnimation==ThrowAnim)
             {
-                GameObject knivtemp = Instantiate(Kastkniv, spawnpoint.position,Quaternion.identity);
-                knivtemp.transform.rotation = transform.rotation;
+                if(animscript.Frameindex ==ThrowAnim.Length-1 && Knivcount<1)
+                {
+                    GameObject knivtemp = Instantiate(Kastkniv, spawnpoint.position,Quaternion.identity);
+                    knivtemp.transform.rotation = transform.rotation;
                 
+                }
+            }
+        
 
-
-                
-                
+        
+            else if(animscript.CurrentAnimation==SlashAnim)
+            {
+                if(animscript.Frameindex ==SlashAnim.Length-3 && Dolkcount<1)
+                {
+                    Instantiate(Dolk, hand.position, hand.rotation);
+                }
+                /*else if(animscript.Frameindex == SlashAnim.Length -1 && Dolkcount >=1)
+                {
+                    Destroy(Dolk);
+                }
+                */
             }
         }
-        else if(animscript.CurrentAnimation==SlashAnim)
+        if(gameObject.tag=="Player2")
         {
-            if(animscript.Frameindex ==SlashAnim.Length-3 && Dolkcount<1)
+            if(animscript.CurrentAnimation==ThrowAnim)
             {
-                Instantiate(Dolk, hand.position, hand.rotation);
+                if(animscript.Frameindex ==ThrowAnim.Length-1 && KnivcountP2<1)
+                {
+                    GameObject knivtemp = Instantiate(KastknivP2, spawnpoint.position,Quaternion.identity);
+                    knivtemp.transform.rotation = transform.rotation;
+                
+                }
             }
-            /*else if(animscript.Frameindex == SlashAnim.Length -1 && Dolkcount >=1)
+        
+
+        
+            else if(animscript.CurrentAnimation==SlashAnim)
             {
-                Destroy(Dolk);
+                if(animscript.Frameindex ==SlashAnim.Length-3 && DolkcountP2<1)
+                {
+                    Instantiate(DolkP2, hand.position, hand.rotation);
+                }
+                /*else if(animscript.Frameindex == SlashAnim.Length -1 && Dolkcount >=1)
+                {
+                    Destroy(Dolk);
+                }
+                */
             }
-            */
         }
+
+
         
     #endregion
         
@@ -539,17 +660,6 @@ public class attack : MonoBehaviour
         Debug.Log("knivar:" + Knivcount);
         
         
-    }
-    void kast()
-    {
-        /*for(animscript.Frameindex !=ThrowAnim,)
-        {
-            if(animscript.Frameindex ==ThrowAnim.Length-1 && Knivcount<1)
-            {
-                Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
-            }
-        }
-        */
     }
     #endregion
 

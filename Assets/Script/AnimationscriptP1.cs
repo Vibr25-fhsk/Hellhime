@@ -5,10 +5,11 @@ public class Animationscript : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     public Sprite[] CurrentAnimation;
-    
+    //public bool KanbytaAnim = true;
+    attack Attack;
     
     public int Frameindex = 0;
-    public float frameRate = 0.1f;
+    public float frameRate = 0.15f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -40,11 +41,16 @@ public class Animationscript : MonoBehaviour
     }
     public void ChangeAnimation(Sprite[] changeAnim)
     {
+        
+        
+        
         if (CurrentAnimation != changeAnim)
         {
-            CurrentAnimation = changeAnim;
-            Frameindex = 0;
+        CurrentAnimation = changeAnim;
+        Frameindex = 0;
         }
+        
+
     }
     
 }

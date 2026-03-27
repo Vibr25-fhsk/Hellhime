@@ -243,6 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerHP: 100
   isFirstPlayer: 0
+  candie: 0
   IdleAnim:
   - {fileID: 4421896009512145939, guid: 32cb28ef55c5c6a5d8de42efaca33813, type: 3}
   - {fileID: -3895437068098144501, guid: 32cb28ef55c5c6a5d8de42efaca33813, type: 3}
@@ -293,18 +294,27 @@ MonoBehaviour:
   - {fileID: -840545131263490583, guid: b6863296260c576c0b6d7bedae956d8e, type: 3}
   - {fileID: 6136344150353689620, guid: b6863296260c576c0b6d7bedae956d8e, type: 3}
   isFirstPlayer: 1
+  cordx: 0.5
   Kast: 0
   cooldown: 1
   spawnpoint: {fileID: 5943502990515187633}
   hand: {fileID: 9136604213538099274}
   Knivcount: 0
   Dolkcount: 0
-  Kastkniv: {fileID: 8170245770341956546, guid: aba044f1cd8b785f39b07cb8f5f9c50f, type: 3}
-  Dolk: {fileID: 8170245770341956546, guid: 01246ca788522a6de85c950318f5573b, type: 3}
-  Rapier: {fileID: 5996198307754888519, guid: ed4eb2f3428a83b8ba5d149bd0bddb45, type: 3}
+  KnivcountP2: 0
+  DolkcountP2: 0
+  Kastkniv: {fileID: 0}
+  Dolk: {fileID: 0}
+  KastknivP2: {fileID: 8170245770341956546, guid: 1ad929a1a8251be7082f60cb388ff63d, type: 3}
+  DolkP2: {fileID: 8170245770341956546, guid: 2254cd186d412e519af4231946baa2e5, type: 3}
+  Rapier: {fileID: 5996198307754888519, guid: 6d00cbd3317edf832aaa3bb3b7759c03, type: 3}
+  Sten: {fileID: 0}
+  StenP2: {fileID: 2973056648625193388, guid: 15d0cbc8a9b6cb7ce9ca678987f5905e, type: 3}
   canAttack: 1
   canAttackP2: 1
   Attack_mainP1: 0
   Attack_subP1: 0
   Attack_mainP2: 0
   Attack_subP2: 0
+  Defens_mainP1: 0
+  Defens_mainP2: 0

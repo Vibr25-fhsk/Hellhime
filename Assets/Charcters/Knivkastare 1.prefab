@@ -75,9 +75,8 @@ GameObject:
   - component: {fileID: 8149973009648695573}
   - component: {fileID: 3297144672781406510}
   - component: {fileID: 8089582827969260543}
-  - component: {fileID: 4587408793910261152}
   - component: {fileID: 4794650424632817684}
-  - component: {fileID: 2131097674578779846}
+  - component: {fileID: 1467266943650582745}
   m_Layer: 0
   m_Name: Knivkastare 1
   m_TagString: Player1
@@ -244,6 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerHP: 100
   isFirstPlayer: 1
+  candie: 0
   IdleAnim:
   - {fileID: 4421896009512145939, guid: 32cb28ef55c5c6a5d8de42efaca33813, type: 3}
   - {fileID: -3895437068098144501, guid: 32cb28ef55c5c6a5d8de42efaca33813, type: 3}
@@ -251,24 +251,9 @@ MonoBehaviour:
   - {fileID: -9007760948305922508, guid: 32cb28ef55c5c6a5d8de42efaca33813, type: 3}
   - {fileID: -6972592438791862797, guid: 32cb28ef55c5c6a5d8de42efaca33813, type: 3}
   RunAnim: []
-  animscript: {fileID: 4587408793910261152}
+  animscript: {fileID: 1467266943650582745}
   attackscript: {fileID: 4794650424632817684}
   moveSpeed: 5
---- !u!114 &4587408793910261152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6595323887347958622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c93711659a37a5f48decd236d62cefc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CurrentAnimation: []
-  Frameindex: 0
-  frameRate: 0.15
 --- !u!114 &4794650424632817684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58711a296155c47f3abf94244651ffbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animscript: {fileID: 2131097674578779846}
+  animscript: {fileID: 1467266943650582745}
   ThrowAnim:
   - {fileID: 5557252087569382403, guid: 42ef7c75af1d43b83a2098110ce961ff, type: 3}
   - {fileID: 2480191518047348715, guid: 42ef7c75af1d43b83a2098110ce961ff, type: 3}
@@ -303,13 +288,16 @@ MonoBehaviour:
   Kastkniv: {fileID: 8170245770341956546, guid: aba044f1cd8b785f39b07cb8f5f9c50f, type: 3}
   Dolk: {fileID: 8170245770341956546, guid: 01246ca788522a6de85c950318f5573b, type: 3}
   Rapier: {fileID: 5996198307754888519, guid: ed4eb2f3428a83b8ba5d149bd0bddb45, type: 3}
+  Sten: {fileID: 2973056648625193388, guid: ffffcb163079ccd7e86db702411970bc, type: 3}
   canAttack: 1
   canAttackP2: 1
   Attack_mainP1: 0
   Attack_subP1: 0
   Attack_mainP2: 0
   Attack_subP2: 0
---- !u!114 &2131097674578779846
+  Defens_mainP1: 0
+  Defens_mainP2: 0
+--- !u!114 &1467266943650582745
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -323,4 +311,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentAnimation: []
   Frameindex: 0
-  frameRate: 0.1
+  frameRate: 0.15
