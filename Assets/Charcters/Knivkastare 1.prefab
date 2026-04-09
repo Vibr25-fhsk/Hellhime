@@ -243,7 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerHP: 100
   isFirstPlayer: 1
-  candie: 0
+  God: 0
   IdleAnim:
   - {fileID: 4421896009512145939, guid: 32cb28ef55c5c6a5d8de42efaca33813, type: 3}
   - {fileID: -3895437068098144501, guid: 32cb28ef55c5c6a5d8de42efaca33813, type: 3}
@@ -272,6 +272,7 @@ MonoBehaviour:
   - {fileID: 2480191518047348715, guid: 42ef7c75af1d43b83a2098110ce961ff, type: 3}
   - {fileID: 5386217901921767458, guid: 42ef7c75af1d43b83a2098110ce961ff, type: 3}
   - {fileID: 6315608467040290387, guid: 42ef7c75af1d43b83a2098110ce961ff, type: 3}
+  - {fileID: 6315608467040290387, guid: 42ef7c75af1d43b83a2098110ce961ff, type: 3}
   SlashAnim:
   - {fileID: 8718238297127163143, guid: b6863296260c576c0b6d7bedae956d8e, type: 3}
   - {fileID: 1577523938707492633, guid: b6863296260c576c0b6d7bedae956d8e, type: 3}
@@ -279,16 +280,22 @@ MonoBehaviour:
   - {fileID: -840545131263490583, guid: b6863296260c576c0b6d7bedae956d8e, type: 3}
   - {fileID: 6136344150353689620, guid: b6863296260c576c0b6d7bedae956d8e, type: 3}
   isFirstPlayer: 1
+  cordx: 0.5
   Kast: 0
   cooldown: 1
   spawnpoint: {fileID: 5943502990515187633}
   hand: {fileID: 9136604213538099274}
   Knivcount: 0
   Dolkcount: 0
+  KnivcountP2: 0
+  DolkcountP2: 0
   Kastkniv: {fileID: 8170245770341956546, guid: aba044f1cd8b785f39b07cb8f5f9c50f, type: 3}
   Dolk: {fileID: 8170245770341956546, guid: 01246ca788522a6de85c950318f5573b, type: 3}
+  KastknivP2: {fileID: 8170245770341956546, guid: 1ad929a1a8251be7082f60cb388ff63d, type: 3}
+  DolkP2: {fileID: 8170245770341956546, guid: 2254cd186d412e519af4231946baa2e5, type: 3}
   Rapier: {fileID: 5996198307754888519, guid: ed4eb2f3428a83b8ba5d149bd0bddb45, type: 3}
   Sten: {fileID: 2973056648625193388, guid: ffffcb163079ccd7e86db702411970bc, type: 3}
+  StenP2: {fileID: 2973056648625193388, guid: 15d0cbc8a9b6cb7ce9ca678987f5905e, type: 3}
   canAttack: 1
   canAttackP2: 1
   Attack_mainP1: 0
@@ -310,5 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentAnimation: []
+  canAnimate: 1
+  CanchangeAnim: 1
   Frameindex: 0
   frameRate: 0.15

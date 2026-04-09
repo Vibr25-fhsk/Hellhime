@@ -131,10 +131,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Knivkastare 2
       objectReference: {fileID: 0}
-    - target: {fileID: 8089582827969260543, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
-      propertyPath: candie
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8093515610759066002, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.23
@@ -191,10 +187,6 @@ PrefabInstance:
     - target: {fileID: 6595323887347958622, guid: 81035a91e89249c57bf630060a11f873, type: 3}
       propertyPath: m_Name
       value: Knivkastare 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8089582827969260543, guid: 81035a91e89249c57bf630060a11f873, type: 3}
-      propertyPath: candie
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8093515610759066002, guid: 81035a91e89249c57bf630060a11f873, type: 3}
       propertyPath: m_LocalPosition.x

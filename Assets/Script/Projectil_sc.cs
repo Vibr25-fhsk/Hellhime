@@ -28,17 +28,26 @@ public class Projectil_sc : MonoBehaviour
         spawnpoint = GameObject.Find("spawnpunkt").GetComponent<Transform>();
         
         Attack = GameObject.FindGameObjectWithTag("Player1").GetComponent<attack>();
-        //Attack2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<attack>();
-        if(Attack.Knivcount>1)
+        //Attack2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<attack>()
+        
+        if(gameObject.tag=="kastkniv")
         {
-            Destroy(gameObject);
+            if(Attack.Knivcount>1)
+            {
+                Destroy(gameObject);
+            }
         }
-        /*
-        if(Attack2.Knivcount>1)
+        else if(gameObject.tag=="kastknivP2")
         {
-            Destroy(gameObject);
+            if(Attack.KnivcountP2>1)
+            {
+                Destroy(gameObject);
+            }
         }
-        */
+       
+        
+        
+        
         
         rb = GetComponent<Rigidbody2D>();
         

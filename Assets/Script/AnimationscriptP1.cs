@@ -7,7 +7,8 @@ public class Animationscript : MonoBehaviour
     public Sprite[] CurrentAnimation;
     //public bool KanbytaAnim = true;
     attack Attack;
-    
+    public bool canAnimate = true;
+    public bool CanchangeAnim = true;
     public int Frameindex = 0;
     public float frameRate = 0.15f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,7 +22,7 @@ public class Animationscript : MonoBehaviour
 
     IEnumerator AnimationLoop()
     {
-        while (true)
+        while(true)
         {
             if(CurrentAnimation != null && CurrentAnimation.Length > 0)
             {
@@ -42,13 +43,17 @@ public class Animationscript : MonoBehaviour
     public void ChangeAnimation(Sprite[] changeAnim)
     {
         
-        
-        
-        if (CurrentAnimation != changeAnim)
+        if (CanchangeAnim == true)
         {
-        CurrentAnimation = changeAnim;
-        Frameindex = 0;
+           if (CurrentAnimation != changeAnim)
+            {
+                CurrentAnimation = changeAnim;
+                Frameindex = 0;
+            }
         }
+        
+        
+        
         
 
     }

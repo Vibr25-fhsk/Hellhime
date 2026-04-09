@@ -8,15 +8,31 @@ public class Dolk_sc : MonoBehaviour
     void Awake()
     {
         Attack = GameObject.FindGameObjectWithTag("Player1").GetComponent<attack>();
-        if(Attack.Dolkcount>1)
+        if(gameObject.tag == "dolk")
         {
-            Destroy(gameObject);
+            if(Attack.Dolkcount>1)
+            {
+                Destroy(gameObject);
+            }  
         }
+        else if(gameObject.tag == "dolkP2")
+        {
+            if(Attack.DolkcountP2>1)
+            {
+                Destroy(gameObject);
+            }
+
+        }
+        
         Destroy(gameObject, destructtime);
     }
     void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag == "Player1"|| other.gameObject.tag =="Player2")
+        if(gameObject.tag == "dolk" && other.gameObject.tag == "Player2")
+        {
+            Destroy(gameObject);
+        }
+        else if(gameObject.tag == "dolkP2" && other.gameObject.tag == "Player1")
         {
             Destroy(gameObject);
         }
