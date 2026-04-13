@@ -15,6 +15,7 @@ TagManager:
   - stenP2
   - Defense
   - DefenseP2
+  - Border
   layers:
   - Default
   - TransparentFX
