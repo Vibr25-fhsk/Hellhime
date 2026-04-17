@@ -18,7 +18,7 @@ public class attack : MonoBehaviour
     public bool isFirstPlayer;
 
     
-    [SerializeField]protected float cordx =0.5f;
+    public float cordx {get; private set;} =0.5f;
     
     public bool Kast = false;
     [SerializeField]float cooldown = 1f;
@@ -33,10 +33,7 @@ public class attack : MonoBehaviour
     #endregion
     
     #region misc
-    public GameObject Sten;
-    GameObject Stentemp;
-    public GameObject StenP2;
-    GameObject StentempP2;
+    WallofStone RaiseRock;
 
 
     protected int StenCount;
@@ -80,6 +77,7 @@ public class attack : MonoBehaviour
         }
         */
         anim = GetComponent<Animator>();
+        RaiseRock = GetComponent<WallofStone>();
         //anim.SetBool("isIdle", true);
 
         //Debug.Log(gameObject.tag);
@@ -100,38 +98,7 @@ public class attack : MonoBehaviour
         
     }
     
-    void Def()
-   {
-        if (Stentemp == null)
-        {
-            if(Defens_mainP1 ==true && Attack_mainP1 == false && Attack_subP1 == false)
-            {
-                canAttack=false;
-                Stentemp = Instantiate(Sten,stenpos,Quaternion.identity);
-                Stentemp.transform.rotation = transform.rotation;
-            }
-            
-        }
-        else
-        {
-            return;
-        }
     
-        if (StentempP2 == null)
-        {
-            if(Defens_mainP2 ==true && Attack_mainP2 == false && Attack_subP2 == false)
-            {
-                canAttack=false;
-                StentempP2 = Instantiate(StenP2,stenpos,Quaternion.identity);
-                StentempP2.transform.rotation = transform.rotation;
-            }
-            
-        }
-        else
-        {
-            return;
-        }
-   }
 
     #region Attack inputs
     void Update()
@@ -186,7 +153,7 @@ public class attack : MonoBehaviour
             if(Input.GetButtonDown("Defens_p1"))
             {
                 Defens_mainP1 =true;
-                Def();
+                RaiseRock.Def();
             }
 
             else if(Input.GetButtonUp("Defens_p1"))
@@ -243,7 +210,7 @@ public class attack : MonoBehaviour
              if(Input.GetButtonDown("Defens_p2"))
             {
                 Defens_mainP2 =true;
-                Def();
+                RaiseRock.Def();
             }
 
             else if(Input.GetButtonUp("Defens_p2"))

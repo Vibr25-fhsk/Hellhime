@@ -4,22 +4,24 @@ public class Dolk_sc : MonoBehaviour
 {
     //public Animationscript animscript;
     attack Attack;
-    Dolkslash_attack Dolkslash;
+    Dolkslash_attack Dolkslash_p1;
+    Dolkslash_attack Dolkslash_p2;
     [SerializeField] float destructtime = 0.1f;
     void Awake()
     {
         
-        Dolkslash = GameObject.FindGameObjectWithTag("Player1").GetComponent<Dolkslash_attack>();
+        Dolkslash_p1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<Dolkslash_attack>();
+        Dolkslash_p2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<Dolkslash_attack>();
         if(gameObject.tag == "dolk")
         {
-            if(Dolkslash.Dolkcount>1)
+            if(Dolkslash_p1.Dolkcount>1)
             {
                 Destroy(gameObject);
             }  
         }
         else if(gameObject.tag == "dolkP2")
         {
-            if(Dolkslash.DolkcountP2>1)
+            if(Dolkslash_p2.DolkcountP2>1)
             {
                 Destroy(gameObject);
             }

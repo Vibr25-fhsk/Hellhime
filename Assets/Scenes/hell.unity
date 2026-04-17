@@ -1196,8 +1196,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6595323887347958622, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 373719092}
   m_SourcePrefab: {fileID: 100100000, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
+--- !u!1 &373719091 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6595323887347958622, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
+  m_PrefabInstance: {fileID: 373719090}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &373719092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373719091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994b1a8bc0e8361989c2fd485d7964b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StompAnim:
+  - {fileID: 2099113488883855758, guid: 93ef90b65f7785db6a99b67d98ad617d, type: 3}
+  - {fileID: 1258510699497956441, guid: 93ef90b65f7785db6a99b67d98ad617d, type: 3}
+  - {fileID: -4125677969213366746, guid: 93ef90b65f7785db6a99b67d98ad617d, type: 3}
+  - {fileID: 784032864759771989, guid: 93ef90b65f7785db6a99b67d98ad617d, type: 3}
+  - {fileID: -6775061328010132413, guid: 93ef90b65f7785db6a99b67d98ad617d, type: 3}
+  - {fileID: 7619253298020078858, guid: 93ef90b65f7785db6a99b67d98ad617d, type: 3}
+  Sten: {fileID: 2973056648625193388, guid: ffffcb163079ccd7e86db702411970bc, type: 3}
+  StenP2: {fileID: 2973056648625193388, guid: 15d0cbc8a9b6cb7ce9ca678987f5905e, type: 3}
 --- !u!1001 &898523060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1253,8 +1282,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6595323887347958622, guid: 81035a91e89249c57bf630060a11f873, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1597304605}
   m_SourcePrefab: {fileID: 100100000, guid: 81035a91e89249c57bf630060a11f873, type: 3}
+--- !u!1 &898523061 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6595323887347958622, guid: 81035a91e89249c57bf630060a11f873, type: 3}
+  m_PrefabInstance: {fileID: 898523060}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1206217197
 GameObject:
   m_ObjectHideFlags: 0
@@ -3909,6 +3946,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8093515610759066002, guid: 81035a91e89249c57bf630060a11f873, type: 3}
   m_PrefabInstance: {fileID: 898523060}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1597304605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898523061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994b1a8bc0e8361989c2fd485d7964b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StompAnim:
+  - {fileID: 2099113488883855758, guid: 93ef90b65f7785db6a99b67d98ad617d, type: 3}
+  - {fileID: 1258510699497956441, guid: 93ef90b65f7785db6a99b67d98ad617d, type: 3}
+  - {fileID: -4125677969213366746, guid: 93ef90b65f7785db6a99b67d98ad617d, type: 3}
+  - {fileID: 784032864759771989, guid: 93ef90b65f7785db6a99b67d98ad617d, type: 3}
+  - {fileID: -6775061328010132413, guid: 93ef90b65f7785db6a99b67d98ad617d, type: 3}
+  - {fileID: 7619253298020078858, guid: 93ef90b65f7785db6a99b67d98ad617d, type: 3}
+  Sten: {fileID: 2973056648625193388, guid: ffffcb163079ccd7e86db702411970bc, type: 3}
+  StenP2: {fileID: 2973056648625193388, guid: 15d0cbc8a9b6cb7ce9ca678987f5905e, type: 3}
 --- !u!1 &1601299379
 GameObject:
   m_ObjectHideFlags: 0

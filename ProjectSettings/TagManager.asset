@@ -16,6 +16,8 @@ TagManager:
   - Defense
   - DefenseP2
   - Border
+  - KnivkastareP1
+  - KnivkastareP2
   layers:
   - Default
   - TransparentFX
