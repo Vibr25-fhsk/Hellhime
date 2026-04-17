@@ -26,18 +26,10 @@ public class attack : MonoBehaviour
     public Transform spawnpoint;
     public Transform hand;
     #region Weapons
-    public int Knivcount;
-    public int Dolkcount;
-    public int KnivcountP2;
-    public int DolkcountP2;
-
-    public GameObject Kastkniv;
-    public GameObject Dolk;
-
-    public GameObject KastknivP2;
-    public GameObject DolkP2;
-
     public GameObject Rapier;
+
+    public knivkast_attack Knivkast;
+    public Dolkslash_attack Dolkslash;
     #endregion
     
     #region misc
@@ -72,208 +64,7 @@ public class attack : MonoBehaviour
     Vector2 stenpos;
 
     #region old code //inaktive
-    /*
-    void Start()
-    {
-
-        anim = GetComponent<Animator>();
-        anim.SetBool("isIdle", true);
-
-        //Debug.Log(gameObject.tag);
-    }
-
-    void FixedUpdate()
-    {
-        
-        Debug.Log("State: " + stateInfo.IsName("Throwattack") + " Time: " + stateInfo.normalizedTime);
-    }
-    void Throw()
-    {
-        if(canAttack == true)
-        {
-        
-            if(Attack_mainP1 == true && Attack_subP1 == false)
-            {
-                //AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-                
-                anim.SetTrigger("Throw");
-                if(stateInfo.IsName("Throwattack") && stateInfo.normalizedTime >= 0.9f)
-                {
-                    Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
-                    
-                }
-                
-            
-                //Instantiate(Kastkniv, spawnpoint.position, spawnpoint.rotation);
-                //knifeamount++;
-            }
-            
-            //else if(Attack_mainP1 == false)
-            //{
-                //anim.ResetTrigger("Throw");    
-            //}
-
-        
-        }
-        
-    }
     
-    void slash()
-    {
-        if(canAttack == true)
-        {
-            if(Attack_subP1 == true && Attack_mainP1 == false)
-            {
-                anim.SetTrigger("Slash");
-
-                if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f)
-                {
-                    Instantiate(Dolk, transform.position, transform.rotation);
-                }
-                
-                Instantiate(Dolk, transform.position, transform.rotation);
-                
-
-                
-            }
-            
-            else if(Attack_subP1 == false)
-            {
-                //anim.ResetTrigger("Slash");
-                //if(!anim.GetCurrentAnimatorStateInfo(0).IsName("Slash"))
-                //{
-                 //   Destroy(Dolk);
-                //}
-                
-            } 
-            
-            //Debug.Log("Slash:"+ anim.GetCurrentAnimatorStateInfo(0).IsName("Slashattack"));
-        }
-
-    }
-
-
-    #region Attack inputs
-    void Update()
-    {
-        
-       if (gameObject.tag == "Player1")
-        {
-            //main attack
-            if(Input.GetButtonDown("Attack1_p1"))
-            {
-                
-                if(canAttack == true)
-                {
-                    Attack_mainP1 = true;
-                    Throw();
-                    
-                }
-                else if(canAttack == false)
-                {
-                    Attack_mainP1 = false;
-                } 
-            }
-
-            else if(Input.GetButtonUp("Attack1_p1"))
-            {
-                StartCoroutine(attack_cld());
-                Attack_mainP1 = false;
-            }
-            //sub attack
-            else if(Input.GetButtonDown("Attack2_p1"))
-            {
-                if(canAttack == true)
-                {
-                    Attack_subP1 = true;
-                    slash();
-                }
-                else if(canAttack == false)
-                {
-                    Attack_subP1 = false;
-                }
-
-            }
-            else if(Input.GetButtonUp("Attack2_p1"))
-            {
-                StartCoroutine(attack_cld());
-                Attack_subP1 = false;
-            }
-            
-        }
-        else if(gameObject.tag == "Player2")
-        {
-            //main attack
-            if(Input.GetButtonDown("Attack1_p2"))
-            {
-                
-                if(canAttack)
-                {
-                    Attack_mainP2 = true;
-                }
-                else if(canAttack == false)
-                {
-                    Attack_mainP2 = false;
-                }
-                
-            }
-            else if(Input.GetButtonUp("Attack1_p2"))
-            {
-                StartCoroutine(attack_cld());
-                Attack_mainP2 = false;
-            }
-            //sub attack
-            if(Input.GetButtonDown("Attack2_p2"))
-            {
-                
-                if(canAttack)
-                {
-                    Attack_subP2 = true;
-                }
-                else if(canAttack == false)
-                {
-                    Attack_subP2 = false;
-                }
-                
-            }
-            else if(Input.GetButtonUp("Attack2_p2"))
-            {
-                StartCoroutine(attack_cld());
-                Attack_subP2 = false;
-            }
-            
-
-        }
-    #endregion
-        if(Attack_mainP1 == true || Attack_subP1 == true || Attack_mainP2 == true || Attack_subP2 == true)
-        {
-            isAttacking = true;
-        }
-        else if(Attack_mainP1 == false && Attack_subP1 == false && Attack_mainP2 == false && Attack_subP2 == false)
-        {
-            isAttacking = false;
-            //Debug.Log("Idle:"+ anim.GetCurrentAnimatorStateInfo(0).IsName("idel"));
-        }
-
-        //Debug.Log("Value: " + cooldown); 
-    }
-    public IEnumerator attack_cld()
-    {
-        
-        if(isAttacking)
-        {
-
-            canAttack = false;
-            yield return new WaitForSeconds(cooldown);
-            canAttack = true;
-        
- 
-        }
-
-
-        //GetComponent<CapsuleCollider2D>().enabled = false;
-    }
-    */
     #endregion
 
     #region new code
@@ -298,7 +89,6 @@ public class attack : MonoBehaviour
     {
         if(gameObject.tag=="Player1")
         {
-             
             isFirstPlayer = true;
         }
         else if (gameObject.tag=="Player2")
@@ -309,39 +99,7 @@ public class attack : MonoBehaviour
         }
         
     }
-    void Throw()
-    {
-        if(canAttack == true && isFirstPlayer == true)
-        {
-            
-            if(Attack_mainP1 == true && Attack_subP1 == false)
-            {
-                animscript.ChangeAnimation(ThrowAnim);
-                animscript.CanchangeAnim = false;
-            }
-            
-            else if(Attack_mainP1 == false)
-            {
-                //Kast = false;
-                //anim.ResetTrigger("Throw");    
-            }
-        }
-
-        //Debug.Log("Throw:"+ anim.GetCurrentAnimatorStateInfo(0).IsName("Throwattack"));
-        if(canAttack == true && isFirstPlayer==false)
-        {
-            if(Attack_mainP2 == true && Attack_subP1 == false)
-            {
-                //Debug.Log("Is throwing knife");
-                animscript.ChangeAnimation(ThrowAnim);
-                animscript.CanchangeAnim = false;
-            }
-            else if(Attack_mainP2 == false)
-            {
-                
-            }
-        }   
-    }
+    
     void Def()
    {
         if (Stentemp == null)
@@ -375,35 +133,6 @@ public class attack : MonoBehaviour
         }
    }
 
-    
-    void slash()
-    {
-        if(canAttack == true && isFirstPlayer == true)
-        {
-            if(Attack_subP1 == true && Attack_mainP1 == false)
-            {
-                animscript.ChangeAnimation(SlashAnim);
-                animscript.CanchangeAnim = false;
-                //Instantiate(Dolk, transform.position, transform.rotation);
-                
-            }
-
-        }
-        else if(canAttack == true && isFirstPlayer==false)
-        {
-            if(Attack_subP2 == true && Attack_mainP2 == false)
-            {
-                animscript.ChangeAnimation(SlashAnim);
-                animscript.CanchangeAnim = false;
-                //Instantiate(Dolk, transform.position, transform.rotation);
-                        
-            } 
-        }
-
-    }
-   
-
-
     #region Attack inputs
     void Update()
     {
@@ -418,7 +147,7 @@ public class attack : MonoBehaviour
                 if(canAttack == true)
                 {
                     Attack_mainP1 = true;
-                    Throw();
+                    Knivkast.Throw();
                     
                 }
                 else if(canAttack == false)
@@ -440,7 +169,7 @@ public class attack : MonoBehaviour
                 if(canAttack == true)
                 {
                     Attack_subP1 = true;
-                    slash();
+                    Dolkslash.slash();
                     
                 }
                 else if(canAttack == false)
@@ -478,7 +207,7 @@ public class attack : MonoBehaviour
                 if(canAttack)
                 {
                     Attack_mainP2 = true;
-                    Throw();
+                    Knivkast.Throw();
                 }
                 else if(canAttack == false)
                 {
@@ -498,7 +227,7 @@ public class attack : MonoBehaviour
                 if(canAttack)
                 {
                     Attack_subP2 = true;
-                    slash();
+                    Dolkslash.slash();
                 }
                 else if(canAttack == false)
                 {
@@ -584,7 +313,7 @@ public class attack : MonoBehaviour
     {
         
         
-    
+        /*
         if(gameObject.tag=="Player1")
         {
             Knivcount = GameObject.FindGameObjectsWithTag("kastkniv").Length;
@@ -617,7 +346,7 @@ public class attack : MonoBehaviour
                 {
                     Destroy(Dolk);
                 }
-                */
+                
             }
         }
         if(gameObject.tag=="Player2")
@@ -651,12 +380,12 @@ public class attack : MonoBehaviour
                 {
                     Destroy(Dolk);
                 }
-                */
+                
             }
         }
 
 
-        
+        */
     #endregion
         
         //StartCoroutine(Animate());

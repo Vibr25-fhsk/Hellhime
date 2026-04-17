@@ -77,6 +77,8 @@ GameObject:
   - component: {fileID: 8089582827969260543}
   - component: {fileID: 4587408793910261152}
   - component: {fileID: 4794650424632817684}
+  - component: {fileID: 1728170497892611942}
+  - component: {fileID: 5317821531739376136}
   m_Layer: 0
   m_Name: Knivkastare 2
   m_TagString: Player2
@@ -252,7 +254,9 @@ MonoBehaviour:
   - {fileID: -6972592438791862797, guid: 32cb28ef55c5c6a5d8de42efaca33813, type: 3}
   RunAnim: []
   animscript: {fileID: 4587408793910261152}
-  attackscript: {fileID: 4794650424632817684}
+  Attack: {fileID: 4794650424632817684}
+  Dolkslash: {fileID: 1728170497892611942}
+  Knivkast: {fileID: 5317821531739376136}
   moveSpeed: 5
 --- !u!114 &4587408793910261152
 MonoBehaviour:
@@ -302,15 +306,9 @@ MonoBehaviour:
   cooldown: 1
   spawnpoint: {fileID: 5943502990515187633}
   hand: {fileID: 9136604213538099274}
-  Knivcount: 0
-  Dolkcount: 0
-  KnivcountP2: 0
-  DolkcountP2: 0
-  Kastkniv: {fileID: 8170245770341956546, guid: aba044f1cd8b785f39b07cb8f5f9c50f, type: 3}
-  Dolk: {fileID: 8170245770341956546, guid: 01246ca788522a6de85c950318f5573b, type: 3}
-  KastknivP2: {fileID: 8170245770341956546, guid: 1ad929a1a8251be7082f60cb388ff63d, type: 3}
-  DolkP2: {fileID: 8170245770341956546, guid: 2254cd186d412e519af4231946baa2e5, type: 3}
   Rapier: {fileID: 5996198307754888519, guid: 6d00cbd3317edf832aaa3bb3b7759c03, type: 3}
+  Knivkast: {fileID: 5317821531739376136}
+  Dolkslash: {fileID: 1728170497892611942}
   Sten: {fileID: 2973056648625193388, guid: ffffcb163079ccd7e86db702411970bc, type: 3}
   StenP2: {fileID: 2973056648625193388, guid: 15d0cbc8a9b6cb7ce9ca678987f5905e, type: 3}
   canAttack: 1
@@ -321,3 +319,54 @@ MonoBehaviour:
   Attack_subP2: 0
   Defens_mainP1: 0
   Defens_mainP2: 0
+--- !u!114 &1728170497892611942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6595323887347958622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d79f402c6918d29289282291c886ec7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Dolk: {fileID: 8170245770341956546, guid: 01246ca788522a6de85c950318f5573b, type: 3}
+  DolkP2: {fileID: 8170245770341956546, guid: 2254cd186d412e519af4231946baa2e5, type: 3}
+  hand: {fileID: 9136604213538099274}
+  kastscript: {fileID: 5317821531739376136}
+  Attack: {fileID: 4794650424632817684}
+  animscript: {fileID: 4587408793910261152}
+  SlashAnim:
+  - {fileID: 8718238297127163143, guid: b6863296260c576c0b6d7bedae956d8e, type: 3}
+  - {fileID: 1577523938707492633, guid: b6863296260c576c0b6d7bedae956d8e, type: 3}
+  - {fileID: 122507586884095165, guid: b6863296260c576c0b6d7bedae956d8e, type: 3}
+  - {fileID: -840545131263490583, guid: b6863296260c576c0b6d7bedae956d8e, type: 3}
+  - {fileID: 6136344150353689620, guid: b6863296260c576c0b6d7bedae956d8e, type: 3}
+  Dolkcount: 0
+  DolkcountP2: 0
+--- !u!114 &5317821531739376136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6595323887347958622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e5af5a2ef08259b28bac0d929ec8267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Kastkniv: {fileID: 8170245770341956546, guid: aba044f1cd8b785f39b07cb8f5f9c50f, type: 3}
+  KastknivP2: {fileID: 8170245770341956546, guid: 1ad929a1a8251be7082f60cb388ff63d, type: 3}
+  Knivcount: 0
+  KnivcountP2: 0
+  spawnpoint: {fileID: 5943502990515187633}
+  animscript: {fileID: 4587408793910261152}
+  Attack: {fileID: 4794650424632817684}
+  ThrowAnim:
+  - {fileID: 5557252087569382403, guid: 42ef7c75af1d43b83a2098110ce961ff, type: 3}
+  - {fileID: 2480191518047348715, guid: 42ef7c75af1d43b83a2098110ce961ff, type: 3}
+  - {fileID: 5386217901921767458, guid: 42ef7c75af1d43b83a2098110ce961ff, type: 3}
+  - {fileID: 6315608467040290387, guid: 42ef7c75af1d43b83a2098110ce961ff, type: 3}
+  - {fileID: 6315608467040290387, guid: 42ef7c75af1d43b83a2098110ce961ff, type: 3}

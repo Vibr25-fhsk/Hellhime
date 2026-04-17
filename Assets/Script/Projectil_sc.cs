@@ -17,7 +17,10 @@ public class Projectil_sc : MonoBehaviour
     
     Rigidbody2D rb;
     attack Attack;
-    //attack Attack2; 
+    
+    knivkast_attack kastscript_p1;
+    knivkast_attack kastscript_p2;
+    
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -27,19 +30,21 @@ public class Projectil_sc : MonoBehaviour
         
         spawnpoint = GameObject.Find("spawnpunkt").GetComponent<Transform>();
         
-        Attack = GameObject.FindGameObjectWithTag("Player1").GetComponent<attack>();
-        //Attack2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<attack>()
+        //Attack = GameObject.FindGameObjectWithTag("Player1").GetComponent<attack>();
+        kastscript_p1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<knivkast_attack>();
+        kastscript_p2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<knivkast_attack>();
+        
         
         if(gameObject.tag=="kastkniv")
         {
-            if(Attack.Knivcount>1)
+            if(kastscript_p1.Knivcount>1)
             {
                 Destroy(gameObject);
             }
         }
         else if(gameObject.tag=="kastknivP2")
         {
-            if(Attack.KnivcountP2>1)
+            if(kastscript_p2.KnivcountP2>1)
             {
                 Destroy(gameObject);
             }
