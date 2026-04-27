@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 1467266943650582745}
   - component: {fileID: 5418913309089890280}
   - component: {fileID: 2574129609197725711}
+  - component: {fileID: 410538929629555790}
   m_Layer: 0
   m_Name: Knivkastare 1
   m_TagString: Player1
@@ -256,7 +257,7 @@ MonoBehaviour:
   animscript: {fileID: 1467266943650582745}
   Attack: {fileID: 4794650424632817684}
   Dolkslash: {fileID: 2574129609197725711}
-  kastknivscript: {fileID: 5418913309089890280}
+  Knivkast: {fileID: 5418913309089890280}
   moveSpeed: 5
 --- !u!114 &4794650424632817684
 MonoBehaviour:
@@ -284,7 +285,6 @@ MonoBehaviour:
   - {fileID: -840545131263490583, guid: b6863296260c576c0b6d7bedae956d8e, type: 3}
   - {fileID: 6136344150353689620, guid: b6863296260c576c0b6d7bedae956d8e, type: 3}
   isFirstPlayer: 1
-  cordx: 0.5
   Kast: 0
   cooldown: 1
   spawnpoint: {fileID: 5943502990515187633}
@@ -292,8 +292,6 @@ MonoBehaviour:
   Rapier: {fileID: 5996198307754888519, guid: ed4eb2f3428a83b8ba5d149bd0bddb45, type: 3}
   Knivkast: {fileID: 5418913309089890280}
   Dolkslash: {fileID: 2574129609197725711}
-  Sten: {fileID: 2973056648625193388, guid: ffffcb163079ccd7e86db702411970bc, type: 3}
-  StenP2: {fileID: 2973056648625193388, guid: 15d0cbc8a9b6cb7ce9ca678987f5905e, type: 3}
   canAttack: 1
   canAttackP2: 1
   Attack_mainP1: 0
@@ -370,3 +368,24 @@ MonoBehaviour:
   - {fileID: 6136344150353689620, guid: b6863296260c576c0b6d7bedae956d8e, type: 3}
   Dolkcount: 0
   DolkcountP2: 0
+--- !u!114 &410538929629555790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6595323887347958622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994b1a8bc0e8361989c2fd485d7964b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StompAnim:
+  - {fileID: 2099113488883855758, guid: 93ef90b65f7785db6a99b67d98ad617d, type: 3}
+  - {fileID: 1258510699497956441, guid: 93ef90b65f7785db6a99b67d98ad617d, type: 3}
+  - {fileID: -4125677969213366746, guid: 93ef90b65f7785db6a99b67d98ad617d, type: 3}
+  - {fileID: 784032864759771989, guid: 93ef90b65f7785db6a99b67d98ad617d, type: 3}
+  - {fileID: -6775061328010132413, guid: 93ef90b65f7785db6a99b67d98ad617d, type: 3}
+  - {fileID: 7619253298020078858, guid: 93ef90b65f7785db6a99b67d98ad617d, type: 3}
+  Sten: {fileID: 2973056648625193388, guid: ffffcb163079ccd7e86db702411970bc, type: 3}
+  StenP2: {fileID: 2973056648625193388, guid: 15d0cbc8a9b6cb7ce9ca678987f5905e, type: 3}
