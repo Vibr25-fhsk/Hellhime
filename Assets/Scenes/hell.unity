@@ -1239,6 +1239,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Knivkastare 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8089582827969260543, guid: 81035a91e89249c57bf630060a11f873, type: 3}
+      propertyPath: Knivkast
+      value: 
+      objectReference: {fileID: 1597304607}
     - target: {fileID: 8093515610759066002, guid: 81035a91e89249c57bf630060a11f873, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.7936792
@@ -3967,6 +3971,17 @@ MonoBehaviour:
   - {fileID: 7619253298020078858, guid: 93ef90b65f7785db6a99b67d98ad617d, type: 3}
   Sten: {fileID: 2973056648625193388, guid: ffffcb163079ccd7e86db702411970bc, type: 3}
   StenP2: {fileID: 2973056648625193388, guid: 15d0cbc8a9b6cb7ce9ca678987f5905e, type: 3}
+--- !u!114 &1597304607 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5418913309089890280, guid: 81035a91e89249c57bf630060a11f873, type: 3}
+  m_PrefabInstance: {fileID: 898523060}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898523061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e5af5a2ef08259b28bac0d929ec8267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1601299379
 GameObject:
   m_ObjectHideFlags: 0

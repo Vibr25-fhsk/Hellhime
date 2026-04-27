@@ -28,30 +28,39 @@ public class WallofStone : MonoBehaviour
     }
     public void Def()
     {
-
-        if(Attack.Defens_mainP1 ==true && Attack.Attack_mainP1 == false && Attack.Attack_subP1 == false)
+        if(Attack.canAttack == true && Attack.isFirstPlayer == true)
         {
-            
-            animscript.ChangeAnimation(StompAnim);
-            animscript.CanchangeAnim = false;
-        }
+            if(Attack.Defens_mainP1 ==true && Attack.Attack_mainP1 == false && Attack.Attack_subP1 == false)
+            {
                 
-
-        
-
-        if(Attack.Defens_mainP2 ==true && Attack.Attack_mainP2 == false && Attack.Attack_subP2 == false)
+                animscript.ChangeAnimation(StompAnim);
+                animscript.CanchangeAnim = false;
+            }
+        }
+        else if(Attack.canAttack == true && Attack.isFirstPlayer == false)
         {
-            
-            animscript.ChangeAnimation(StompAnim);
-            animscript.CanchangeAnim = false;
-        }
+            if(Attack.Defens_mainP2 ==true && Attack.Attack_mainP2 == false && Attack.Attack_subP2 == false)
+            {
                 
-
+                animscript.ChangeAnimation(StompAnim);
+                animscript.CanchangeAnim = false;
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
+        if(animscript.Frameindex==StompAnim.Length-1)
+        {
+           animscript.CanchangeAnim = true;
+        }
+        else if(animscript.CurrentAnimation==StompAnim && animscript.Frameindex!=StompAnim.Length-1)
+        {
+            animscript.CanchangeAnim = false;
+        }
+        */
 
         if(Knivkast.spawnpoint.rotation.y==0)
         {
@@ -68,7 +77,7 @@ public class WallofStone : MonoBehaviour
 
             if(animscript.CurrentAnimation==StompAnim)
             {
-                if(animscript.Frameindex ==StompAnim.Length-2 && StenCount<1)
+                if(animscript.Frameindex ==StompAnim.Length-2&& StenCount<1 )
                 {
                     Stentemp = Instantiate(Sten,stenpos,Quaternion.identity);
                     Stentemp.transform.rotation = transform.rotation;

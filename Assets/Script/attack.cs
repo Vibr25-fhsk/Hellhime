@@ -105,6 +105,15 @@ public class attack : MonoBehaviour
     {
        if (gameObject.tag == "Player1")
         {
+            if(Attack_mainP1 == true || Attack_subP1 == true || Defens_mainP1 == true)
+            {
+                isAttacking = true;
+            }
+            else if(Attack_mainP2 == false && Attack_subP2 == false && Defens_mainP2 == false)
+            {
+                isAttacking = false;
+                
+            }
 
 
             //main attack
@@ -154,6 +163,7 @@ public class attack : MonoBehaviour
             {
                 Defens_mainP1 =true;
                 RaiseRock.Def();
+                StartCoroutine(attack_cld());
             }
 
             else if(Input.GetButtonUp("Defens_p1"))
@@ -211,11 +221,13 @@ public class attack : MonoBehaviour
             {
                 Defens_mainP2 =true;
                 RaiseRock.Def();
+                
             }
 
             else if(Input.GetButtonUp("Defens_p2"))
             {
-                Defens_mainP2=false;  
+                Defens_mainP2=false;
+                StartCoroutine(attack_cld()); 
             }
 
             
@@ -223,15 +235,7 @@ public class attack : MonoBehaviour
         }
         
         
-        if(Attack_mainP1 == true || Attack_subP1 == true || Attack_mainP2 == true || Attack_subP2 == true)
-        {
-            isAttacking = true;
-        }
-        else if(Attack_mainP1 == false && Attack_subP1 == false && Attack_mainP2 == false && Attack_subP2 == false)
-        {
-            isAttacking = false;
-            //Debug.Log("Idle:"+ anim.GetCurrentAnimatorStateInfo(0).IsName("idel"));
-        }
+        
 
         if(spawnpoint.rotation.y==0)
         {
@@ -280,79 +284,24 @@ public class attack : MonoBehaviour
     {
         
         
-        /*
+        
         if(gameObject.tag=="Player1")
         {
-            Knivcount = GameObject.FindGameObjectsWithTag("kastkniv").Length;
-            Dolkcount = GameObject.FindGameObjectsWithTag("dolk").Length;
-            StenCount = GameObject.FindGameObjectsWithTag("sten").Length;
-
-            if(animscript.Frameindex==ThrowAnim.Length-1 || animscript.Frameindex==SlashAnim.Length-1)
+            if(animscript.Frameindex==Knivkast.ThrowAnim.Length-1 || animscript.Frameindex==Dolkslash.SlashAnim.Length-1 || animscript.Frameindex==RaiseRock.StompAnim.Length-1)
             {
                 animscript.CanchangeAnim = true;
-            }
-            if(animscript.CurrentAnimation==ThrowAnim)
-            {
-                if(animscript.Frameindex ==ThrowAnim.Length-1 && Knivcount<1)
-                {
-                    GameObject knivtemp = Instantiate(Kastkniv, spawnpoint.position,Quaternion.identity);
-                    knivtemp.transform.rotation = transform.rotation;                
-                }
-            }
-        
-
-        
-            else if(animscript.CurrentAnimation==SlashAnim)
-            {
-                if(animscript.Frameindex ==SlashAnim.Length-3 && Dolkcount<1)
-                {
-                    Instantiate(Dolk, hand.position, hand.rotation);
-                    //animscript.CanchangeAnim = true;
-                }
-                /*else if(animscript.Frameindex == SlashAnim.Length -1 && Dolkcount >=1)
-                {
-                    Destroy(Dolk);
-                }
-                
             }
         }
         if(gameObject.tag=="Player2")
         {
-            KnivcountP2 = GameObject.FindGameObjectsWithTag("kastknivP2").Length;
-            DolkcountP2 = GameObject.FindGameObjectsWithTag("dolkP2").Length;
-            StenCountP2 = GameObject.FindGameObjectsWithTag("stenP2").Length;
-            if(animscript.Frameindex==ThrowAnim.Length-1 || animscript.Frameindex==SlashAnim.Length-1)
+            if(animscript.Frameindex==Knivkast.ThrowAnim.Length-1 || animscript.Frameindex==Dolkslash.SlashAnim.Length-1 || animscript.Frameindex==RaiseRock.StompAnim.Length-1)
             {
                 animscript.CanchangeAnim = true;
-            }
-            if(animscript.CurrentAnimation==ThrowAnim)
-            {
-                if(animscript.Frameindex ==ThrowAnim.Length-1 && KnivcountP2<1)
-                {
-                    GameObject knivtemp = Instantiate(KastknivP2, spawnpoint.position,Quaternion.identity);
-                    knivtemp.transform.rotation = transform.rotation;
-                
-                }
-            }
-        
-
-        
-            else if(animscript.CurrentAnimation==SlashAnim)
-            {
-                if(animscript.Frameindex ==SlashAnim.Length-3 && DolkcountP2<1)
-                {
-                    Instantiate(DolkP2, hand.position, hand.rotation);
-                }
-                /*else if(animscript.Frameindex == SlashAnim.Length -1 && Dolkcount >=1)
-                {
-                    Destroy(Dolk);
-                }
-                
             }
         }
 
 
-        */
+        
     #endregion
         
         //StartCoroutine(Animate());

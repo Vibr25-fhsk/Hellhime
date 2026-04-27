@@ -52,12 +52,7 @@ public class knivkast_attack : MonoBehaviour
         {
             Knivcount = GameObject.FindGameObjectsWithTag("kastkniv").Length;
 
-            /*
-            if(animscript.Frameindex==ThrowAnim.Length-1 || animscript.Frameindex==SlashAnim.Length-1)
-            {
-                animscript.CanchangeAnim = true;
-            }
-            */
+
             if(animscript.CurrentAnimation==ThrowAnim)
             {
                 if(animscript.Frameindex ==ThrowAnim.Length-1 && Knivcount<1)
@@ -74,12 +69,7 @@ public class knivkast_attack : MonoBehaviour
         if(gameObject.tag=="Player2")
         {
             KnivcountP2 = GameObject.FindGameObjectsWithTag("kastknivP2").Length;
-            /*
-            if(animscript.Frameindex==ThrowAnim.Length-1 || animscript.Frameindex==SlashAnim.Length-1)
-            {
-                animscript.CanchangeAnim = true;
-            }
-            */
+
             if(animscript.CurrentAnimation==ThrowAnim)
             {
                 if(animscript.Frameindex ==ThrowAnim.Length-1 && KnivcountP2<1)
