@@ -81,7 +81,7 @@ public class WallofStone : MonoBehaviour
 
             if(animscript.CurrentAnimation==StompAnim)
             {
-                if(animscript.Frameindex ==StompAnim.Length-1&& StenCount<1 )
+                if(animscript.Frameindex ==StompAnim.Length-2&& StenCount<1 )
                 {
                     Stentemp = Instantiate(Sten,stenpos,Quaternion.identity);
                     Stentemp.transform.rotation = transform.rotation;

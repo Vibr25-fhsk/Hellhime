@@ -9,7 +9,7 @@ public class playercontorl_sc : MonoBehaviour
     //Helph
     public int PlayerHP = 100;
     public bool isFirstPlayer;
-    public bool candie {get;protected set;}
+    public bool candie;
     
 
     [SerializeField]protected bool God;
@@ -25,9 +25,13 @@ public class playercontorl_sc : MonoBehaviour
     WallofStone RaiseRock;
     #region movement
     [SerializeField]private float moveSpeed = 5f;
+    [SerializeField]private float jumpForce = 1f;
     private Rigidbody2D rb;
     private Vector2 moveinput;
     float horizontalMovement;
+    float VerticalMovement;
+    public bool isGrounded {get; private set;}
+
     #endregion
     BoxCollider2D PlayerColl;
     
@@ -36,21 +40,44 @@ public class playercontorl_sc : MonoBehaviour
     {
         RaiseRock = GetComponent<WallofStone>();
         PlayerColl = GetComponent<BoxCollider2D>();
-
-        animscript.ChangeAnimation(IdleAnim);
         //animscript.ChangeAnimation(RaiseRock.StompAnim);
         rb = GetComponent<Rigidbody2D>(); 
         animscript = GetComponent<Animationscript>();
+        animscript.ChangeAnimation(IdleAnim);
+
     }
     
-    void Awake()
+    protected void GOD()
     {
-        if(God)
+        if(gameObject.tag=="Player1")
         {
-            candie =false;
-            PlayerHP = PlayerHP * 100;
-            //PlayerColl =false;
-            rb.gravityScale=0;
+            if(God)
+            {
+                candie =false;
+                //PlayerHP = PlayerHP * 100;
+                //PlayerColl =false;
+                //rb.gravityScale=0f;
+            }
+            else
+            {
+                candie = true;
+                //rb.gravityScale=1f;
+            }
+        }
+        if(gameObject.tag=="Player1")
+        {
+            if(God)
+            {
+                candie =false;
+                //PlayerHP = PlayerHP * 100;
+                //PlayerColl =false;
+                //rb.gravityScale=0f;
+            }
+            else
+            {
+                candie = true;
+                //rb.gravityScale=1f;
+            }
         }
 
         
@@ -59,18 +86,58 @@ public class playercontorl_sc : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(gameObject.tag=="Player1")
+        {
+            if(Input.GetButton("Gmode_P1"))
+            {
+                God = true;
+            }
+            if (Input.GetButton("Smode_P1"))
+            {
+                God = false;
+            }
+            GOD();
+        }
+        if(gameObject.tag=="Player1")
+        {
+            if(Input.GetButton("Gmode_P2"))
+            {
+                God = true;
+            }
+            if (Input.GetButton("Smode_P2"))
+            {
+                God = false;
+            }
+            GOD();
+        }
+        
+        #region Inputs/movement modifiers
         if(isFirstPlayer == true)
         {
             horizontalMovement = Input.GetAxisRaw("Horizontal");
+            VerticalMovement = Input.GetAxisRaw("Jump");
+            
+            if(Input.GetButton("Jump")&& isGrounded)
+            {
+                rb.AddForce(new Vector2(rb.linearVelocityX, VerticalMovement * jumpForce), ForceMode2D.Impulse);
+            }
+
         }
         else
         {
             horizontalMovement = Input.GetAxisRaw("Horizontal_P2");
+            VerticalMovement = Input.GetAxisRaw("Jump_p2");
+            if(Input.GetButton("Jump_p2")&& isGrounded)
+            {
+                rb.AddForce(new Vector2(rb.linearVelocityX, VerticalMovement * jumpForce), ForceMode2D.Impulse);
+            }
+
         }
 
         if(animscript.CurrentAnimation != Knivkast.ThrowAnim && animscript.CurrentAnimation != Dolkslash.SlashAnim && animscript.CurrentAnimation != RaiseRock.StompAnim)
         {
             rb.linearVelocity = new Vector2(horizontalMovement * moveSpeed, rb.linearVelocity.y );
+            
 
         }
         else if(animscript.CurrentAnimation ==Knivkast.ThrowAnim || animscript.CurrentAnimation == RaiseRock.StompAnim)
@@ -79,12 +146,12 @@ public class playercontorl_sc : MonoBehaviour
         }
 
         
-        /*if (rb.linearVelocity.x <= 0.5 && Attack.isAttacking == false && animscript.CurrentAnimation != IdleAnim )
+        if (rb.linearVelocity.x <= 0.5 && Attack.isAttacking == false && animscript.CurrentAnimation != IdleAnim && animscript.CanchangeAnim == true)
         {
             animscript.ChangeAnimation(IdleAnim);
             
         }
-        */
+        #endregion
 
         
         /*
@@ -125,6 +192,11 @@ public class playercontorl_sc : MonoBehaviour
     #region Colliders
     public void OnCollisionEnter2D(Collision2D other)
     {
+        if(other.gameObject.tag=="Border")
+        {
+            PlayerHP = PlayerHP -1000;
+        }
+        
         if(candie)
         {
            if(other.gameObject.tag=="kastkniv")
@@ -136,7 +208,17 @@ public class playercontorl_sc : MonoBehaviour
             PlayerHP = PlayerHP -20;
             }  
         }
-        
+        if(other.gameObject.tag=="Ground")
+        {
+            isGrounded = true;
+        }
+    }
+    public void OnCollisionExit2D(Collision2D other)
+    {
+        if(other.gameObject.tag=="Ground")
+        {
+            isGrounded = false;
+        }
     }
     #endregion
 

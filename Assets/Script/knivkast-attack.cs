@@ -51,20 +51,22 @@ public class knivkast_attack : MonoBehaviour
         if(gameObject.tag=="Player1")
         {
             Knivcount = GameObject.FindGameObjectsWithTag("kastkniv").Length;
-            if(animscript.CurrentAnimation == ThrowAnim && animscript.Frameindex == ThrowAnim.Length - 1)
-            {
-                animscript.CanchangeAnim = true;
-                
-
-            }
+            
 
             if(animscript.CurrentAnimation==ThrowAnim)
             {
                 if(animscript.Frameindex ==ThrowAnim.Length-1 && Knivcount<1)
                 {
                     GameObject knivtemp = Instantiate(Kastkniv, spawnpoint.position,Quaternion.identity);
-                    knivtemp.transform.rotation = transform.rotation;                
+                    knivtemp.transform.rotation = transform.rotation; 
+                                   
                 }
+            }
+            if(animscript.CurrentAnimation == ThrowAnim && animscript.Frameindex == ThrowAnim.Length -1)
+            {
+                
+                animscript.CanchangeAnim = true;
+
             }
         
 

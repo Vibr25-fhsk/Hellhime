@@ -34,6 +34,7 @@ public class attack : MonoBehaviour
     
     #region misc
     WallofStone RaiseRock;
+    playercontorl_sc Playercon;
 
 
     protected int StenCount;
@@ -78,6 +79,7 @@ public class attack : MonoBehaviour
         */
         anim = GetComponent<Animator>();
         RaiseRock = GetComponent<WallofStone>();
+        Playercon = GetComponent<playercontorl_sc>();
         //anim.SetBool("isIdle", true);
 
         //Debug.Log(gameObject.tag);
@@ -159,7 +161,7 @@ public class attack : MonoBehaviour
                 Attack_subP1 = false;
                 StartCoroutine(attack_cld());
             }
-            if(Input.GetButtonDown("Defens_p1"))
+            if(Input.GetButtonDown("Defens_p1")&& Playercon.isGrounded == true)
             {
                 Defens_mainP1 =true;
                 RaiseRock.Def();
@@ -217,14 +219,14 @@ public class attack : MonoBehaviour
                 Attack_subP2 = false;
                 StartCoroutine(attack_cld());
             }
-             if(Input.GetButtonDown("Defens_p2"))
+             if(Input.GetButtonDown("Defens_p2")&& Playercon.isGrounded == true)
             {
                 Defens_mainP2 =true;
                 RaiseRock.Def();
                 
             }
 
-            else if(Input.GetButtonUp("Defens_p2"))
+            else if(Input.GetButtonUp("Defens_p2")&& Playercon.isGrounded == true)
             {
                 Defens_mainP2=false;
                 StartCoroutine(attack_cld()); 
