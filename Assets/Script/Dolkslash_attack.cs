@@ -21,7 +21,7 @@ public class Dolkslash_attack : MonoBehaviour
     {
         if(Attack.canAttack == true && Attack.isFirstPlayer == true)
         {
-            if(Attack.Attack_subP1 == true && Attack.Attack_mainP1 == false)
+            if(Attack.Attack_subP1 == true && Attack.Attack_mainP1 == false && animscript.CanchangeAnim == true)
             {
                 animscript.ChangeAnimation(SlashAnim);
                 animscript.CanchangeAnim = false;
@@ -32,7 +32,7 @@ public class Dolkslash_attack : MonoBehaviour
         }
         else if(Attack.canAttack == true && Attack.isFirstPlayer==false)
         {
-            if(Attack.Attack_subP2 == true && Attack.Attack_mainP2 == false)
+            if(Attack.Attack_subP2 == true && Attack.Attack_mainP2 == false && animscript.CanchangeAnim == true)
             {
                 animscript.ChangeAnimation(SlashAnim);
                 animscript.CanchangeAnim = false;
@@ -49,11 +49,11 @@ public class Dolkslash_attack : MonoBehaviour
         if(gameObject.tag == "Player1")
         {
             Dolkcount = GameObject.FindGameObjectsWithTag("dolk").Length;
-            if(animscript.Frameindex==SlashAnim.Length-1)
+            if(animscript.CurrentAnimation == SlashAnim && animscript.Frameindex == SlashAnim.Length - 1)
             {
                 animscript.CanchangeAnim = true;
             }
-            if(animscript.CurrentAnimation==SlashAnim)
+            if(animscript.CurrentAnimation == SlashAnim)
             {
                 if(animscript.Frameindex ==SlashAnim.Length-3 && Dolkcount<1)
                 {
@@ -72,7 +72,7 @@ public class Dolkslash_attack : MonoBehaviour
         {
             
             DolkcountP2 = GameObject.FindGameObjectsWithTag("dolkP2").Length;
-            if(animscript.Frameindex==SlashAnim.Length-1)
+            if(animscript.CurrentAnimation == SlashAnim && animscript.Frameindex == SlashAnim.Length - 1)
             {
                 animscript.CanchangeAnim = true;
             }

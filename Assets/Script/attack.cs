@@ -287,19 +287,22 @@ public class attack : MonoBehaviour
         
         if(gameObject.tag=="Player1")
         {
-            if(animscript.Frameindex==Knivkast.ThrowAnim.Length-1 || animscript.Frameindex==Dolkslash.SlashAnim.Length-1 || animscript.Frameindex==RaiseRock.StompAnim.Length-1)
-            {
+            /*
+            {if(animscript.Frameindex==Knivkast.ThrowAnim.Length-1 || animscript.Frameindex==Dolkslash.SlashAnim.Length-1 || animscript.Frameindex==RaiseRock.StompAnim.Length-1)
                 animscript.CanchangeAnim = true;
             }
+            */
         }
         if(gameObject.tag=="Player2")
         {
+            /*
             if(animscript.Frameindex==Knivkast.ThrowAnim.Length-1 || animscript.Frameindex==Dolkslash.SlashAnim.Length-1 || animscript.Frameindex==RaiseRock.StompAnim.Length-1)
             {
                 animscript.CanchangeAnim = true;
             }
+            */
         }
-
+        
 
         
     #endregion

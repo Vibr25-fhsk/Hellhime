@@ -38,7 +38,7 @@ public class playercontorl_sc : MonoBehaviour
         PlayerColl = GetComponent<BoxCollider2D>();
 
         animscript.ChangeAnimation(IdleAnim);
-
+        //animscript.ChangeAnimation(RaiseRock.StompAnim);
         rb = GetComponent<Rigidbody2D>(); 
         animscript = GetComponent<Animationscript>();
     }
@@ -68,30 +68,37 @@ public class playercontorl_sc : MonoBehaviour
             horizontalMovement = Input.GetAxisRaw("Horizontal_P2");
         }
 
-        if(animscript.CurrentAnimation != Knivkast.ThrowAnim && animscript.CurrentAnimation != Dolkslash.SlashAnim)
+        if(animscript.CurrentAnimation != Knivkast.ThrowAnim && animscript.CurrentAnimation != Dolkslash.SlashAnim && animscript.CurrentAnimation != RaiseRock.StompAnim)
         {
             rb.linearVelocity = new Vector2(horizontalMovement * moveSpeed, rb.linearVelocity.y );
+
         }
-        else if(animscript.CurrentAnimation ==Knivkast.ThrowAnim)
+        else if(animscript.CurrentAnimation ==Knivkast.ThrowAnim || animscript.CurrentAnimation == RaiseRock.StompAnim)
         {
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y );
         }
+
         
-        
-        if(animscript.CurrentAnimation !=Knivkast.ThrowAnim && animscript.CurrentAnimation !=Dolkslash.SlashAnim && animscript.CurrentAnimation !=RaiseRock.StompAnim)
+        /*if (rb.linearVelocity.x <= 0.5 && Attack.isAttacking == false && animscript.CurrentAnimation != IdleAnim )
         {
+            animscript.ChangeAnimation(IdleAnim);
+            
+        }
+        */
+
+        
+        /*
+        if(animscript.Frameindex==RaiseRock.StompAnim.Length-1 || animscript.Frameindex==Knivkast.ThrowAnim.Length-1 || animscript.Frameindex==Dolkslash.SlashAnim.Length-1)
+        {
+
             if (rb.linearVelocity.x <= 0.5 && Attack.isAttacking == false && animscript.CurrentAnimation != IdleAnim )
             {
                 animscript.ChangeAnimation(IdleAnim);
-            } 
+            }  
         }
-        else if(animscript.Frameindex ==Knivkast.ThrowAnim.Length-1 || animscript.Frameindex ==Dolkslash.SlashAnim.Length-1 || animscript.Frameindex ==RaiseRock.StompAnim.Length-1)
-        {
-  
-            animscript.ChangeAnimation(IdleAnim);
+        */
         
-        }
-
+        
         if(rb.linearVelocityX<0)
         {
             

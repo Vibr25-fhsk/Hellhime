@@ -30,7 +30,7 @@ public class WallofStone : MonoBehaviour
     {
         if(Attack.canAttack == true && Attack.isFirstPlayer == true)
         {
-            if(Attack.Defens_mainP1 ==true && Attack.Attack_mainP1 == false && Attack.Attack_subP1 == false)
+            if(Attack.Defens_mainP1 ==true && Attack.Attack_mainP1 == false && Attack.Attack_subP1 == false && animscript.CanchangeAnim == true)
             {
                 
                 animscript.ChangeAnimation(StompAnim);
@@ -39,7 +39,7 @@ public class WallofStone : MonoBehaviour
         }
         else if(Attack.canAttack == true && Attack.isFirstPlayer == false)
         {
-            if(Attack.Defens_mainP2 ==true && Attack.Attack_mainP2 == false && Attack.Attack_subP2 == false)
+            if(Attack.Defens_mainP2 ==true && Attack.Attack_mainP2 == false && Attack.Attack_subP2 == false && animscript.CanchangeAnim == true)
             {
                 
                 animscript.ChangeAnimation(StompAnim);
@@ -51,17 +51,21 @@ public class WallofStone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        if(animscript.Frameindex==StompAnim.Length-1)
+        if(gameObject.tag=="Player1")
         {
-           animscript.CanchangeAnim = true;
-        }
-        else if(animscript.CurrentAnimation==StompAnim && animscript.Frameindex!=StompAnim.Length-1)
-        {
-            animscript.CanchangeAnim = false;
-        }
-        */
+            if(animscript.Frameindex==StompAnim.Length-1)
+            {
+                animscript.CanchangeAnim = true;
+            }
 
+        }
+        else if(gameObject.tag=="Player2")
+        {
+            if(animscript.Frameindex==StompAnim.Length-1)
+            {
+                animscript.CanchangeAnim = true;
+            }
+        }
         if(Knivkast.spawnpoint.rotation.y==0)
         {
             stenpos = new Vector2(Knivkast.spawnpoint.position.x +Attack.cordx,Knivkast.spawnpoint.position.y);
@@ -77,7 +81,7 @@ public class WallofStone : MonoBehaviour
 
             if(animscript.CurrentAnimation==StompAnim)
             {
-                if(animscript.Frameindex ==StompAnim.Length-2&& StenCount<1 )
+                if(animscript.Frameindex ==StompAnim.Length-1&& StenCount<1 )
                 {
                     Stentemp = Instantiate(Sten,stenpos,Quaternion.identity);
                     Stentemp.transform.rotation = transform.rotation;

@@ -17,7 +17,7 @@ public class knivkast_attack : MonoBehaviour
         if(Attack.canAttack == true && Attack.isFirstPlayer == true)
         {
             
-            if(Attack.Attack_mainP1 == true && Attack.Attack_subP1 == false)
+            if(Attack.Attack_mainP1 == true && Attack.Attack_subP1 == false && animscript.CanchangeAnim == true)
             {
                 animscript.ChangeAnimation(ThrowAnim);
                 animscript.CanchangeAnim = false;
@@ -31,9 +31,9 @@ public class knivkast_attack : MonoBehaviour
         }
 
         //Debug.Log("Throw:"+ anim.GetCurrentAnimatorStateInfo(0).IsName("Throwattack"));
-        if(Attack.canAttack == true && Attack.isFirstPlayer==false)
+        if(Attack.canAttack == true && Attack.isFirstPlayer==false )
         {
-            if(Attack.Attack_mainP2 == true && Attack.Attack_subP2 == false)
+            if(Attack.Attack_mainP2 == true && Attack.Attack_subP2 == false && animscript.CanchangeAnim == true)
             {
                 //Debug.Log("Is throwing knife");
                 animscript.ChangeAnimation(ThrowAnim);
@@ -51,7 +51,12 @@ public class knivkast_attack : MonoBehaviour
         if(gameObject.tag=="Player1")
         {
             Knivcount = GameObject.FindGameObjectsWithTag("kastkniv").Length;
+            if(animscript.CurrentAnimation == ThrowAnim && animscript.Frameindex == ThrowAnim.Length - 1)
+            {
+                animscript.CanchangeAnim = true;
+                
 
+            }
 
             if(animscript.CurrentAnimation==ThrowAnim)
             {
@@ -68,6 +73,10 @@ public class knivkast_attack : MonoBehaviour
         
         if(gameObject.tag=="Player2")
         {
+            if(animscript.CurrentAnimation == ThrowAnim && animscript.Frameindex == ThrowAnim.Length -1)
+            {
+                animscript.CanchangeAnim = true;
+            }
             KnivcountP2 = GameObject.FindGameObjectsWithTag("kastknivP2").Length;
 
             if(animscript.CurrentAnimation==ThrowAnim)
