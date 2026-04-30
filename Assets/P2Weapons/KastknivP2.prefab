@@ -104,6 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destructtime: 2
   left: 0
+  KnifeClash: {fileID: 8300000, guid: fc162d0692cbccf09b238621fb9108db, type: 3}
 --- !u!50 &4136913628431156092
 Rigidbody2D:
   serializedVersion: 5

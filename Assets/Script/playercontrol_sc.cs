@@ -44,6 +44,7 @@ public class playercontorl_sc : MonoBehaviour
         rb = GetComponent<Rigidbody2D>(); 
         animscript = GetComponent<Animationscript>();
         animscript.ChangeAnimation(IdleAnim);
+        
 
     }
     
@@ -64,7 +65,7 @@ public class playercontorl_sc : MonoBehaviour
                 //rb.gravityScale=1f;
             }
         }
-        if(gameObject.tag=="Player1")
+        else if(gameObject.tag=="Player2")
         {
             if(God)
             {
@@ -98,7 +99,7 @@ public class playercontorl_sc : MonoBehaviour
             }
             GOD();
         }
-        if(gameObject.tag=="Player1")
+        if(gameObject.tag=="Player2")
         {
             if(Input.GetButton("Gmode_P2"))
             {
@@ -199,11 +200,11 @@ public class playercontorl_sc : MonoBehaviour
         
         if(candie)
         {
-           if(other.gameObject.tag=="kastkniv")
+           if(other.gameObject.tag=="kastkniv" || other.gameObject.tag=="kastknivP2")
             {
             PlayerHP = PlayerHP -10;
             } 
-            else if(other.gameObject.tag=="dolk")
+            else if(other.gameObject.tag=="dolk" || other.gameObject.tag=="dolkP2")
             {
             PlayerHP = PlayerHP -20;
             }  

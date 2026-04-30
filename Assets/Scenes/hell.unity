@@ -1157,13 +1157,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8089582827969260543, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
+      propertyPath: God
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8089582827969260543, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
+      propertyPath: candie
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8093515610759066002, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.23
       objectReference: {fileID: 0}
     - target: {fileID: 8093515610759066002, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.2
+      value: -3.47
       objectReference: {fileID: 0}
     - target: {fileID: 8093515610759066002, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
       propertyPath: m_LocalPosition.z
