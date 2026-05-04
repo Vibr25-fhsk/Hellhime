@@ -1,5 +1,74 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3186850496331018744
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5279641504433094831}
+  - component: {fileID: 6828447111619786729}
+  m_Layer: 8
+  m_Name: CHnoclip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5279641504433094831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3186850496331018744}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.085, y: 0.0009999275, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8093515610759066002}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &6828447111619786729
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3186850496331018744}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 255
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
 --- !u!1 &5173214854898145005
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,6 +149,7 @@ GameObject:
   - component: {fileID: 5418913309089890280}
   - component: {fileID: 2574129609197725711}
   - component: {fileID: 410538929629555790}
+  - component: {fileID: 1673441022418531401}
   m_Layer: 0
   m_Name: Knivkastare 1
   m_TagString: Player1
@@ -102,6 +172,7 @@ Transform:
   m_Children:
   - {fileID: 5943502990515187633}
   - {fileID: 9136604213538099274}
+  - {fileID: 5279641504433094831}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &8275594785624436842
@@ -221,7 +292,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 122507586884095165, guid: b6863296260c576c0b6d7bedae956d8e, type: 3}
+  m_Sprite: {fileID: 8718238297127163143, guid: b6863296260c576c0b6d7bedae956d8e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -246,6 +317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerHP: 100
   isFirstPlayer: 1
+  candie: 0
   God: 0
   IdleAnim:
   - {fileID: 4421896009512145939, guid: 32cb28ef55c5c6a5d8de42efaca33813, type: 3}
@@ -259,6 +331,7 @@ MonoBehaviour:
   Dolkslash: {fileID: 2574129609197725711}
   Knivkast: {fileID: 5418913309089890280}
   moveSpeed: 5
+  jumpForce: 1
 --- !u!114 &4794650424632817684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,3 +462,40 @@ MonoBehaviour:
   - {fileID: 7619253298020078858, guid: 93ef90b65f7785db6a99b67d98ad617d, type: 3}
   Sten: {fileID: 2973056648625193388, guid: ffffcb163079ccd7e86db702411970bc, type: 3}
   StenP2: {fileID: 2973056648625193388, guid: 15d0cbc8a9b6cb7ce9ca678987f5905e, type: 3}
+--- !u!70 &1673441022418531401
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6595323887347958622}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 1015
+  m_LayerOverridePriority: 1
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 136
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 136
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.035808563, y: 0}
+  m_Size: {x: 0.9283829, y: 1}
+  m_Direction: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4136913628431156092}
   - component: {fileID: -6124182076302399934}
   - component: {fileID: 498996316733854075}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Dagger
   m_TagString: dolk
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 960
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
