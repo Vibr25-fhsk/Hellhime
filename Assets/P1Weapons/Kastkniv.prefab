@@ -105,7 +105,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destructtime: 2
   left: 0
-  KnifeClash: {fileID: 8300000, guid: fc162d0692cbccf09b238621fb9108db, type: 3}
+  delay: 0.25
+  KnifeClash: {fileID: 8300000, guid: bf9d1ab2af429aa2dbf46547550df261, type: 3}
 --- !u!50 &4136913628431156092
 Rigidbody2D:
   serializedVersion: 5
@@ -190,7 +191,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: fc162d0692cbccf09b238621fb9108db, type: 3}
+  m_Resource: {fileID: 8300000, guid: bf9d1ab2af429aa2dbf46547550df261, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

@@ -263,10 +263,6 @@ public class attack : MonoBehaviour
             canAttack = false;
             yield return new WaitForSeconds(cooldown);
             canAttack = true;
-            
-            
-        
- 
         }
 
     }

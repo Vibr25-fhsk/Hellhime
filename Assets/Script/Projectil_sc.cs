@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using Unity.VisualScripting;
 using UnityEditor.Callbacks;
@@ -10,7 +10,7 @@ public class Projectil_sc : MonoBehaviour
 
     
     public bool left;
-    public float delay = 0.5f;
+    public float delay = 0.25f;
     protected bool canPlaySound = true;
     Transform spawnpoint;
     #region Audio
@@ -73,9 +73,9 @@ public class Projectil_sc : MonoBehaviour
             audiosource.PlayOneShot(KnifeClash);  
         }
     }
+    
     public IEnumerator DestroyAfterDelay()
     {
-        
         if(canPlaySound)
         {
             yield return new WaitForSeconds(delay);
@@ -83,7 +83,8 @@ public class Projectil_sc : MonoBehaviour
         }
         yield return null;
     }
-
+    
+    
     // Update is called once per frame
     void Update()
     {
