@@ -23,6 +23,7 @@ public class playercontorl_sc : MonoBehaviour
     public Dolkslash_attack Dolkslash;
     public knivkast_attack Knivkast;
     WallofStone RaiseRock;
+    
     #region movement
     [SerializeField]private float moveSpeed = 5f;
     [SerializeField]private float jumpForce = 1f;
@@ -31,9 +32,19 @@ public class playercontorl_sc : MonoBehaviour
     float horizontalMovement;
     float VerticalMovement;
     public bool isGrounded {get; private set;}
-
+    [SerializeField]protected bool isMoving;
+    [SerializeField]protected bool P2isMoving;
     #endregion
+    #region  Misc
+    SpriteRenderer SpriteRender;
+    ParticleSystem P1DeathFx;
+     ParticleSystem P2DeathFx;
+    ParticleSystem P1DustFx;
+    ParticleSystem P2DustFx;
     BoxCollider2D PlayerColl;
+
+    [SerializeField] protected float DeathDlay = 0.5f;
+    #endregion
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,8 +55,20 @@ public class playercontorl_sc : MonoBehaviour
         rb = GetComponent<Rigidbody2D>(); 
         animscript = GetComponent<Animationscript>();
         animscript.ChangeAnimation(IdleAnim);
+        SpriteRender = GetComponent<SpriteRenderer>();
         
-
+        if(gameObject.tag=="Player1")
+        {
+           P1DeathFx = GameObject.Find("DeathFX").GetComponent<ParticleSystem>();
+           P1DustFx = GameObject.Find("DustFX").GetComponent<ParticleSystem>();
+        }
+        else if(gameObject.tag=="Player2")
+        {
+            P2DeathFx = GameObject.Find("P2DeathFX").GetComponent<ParticleSystem>();
+            P2DustFx = GameObject.Find("P2DustFX").GetComponent<ParticleSystem>();
+        }
+        
+        
     }
     
     protected void GOD()
@@ -87,8 +110,22 @@ public class playercontorl_sc : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if(gameObject.tag=="Player1")
         {
+            if(rb.linearVelocityX<0 && isMoving)
+            {
+                
+                transform.rotation = Quaternion.Euler(0,180,0);
+                P1DustFx.Play();
+            }
+            else if(rb.linearVelocityX>0 && isMoving)
+            {
+                
+                transform.rotation = Quaternion.Euler(0,0,0);
+                P1DustFx.Play();
+            }
+            
             if(Input.GetButton("Gmode_P1"))
             {
                 God = true;
@@ -101,6 +138,26 @@ public class playercontorl_sc : MonoBehaviour
         }
         if(gameObject.tag=="Player2")
         {
+            if(rb.linearVelocityX<0 && P2isMoving)
+            {
+                
+                transform.rotation = Quaternion.Euler(0,180,0);
+                P2DustFx.Play();
+            }
+            else if(rb.linearVelocityX>0 && P2isMoving)
+            {
+                
+                transform.rotation = Quaternion.Euler(0,0,0);
+                P2DustFx.Play();
+            }
+            if(PlayerHP<=0)
+            {
+                SpriteRender.enabled = false;
+                P2DeathFx.Play();
+                Destroy(gameObject,DeathDlay);
+                
+            }
+
             if(Input.GetButton("Gmode_P2"))
             {
                 God = true;
@@ -121,6 +178,19 @@ public class playercontorl_sc : MonoBehaviour
             if(Input.GetButton("Jump")&& isGrounded)
             {
                 rb.AddForce(new Vector2(rb.linearVelocityX, VerticalMovement * jumpForce), ForceMode2D.Impulse);
+                P1DustFx.Play();
+            }
+            if(horizontalMovement>=0.1f)
+            {
+                isMoving = true;
+            }
+            else if(horizontalMovement<=-0.1f)
+            {
+                isMoving = true;
+            }
+            else
+            {
+                isMoving = false;
             }
 
         }
@@ -131,6 +201,19 @@ public class playercontorl_sc : MonoBehaviour
             if(Input.GetButton("Jump_p2")&& isGrounded)
             {
                 rb.AddForce(new Vector2(rb.linearVelocityX, VerticalMovement * jumpForce), ForceMode2D.Impulse);
+                P2DustFx.Play();
+            }
+            if(horizontalMovement>=0.1f)
+            {
+                P2isMoving = true;
+            }
+            else if(horizontalMovement<=-0.1f)
+            {
+                P2isMoving = true;
+            }
+            else
+            {
+                P2isMoving = false;
             }
 
         }
@@ -165,23 +248,6 @@ public class playercontorl_sc : MonoBehaviour
             }  
         }
         */
-        
-        
-        if(rb.linearVelocityX<0)
-        {
-            
-            transform.rotation = Quaternion.Euler(0,180,0);
-        }
-        if(rb.linearVelocityX>0)
-        {
-            
-            transform.rotation = Quaternion.Euler(0,0,0);
-        }
-        if(PlayerHP<=0)
-        {
-            Destroy(gameObject);
-        }
-
     }
 
 
