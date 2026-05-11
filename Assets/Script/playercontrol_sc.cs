@@ -2,7 +2,8 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
+//using UnityEngine.UIElements;
+using UnityEngine.UI;
 public class playercontorl_sc : MonoBehaviour
 {
 
@@ -61,8 +62,8 @@ public class playercontorl_sc : MonoBehaviour
         
         if(gameObject.tag=="Player1")
         {
-            //HealthbarP1 = GameObject.Find("HealthbarP1").GetComponent<Slider>();
-            //HealthbarP1.maxValue = maxHP;
+            HealthbarP1 = GameObject.Find("healthbarP1").GetComponent<Slider>();
+            HealthbarP1.maxValue = maxHP;
             HealthbarP1.value = PlayerHP;
             P1DeathFx = GameObject.Find("DeathFX").GetComponent<ParticleSystem>();
             P1DustFx = GameObject.Find("DustFX").GetComponent<ParticleSystem>();
