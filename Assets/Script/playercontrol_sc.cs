@@ -43,7 +43,7 @@ public class playercontorl_sc : MonoBehaviour
     ParticleSystem P2DustFx;
     BoxCollider2D PlayerColl;
 
-    [SerializeField] protected float DeathDlay = 0.5f;
+    [SerializeField] protected float DeathDlay = 1f;
     #endregion
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -111,6 +111,7 @@ public class playercontorl_sc : MonoBehaviour
     void Update()
     {
 
+        
         if(gameObject.tag=="Player1")
         {
             if(rb.linearVelocityX<0 && isMoving)
@@ -135,6 +136,13 @@ public class playercontorl_sc : MonoBehaviour
                 God = false;
             }
             GOD();
+            if(PlayerHP<=0)
+            {
+                SpriteRender.enabled = false;
+                P1DeathFx.Play();
+                Destroy(gameObject,DeathDlay);
+                
+            }
         }
         if(gameObject.tag=="Player2")
         {

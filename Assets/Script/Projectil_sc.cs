@@ -17,6 +17,7 @@ public class Projectil_sc : MonoBehaviour
     private AudioSource audiosource;
     public AudioClip KnifeClash;
 
+
     #endregion
     Rigidbody2D rb;
     attack Attack;
@@ -37,6 +38,7 @@ public class Projectil_sc : MonoBehaviour
         string parentname = spawnpoint.parent.tag;
         
         //Attack = GameObject.FindGameObjectWithTag("Player1").GetComponent<attack>();
+        
         kastscript_p1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<knivkast_attack>();
         kastscript_p2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<knivkast_attack>();
         Destroy(gameObject, destructtime);
