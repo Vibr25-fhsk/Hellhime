@@ -7,9 +7,11 @@ public class Dolk_sc : MonoBehaviour
     Dolkslash_attack Dolkslash_p1;
     Dolkslash_attack Dolkslash_p2;
     [SerializeField] float destructtime = 0.1f;
+    bool Destrukt = false;
+    BoxCollider2D DolkCollider;
     void Awake()
     {
-        
+        DolkCollider = GetComponent<BoxCollider2D>();
         Dolkslash_p1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<Dolkslash_attack>();
         Dolkslash_p2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<Dolkslash_attack>();
         if(gameObject.tag == "dolk")
@@ -30,16 +32,28 @@ public class Dolk_sc : MonoBehaviour
         
         Destroy(gameObject, destructtime);
     }
-    void OnCollisionEnter2D(Collision2D other)
+    void OnCollisionExit2D(Collision2D other)
     {
         if(gameObject.tag == "dolk" && other.gameObject.tag == "Player2")
         {
-            Destroy(gameObject);
+            Destrukt = true;
         }
         else if(gameObject.tag == "dolkP2" && other.gameObject.tag == "Player1")
         {
+            Destrukt = true;
+        }
+        else if(gameObject.tag != "dolk" && other.gameObject.tag != "Player2" || gameObject.tag != "dolkP2" && other.gameObject.tag != "Player1")
+        {
+            Destrukt = true;
+        }
+    }
+    void Update()
+    {
+        if(Destrukt)
+        {
             Destroy(gameObject);
         }
+
     }
 
 

@@ -8,8 +8,10 @@ public class playercontorl_sc : MonoBehaviour
 
     //Helph
     public int PlayerHP = 100;
+    public int maxHP { get; private set; } = 100;
     public bool isFirstPlayer;
     public bool candie;
+    public Slider HealthbarP1;
     
 
     [SerializeField]protected bool God;
@@ -59,11 +61,16 @@ public class playercontorl_sc : MonoBehaviour
         
         if(gameObject.tag=="Player1")
         {
-           P1DeathFx = GameObject.Find("DeathFX").GetComponent<ParticleSystem>();
-           P1DustFx = GameObject.Find("DustFX").GetComponent<ParticleSystem>();
+            //HealthbarP1 = GameObject.Find("HealthbarP1").GetComponent<Slider>();
+            //HealthbarP1.maxValue = maxHP;
+            HealthbarP1.value = PlayerHP;
+            P1DeathFx = GameObject.Find("DeathFX").GetComponent<ParticleSystem>();
+            P1DustFx = GameObject.Find("DustFX").GetComponent<ParticleSystem>();
         }
         else if(gameObject.tag=="Player2")
         {
+            //HealthbarP2.maxValue = maxHP;
+            //HealthbarP2.value = PlayerHP;
             P2DeathFx = GameObject.Find("P2DeathFX").GetComponent<ParticleSystem>();
             P2DustFx = GameObject.Find("P2DustFX").GetComponent<ParticleSystem>();
         }
@@ -110,8 +117,6 @@ public class playercontorl_sc : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        
         if(gameObject.tag=="Player1")
         {
             if(rb.linearVelocityX<0 && isMoving)
@@ -139,7 +144,10 @@ public class playercontorl_sc : MonoBehaviour
             if(PlayerHP<=0)
             {
                 SpriteRender.enabled = false;
-                P1DeathFx.Play();
+                if(P1DeathFx.isPlaying==false)
+                {
+                    P1DeathFx.Play();
+                }
                 Destroy(gameObject,DeathDlay);
                 
             }
@@ -161,7 +169,10 @@ public class playercontorl_sc : MonoBehaviour
             if(PlayerHP<=0)
             {
                 SpriteRender.enabled = false;
-                P2DeathFx.Play();
+                if(P2DeathFx.isPlaying==false)
+                {
+                    P2DeathFx.Play();
+                }
                 Destroy(gameObject,DeathDlay);
                 
             }
@@ -257,7 +268,14 @@ public class playercontorl_sc : MonoBehaviour
         }
         */
     }
-
+    void FixedUpdate()
+    {
+        if(PlayerHP<=0)
+        {
+            PlayerHP = 0;
+        }
+    }
+    
 
     public void Move(InputAction.CallbackContext moveContext)
     {

@@ -1495,7 +1495,7 @@ ParticleSystem:
     x:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -10000,8 +10000,9 @@ MonoBehaviour:
   Knivkast: {fileID: 5418913309089890280}
   moveSpeed: 5
   jumpForce: 1
-  DeathFx: {fileID: 4565742960341082697}
-  DustFx: {fileID: 6816098034869823040}
+  isMoving: 0
+  P2isMoving: 0
+  DeathDlay: 0.5
 --- !u!114 &4794650424632817684
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 124713282513730977}
   - component: {fileID: 2660763432199680401}
   m_Layer: 0
-  m_Name: DustFX
+  m_Name: P2DustFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3175411065437399557}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.298, y: -0.45099998, z: 0}
+  m_LocalPosition: {x: -0.522, y: -0.45099998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -976,7 +976,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -987,22 +987,22 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
-          inSlope: 0
-          outSlope: 1
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 1
           value: 1
-          inSlope: 1
+          inSlope: 0
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -5167,8 +5167,9 @@ MonoBehaviour:
   Knivkast: {fileID: 5317821531739376136}
   moveSpeed: 5
   jumpForce: 1
-  DeathFx: {fileID: 0}
-  DustFx: {fileID: 124713282513730977}
+  isMoving: 0
+  P2isMoving: 0
+  DeathDlay: 0.5
 --- !u!114 &4587408793910261152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5348,7 +5349,7 @@ GameObject:
   - component: {fileID: 1615736572773957511}
   - component: {fileID: 765052347784157327}
   m_Layer: 0
-  m_Name: DeathFX
+  m_Name: P2DeathFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5363,7 +5364,7 @@ Transform:
   m_GameObject: {fileID: 6820892628856750786}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 1.3069999, y: -0.0009999275, z: 0}
+  m_LocalPosition: {x: -0.273, y: -0.0009999275, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6831,7 +6832,7 @@ ParticleSystem:
     x:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2

@@ -12,6 +12,7 @@ public class Projectil_sc : MonoBehaviour
     public bool left;
     public float delay = 0.25f;
     protected bool canPlaySound = true;
+    BoxCollider2D BoxColl;
     Transform spawnpoint;
     #region Audio
     private AudioSource audiosource;
@@ -32,28 +33,34 @@ public class Projectil_sc : MonoBehaviour
     void Start()
     {
         audiosource = GetComponent<AudioSource>(); 
-        
+        BoxColl = GetComponent<BoxCollider2D>();
         spawnpoint = GameObject.Find("spawnpunkt").GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
         string parentname = spawnpoint.parent.tag;
         
         //Attack = GameObject.FindGameObjectWithTag("Player1").GetComponent<attack>();
+        if(GameObject.FindGameObjectWithTag("Player1")!=null)
+        {
+            kastscript_p1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<knivkast_attack>();
+        }
+        if(GameObject.FindGameObjectWithTag("Player2")!=null)
+        {
+            kastscript_p2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<knivkast_attack>();  
+        }
         
-        kastscript_p1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<knivkast_attack>();
-        kastscript_p2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<knivkast_attack>();
         Destroy(gameObject, destructtime);
         
         
         if(gameObject.tag=="kastkniv")
         {
-            if(kastscript_p1.Knivcount>1)
+            if( kastscript_p1 !=null && kastscript_p1.Knivcount>1)
             {
                 Destroy(gameObject);
             }
         }
         else if(gameObject.tag=="kastknivP2")
         {
-            if(kastscript_p2.KnivcountP2>1)
+            if( kastscript_p2 !=null && kastscript_p2.KnivcountP2>1)
             {
                 Destroy(gameObject);
             }
@@ -95,8 +102,9 @@ public class Projectil_sc : MonoBehaviour
    
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("kastkniv") || other.gameObject.CompareTag("kastknivP2"))
+        if (other.gameObject.CompareTag("kastkniv")||other.gameObject.CompareTag("kastknivP2")||other.gameObject.CompareTag("sten")||other.gameObject.CompareTag("stenP2"))
         {
+            //BoxColl.enabled = false;
             Playknifeclash();
             StartCoroutine(DestroyAfterDelay());
         }
@@ -104,6 +112,7 @@ public class Projectil_sc : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
         
     }
 

@@ -1141,11 +1141,6 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 78654491}
---- !u!198 &119169928 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6816098034869823040, guid: 81035a91e89249c57bf630060a11f873, type: 3}
-  m_PrefabInstance: {fileID: 898523060}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &206277836
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,7 +1152,7 @@ GameObject:
   - component: {fileID: 206277837}
   - component: {fileID: 206277838}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: healthbarP1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1230,7 +1225,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 485058731}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -1244,82 +1239,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 124713282513730977, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
-      propertyPath: SizeModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 124713282513730977, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 124713282513730977, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 124713282513730977, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 124713282513730977, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].inWeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 124713282513730977, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 124713282513730977, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inWeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 124713282513730977, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outWeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 124713282513730977, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outWeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1291510998868465786, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.522
-      objectReference: {fileID: 0}
-    - target: {fileID: 1615736572773957511, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
-      propertyPath: VelocityModule.x.scalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3175411065437399557, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
-      propertyPath: m_Name
-      value: P2DustFX
-      objectReference: {fileID: 0}
     - target: {fileID: 6595323887347958622, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
       propertyPath: m_Name
       value: Knivkastare 2
       objectReference: {fileID: 0}
-    - target: {fileID: 6820892628856750786, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
-      propertyPath: m_Name
-      value: P2DeathFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 8089582827969260543, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
-      propertyPath: DeathFx
-      value: 
-      objectReference: {fileID: 1576563806}
-    - target: {fileID: 8089582827969260543, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
-      propertyPath: P1DustFx
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8089582827969260543, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
-      propertyPath: P2DustFx
-      value: 
-      objectReference: {fileID: 654772965}
-    - target: {fileID: 8089582827969260543, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
-      propertyPath: P1DeathFx
-      value: 
-      objectReference: {fileID: 1278673111}
-    - target: {fileID: 8089582827969260543, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
-      propertyPath: P2DeathFx
-      value: 
-      objectReference: {fileID: 1576563806}
     - target: {fileID: 8093515610759066002, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.7
@@ -1359,10 +1282,6 @@ PrefabInstance:
     - target: {fileID: 8093515610759066002, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8739433833196351196, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.273
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6313,11 +6232,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!198 &654772965 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 124713282513730977, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
-  m_PrefabInstance: {fileID: 373719090}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &765643513
 GameObject:
   m_ObjectHideFlags: 0
@@ -6626,38 +6540,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 957843532196539749, guid: 81035a91e89249c57bf630060a11f873, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4565742960341082697, guid: 81035a91e89249c57bf630060a11f873, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4565742960341082697, guid: 81035a91e89249c57bf630060a11f873, type: 3}
-      propertyPath: VelocityModule.x.scalar
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 6595323887347958622, guid: 81035a91e89249c57bf630060a11f873, type: 3}
       propertyPath: m_Name
       value: Knivkastare 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8089582827969260543, guid: 81035a91e89249c57bf630060a11f873, type: 3}
-      propertyPath: P1DustFx
-      value: 
-      objectReference: {fileID: 119169928}
-    - target: {fileID: 8089582827969260543, guid: 81035a91e89249c57bf630060a11f873, type: 3}
-      propertyPath: P2DustFx
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8089582827969260543, guid: 81035a91e89249c57bf630060a11f873, type: 3}
-      propertyPath: P1DeathFx
-      value: 
-      objectReference: {fileID: 1278673111}
-    - target: {fileID: 8089582827969260543, guid: 81035a91e89249c57bf630060a11f873, type: 3}
-      propertyPath: P2DeathFx
-      value: 
-      objectReference: {fileID: 1576563806}
     - target: {fileID: 8093515610759066002, guid: 81035a91e89249c57bf630060a11f873, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.734
@@ -6898,11 +6784,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1255960399}
   m_CullTransparentMesh: 1
---- !u!198 &1278673111 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4565742960341082697, guid: 81035a91e89249c57bf630060a11f873, type: 3}
-  m_PrefabInstance: {fileID: 898523060}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1322244749
 GameObject:
   m_ObjectHideFlags: 0
@@ -6917,9 +6798,9 @@ GameObject:
   - component: {fileID: 1322244755}
   - component: {fileID: 1322244754}
   - component: {fileID: 1322244753}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Border
-  m_TagString: Untagged
+  m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9321,7 +9202,7 @@ Camera:
   m_GameObject: {fileID: 1368924009}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.033895817, g: 0, b: 0.3490566, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -9347,7 +9228,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 3.2
+  orthographic size: 3.4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -9372,7 +9253,7 @@ Transform:
   m_GameObject: {fileID: 1368924009}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: -1.144, z: -9}
+  m_LocalPosition: {x: -3, y: -1.36, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9552,11 +9433,6 @@ Transform:
   - {fileID: 2036655533}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!198 &1576563806 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1615736572773957511, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
-  m_PrefabInstance: {fileID: 373719090}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1601299379
 GameObject:
   m_ObjectHideFlags: 0

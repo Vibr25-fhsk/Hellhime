@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 229367973915006706}
   - component: {fileID: 3626776899811381176}
   - component: {fileID: -9187694064326901917}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Stenvegg
   m_TagString: sten
   m_Icon: {fileID: 0}
