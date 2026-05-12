@@ -7,12 +7,14 @@ using UnityEngine.UI;
 public class playercontorl_sc : MonoBehaviour
 {
 
-    //Helph
+    #region Helph
     public int PlayerHP = 100;
     public int maxHP { get; private set; } = 100;
     public bool isFirstPlayer;
     public bool candie;
-    public Slider HealthbarP1;
+    protected Slider HealthbarP1;
+    protected Slider HealthbarP2;
+    #endregion
     
 
     [SerializeField]protected bool God;
@@ -63,17 +65,18 @@ public class playercontorl_sc : MonoBehaviour
         if(gameObject.tag=="Player1")
         {
             HealthbarP1 = GameObject.Find("healthbarP1").GetComponent<Slider>();
-            HealthbarP1.maxValue = maxHP;
-            HealthbarP1.value = PlayerHP;
             P1DeathFx = GameObject.Find("DeathFX").GetComponent<ParticleSystem>();
             P1DustFx = GameObject.Find("DustFX").GetComponent<ParticleSystem>();
+            HealthbarP1.maxValue = maxHP;
+            HealthbarP1.value = PlayerHP;
         }
         else if(gameObject.tag=="Player2")
         {
-            //HealthbarP2.maxValue = maxHP;
-            //HealthbarP2.value = PlayerHP;
+            HealthbarP2 = GameObject.Find("healthbarP2").GetComponent<Slider>();
             P2DeathFx = GameObject.Find("P2DeathFX").GetComponent<ParticleSystem>();
             P2DustFx = GameObject.Find("P2DustFX").GetComponent<ParticleSystem>();
+            HealthbarP2.maxValue = maxHP;
+            HealthbarP2.value = PlayerHP;
         }
         
         
@@ -120,6 +123,7 @@ public class playercontorl_sc : MonoBehaviour
     {
         if(gameObject.tag=="Player1")
         {
+            HealthbarP1.value = PlayerHP;
             if(rb.linearVelocityX<0 && isMoving)
             {
                 
@@ -155,6 +159,7 @@ public class playercontorl_sc : MonoBehaviour
         }
         if(gameObject.tag=="Player2")
         {
+            HealthbarP2.value = PlayerHP;
             if(rb.linearVelocityX<0 && P2isMoving)
             {
                 
