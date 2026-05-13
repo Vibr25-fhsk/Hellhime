@@ -67,5 +67,6 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "hellhime.slnx"
+    "dotnet.defaultSolution": "hellhime.slnx",
+    "dotnet.preferCSharpExtension": true
 }
