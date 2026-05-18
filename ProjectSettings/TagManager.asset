@@ -19,6 +19,7 @@ TagManager:
   - KnivkastareP1
   - KnivkastareP2
   - Ground
+  - Dead
   layers:
   - Default
   - TransparentFX

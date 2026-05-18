@@ -2,21 +2,21 @@ using UnityEngine;
 
 public class ForceField : MonoBehaviour
 {
-    public Transform EnterTransform;
-    public Transform QuitTransform;
+    public RectTransform EnterTransform;
+    public RectTransform QuitTransform;
     private GameObject QuitForce;
     private GameObject EnterForce;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        EnterTransform = GameObject.Find("Enter_combat").GetComponent<Transform>();
-        QuitTransform = GameObject.Find("Leav").GetComponent<Transform>();
+        EnterTransform = GameObject.Find("Enter_combat").GetComponent<RectTransform>();
+        QuitTransform = GameObject.Find("Leav").GetComponent<RectTransform>();
         QuitForce = GameObject.Find("QuitForcefilde");
         EnterForce = GameObject.Find("EnterForcefilde");
 
-        QuitForce.transform.position = QuitTransform.transform.position;
-        EnterForce.transform.position= EnterTransform.transform.position;
+        //QuitForce.transform.position = QuitTransform.rect.position;
+        //EnterForce.transform.position = EnterTransform.rect.position;
 
 
     }

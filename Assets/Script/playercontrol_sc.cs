@@ -41,6 +41,9 @@ public class playercontorl_sc : MonoBehaviour
     [SerializeField]protected bool P2isMoving;
     #endregion
     #region  Misc
+    protected bool P1Lost;
+    protected bool P2Lost;
+    GameManeger GM;
     SpriteRenderer SpriteRender;
     ParticleSystem P1DeathFx;
      ParticleSystem P2DeathFx;
@@ -78,7 +81,7 @@ public class playercontorl_sc : MonoBehaviour
             HealthbarP2.maxValue = maxHP;
             HealthbarP2.value = PlayerHP;
         }
-        
+        GM = GameObject.Find("Hella_GM").GetComponent<GameManeger>();
         
     }
     
@@ -120,7 +123,18 @@ public class playercontorl_sc : MonoBehaviour
     
     // Update is called once per frame
     void Update()
-    {
+    {   
+        if(P1Lost)
+        {
+            GM.P2Wins++;
+            P1Lost = false;
+        }
+        if(P2Lost)
+        {
+            GM.P1Wins++;
+            P2Lost = false;
+        }
+        #region Player1
         if(gameObject.tag=="Player1")
         {
             HealthbarP1.value = PlayerHP;
@@ -153,10 +167,16 @@ public class playercontorl_sc : MonoBehaviour
                 {
                     P1DeathFx.Play();
                 }
-                Destroy(gameObject,DeathDlay);
+                P1Lost = true;
+                WaitForSeconds wait = new WaitForSeconds(DeathDlay);
+                gameObject.tag = "Dead";
+                //Destroy(gameObject,DeathDlay);
                 
             }
+
         }
+        #endregion
+        #region Player2
         if(gameObject.tag=="Player2")
         {
             HealthbarP2.value = PlayerHP;
@@ -174,12 +194,16 @@ public class playercontorl_sc : MonoBehaviour
             }
             if(PlayerHP<=0)
             {
+                
                 SpriteRender.enabled = false;
                 if(P2DeathFx.isPlaying==false)
                 {
                     P2DeathFx.Play();
                 }
-                Destroy(gameObject,DeathDlay);
+                P2Lost = true;
+                WaitForSeconds wait = new WaitForSeconds(DeathDlay);
+                gameObject.tag = "Dead";
+                //Destroy(gameObject,DeathDlay);
                 
             }
 
@@ -192,7 +216,9 @@ public class playercontorl_sc : MonoBehaviour
                 God = false;
             }
             GOD();
+            
         }
+        #endregion
         
         #region Inputs/movement modifiers
         if(isFirstPlayer == true)
