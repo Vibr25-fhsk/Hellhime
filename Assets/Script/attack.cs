@@ -1,13 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using Mono.Cecil.Cil;
-using UnityEditor.Rendering;
-using UnityEditor.Timeline;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
-using UnityEngine.XR;
 public class attack : MonoBehaviour
 {
     

@@ -1,7 +1,4 @@
 using System.Collections;
-using System.ComponentModel;
-using Unity.VisualScripting;
-using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class Projectil_sc : MonoBehaviour

@@ -1473,6 +1473,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5943502990515187633, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6595323887347958622, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
       propertyPath: m_Name
       value: Knivkastare 2
@@ -1487,7 +1491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8093515610759066002, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8093515610759066002, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6900,6 +6904,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5943502990515187633, guid: 81035a91e89249c57bf630060a11f873, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6595323887347958622, guid: 81035a91e89249c57bf630060a11f873, type: 3}
       propertyPath: m_Name
       value: Knivkastare 1
@@ -6918,7 +6926,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8093515610759066002, guid: 81035a91e89249c57bf630060a11f873, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8093515610759066002, guid: 81035a91e89249c57bf630060a11f873, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6968,7 +6976,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &957284594
 Transform:
@@ -6997,6 +7005,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 887e82fe18b7aae4eac0c634a4f1c510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  P1Wins: 0
+  P2Wins: 0
 --- !u!1 &1005119924
 GameObject:
   m_ObjectHideFlags: 0

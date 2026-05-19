@@ -44,6 +44,7 @@ public class playercontorl_sc : MonoBehaviour
     protected bool P1Lost;
     protected bool P2Lost;
     GameManeger GM;
+    
     SpriteRenderer SpriteRender;
     ParticleSystem P1DeathFx;
      ParticleSystem P2DeathFx;
@@ -124,16 +125,10 @@ public class playercontorl_sc : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if(P1Lost)
-        {
-            GM.P2Wins++;
-            P1Lost = false;
-        }
-        if(P2Lost)
-        {
-            GM.P1Wins++;
-            P2Lost = false;
-        }
+        
+        
+        
+        
         #region Player1
         if(gameObject.tag=="Player1")
         {
@@ -168,6 +163,10 @@ public class playercontorl_sc : MonoBehaviour
                     P1DeathFx.Play();
                 }
                 P1Lost = true;
+                if(P1Lost)
+                {
+                    GM.P2Wins = GM.P2Wins + 1;
+                }
                 WaitForSeconds wait = new WaitForSeconds(DeathDlay);
                 gameObject.tag = "Dead";
                 //Destroy(gameObject,DeathDlay);
@@ -201,6 +200,10 @@ public class playercontorl_sc : MonoBehaviour
                     P2DeathFx.Play();
                 }
                 P2Lost = true;
+                if(P2Lost)
+                {
+                  GM.P1Wins = GM.P1Wins + 1;
+                }
                 WaitForSeconds wait = new WaitForSeconds(DeathDlay);
                 gameObject.tag = "Dead";
                 //Destroy(gameObject,DeathDlay);

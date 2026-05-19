@@ -20,6 +20,7 @@ TagManager:
   - KnivkastareP2
   - Ground
   - Dead
+  - Wincounters
   layers:
   - Default
   - TransparentFX

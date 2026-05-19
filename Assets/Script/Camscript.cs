@@ -4,7 +4,7 @@ public class Campscript : MonoBehaviour
 {
     public Camera cam;
     float defoultScreenHight = 1080f;
-    float defoultFOV = 54f;
+    float defoultFOV = 53f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
