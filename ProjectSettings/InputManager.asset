@@ -35,7 +35,7 @@ InputManager:
     snap: 1
     invert: 0
     type: 2
-    axis: 0
+    axis: 2
     joyNum: 2
   - serializedVersion: 3
     m_Name: joystick 1 Attack1
@@ -114,7 +114,7 @@ InputManager:
     sensitivity: 1000
     snap: 0
     invert: 0
-    type: 0
+    type: 2
     axis: 2
     joyNum: 1
   - serializedVersion: 3
