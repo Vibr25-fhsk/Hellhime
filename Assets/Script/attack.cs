@@ -52,14 +52,15 @@ public class attack : MonoBehaviour
     
 
     Vector2 stenpos;
+    private int playerNumber;
 
     #region old code //inaktive
-    
+
     #endregion
 
     #region new code
-    
-        void Start()
+
+    void Start()
     {
 
         /*
@@ -79,6 +80,14 @@ public class attack : MonoBehaviour
 
     void Awake()
     {
+        int joy = GameManeger.playerJoystickIndex[playerNumber];
+        if (joy != -1)
+        {
+            float x = Input.GetAxis("joystick " + joy + " Attack1");
+            float y = Input.GetAxis("joystick " + joy + " Attack2");
+            float z = Input.GetAxis("joystick " + joy + " Defense");
+            // Använd x och y för rörelse
+        }
         if(gameObject.tag=="Player1")
         {
             isFirstPlayer = true;
@@ -111,7 +120,7 @@ public class attack : MonoBehaviour
 
 
             //main attack
-            if(Input.GetButtonDown("Attack1_p1"))
+            if(Input.GetButtonDown("joystick 1 Attack1"))
             {
                 
                 if(canAttack == true)
@@ -126,7 +135,7 @@ public class attack : MonoBehaviour
                 } 
             }
 
-            else if(Input.GetButtonUp("Attack1_p1"))
+            else if(Input.GetButtonUp("joystick 1 Attack1"))
             {
                 Attack_mainP1 = false;
                 StartCoroutine(attack_cld());
@@ -134,7 +143,7 @@ public class attack : MonoBehaviour
                 
             }
             //sub attack
-            else if(Input.GetButtonDown("Attack2_p1"))
+            else if(Input.GetButtonDown("joystick 1 Attack2"))
             {
                 if(canAttack == true)
                 {
@@ -148,19 +157,19 @@ public class attack : MonoBehaviour
                 }
 
             }
-            else if(Input.GetButtonUp("Attack2_p1"))
+            else if(Input.GetButtonUp("joystick 1 Attack2"))
             {
                 Attack_subP1 = false;
                 StartCoroutine(attack_cld());
             }
-            if(Input.GetButtonDown("Defens_p1")&& Playercon.isGrounded == true)
+            if(Input.GetAxis("joystick 1 Defense")>0.1&& Playercon.isGrounded == true)
             {
                 Defens_mainP1 =true;
                 RaiseRock.Def();
                 StartCoroutine(attack_cld());
             }
 
-            else if(Input.GetButtonUp("Defens_p1"))
+            else if(Input.GetAxis("joystick 1 Defense")<=0.1&& Playercon.isGrounded == true)
             {
                 Defens_mainP1=false;  
             }
@@ -171,7 +180,7 @@ public class attack : MonoBehaviour
         else if(gameObject.tag == "Player2")
         {
             //main attack
-            if(Input.GetButtonDown("Attack1_p2"))
+            if(Input.GetButtonDown("joystick 2 Attack1"))
             {
 
                 
@@ -186,13 +195,13 @@ public class attack : MonoBehaviour
                 }
                 
             }
-            else if(Input.GetButtonUp("Attack1_p2"))
+            else if(Input.GetButtonUp("joystick 2 Attack1"))
             {
                 Attack_mainP2 = false;
                 StartCoroutine(attack_cld());
             }
             //sub attack
-            if(Input.GetButtonDown("Attack2_p2"))
+            if(Input.GetButtonDown("joystick 2 Attack2"))
             {
                 
                 if(canAttack)
@@ -206,19 +215,19 @@ public class attack : MonoBehaviour
                 }
                 
             }
-            else if(Input.GetButtonUp("Attack2_p2"))
+            else if(Input.GetButtonUp("joystick 2 Attack2"))
             {
                 Attack_subP2 = false;
                 StartCoroutine(attack_cld());
             }
-             if(Input.GetButtonDown("Defens_p2")&& Playercon.isGrounded == true)
+             if(Input.GetAxis("joystick 2 Defense")<0&& Playercon.isGrounded == true)
             {
                 Defens_mainP2 =true;
                 RaiseRock.Def();
                 
             }
 
-            else if(Input.GetButtonUp("Defens_p2")&& Playercon.isGrounded == true)
+            else if(Input.GetAxis("joystick 2 Defense")>=0&& Playercon.isGrounded == true)
             {
                 Defens_mainP2=false;
                 StartCoroutine(attack_cld()); 
@@ -272,7 +281,8 @@ public class attack : MonoBehaviour
     #region instnsiering
     void FixedUpdate()
     {
-        
+        Debug.Log(Input.GetAxis("joystick 2 Defense")+" Defensaxis");
+
         
         
         if(gameObject.tag=="Player1")

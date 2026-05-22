@@ -31,7 +31,7 @@ public class playercontorl_sc : MonoBehaviour
     
     #region movement
     [SerializeField]private float moveSpeed = 5f;
-    [SerializeField]private float jumpForce = 1f;
+    [SerializeField]private float jumpForce = 0.25f;
     private Rigidbody2D rb;
     private Vector2 moveinput;
     float horizontalMovement;
@@ -53,8 +53,9 @@ public class playercontorl_sc : MonoBehaviour
     BoxCollider2D PlayerColl;
 
     [SerializeField] protected float DeathDlay = 1f;
+    public int playerNumber;
     #endregion
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -83,7 +84,15 @@ public class playercontorl_sc : MonoBehaviour
             HealthbarP2.value = PlayerHP;
         }
         GM = GameObject.Find("Hella_GM").GetComponent<GameManeger>();
-        
+        // playerNumber är 0 (spelare 1) eller 1 (spelare 2)
+        int joy = GameManeger.playerJoystickIndex[playerNumber];
+        if (joy != -1)
+        {
+            float x = Input.GetAxis("joystick " + joy + " axis x");
+            float y = Input.GetAxis("joystick " + joy + " axis y");
+            // Använd x och y för rörelse
+        }
+        Debug.Log("Player " + (playerNumber +1) + " assigned to joystick " + joy);
     }
     
     protected void GOD()
@@ -226,10 +235,10 @@ public class playercontorl_sc : MonoBehaviour
         #region Inputs/movement modifiers
         if(isFirstPlayer == true)
         {
-            horizontalMovement = Input.GetAxisRaw("Horizontal");
-            VerticalMovement = Input.GetAxisRaw("Jump");
+            horizontalMovement = Input.GetAxisRaw("joystick 1 axis x");
+            VerticalMovement = Input.GetAxisRaw("joystick 1 axis y");
             
-            if(Input.GetButton("Jump")&& isGrounded)
+            if(Input.GetButton("joystick 1 axis y")&& isGrounded)
             {
                 rb.AddForce(new Vector2(rb.linearVelocityX, VerticalMovement * jumpForce), ForceMode2D.Impulse);
                 P1DustFx.Play();
@@ -250,9 +259,9 @@ public class playercontorl_sc : MonoBehaviour
         }
         else
         {
-            horizontalMovement = Input.GetAxisRaw("Horizontal_P2");
-            VerticalMovement = Input.GetAxisRaw("Jump_p2");
-            if(Input.GetButton("Jump_p2")&& isGrounded)
+            horizontalMovement = Input.GetAxisRaw("joystick 2 axis x");
+            VerticalMovement = Input.GetAxisRaw("joystick 2 axis y");
+            if(Input.GetButton("joystick 2 axis y")&& isGrounded)
             {
                 rb.AddForce(new Vector2(rb.linearVelocityX, VerticalMovement * jumpForce), ForceMode2D.Impulse);
                 P2DustFx.Play();
