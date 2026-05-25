@@ -220,14 +220,14 @@ public class attack : MonoBehaviour
                 Attack_subP2 = false;
                 StartCoroutine(attack_cld());
             }
-             if(Input.GetAxis("joystick 2 Defense")<0&& Playercon.isGrounded == true)
+             if(Input.GetAxis("joystick 2 Defense")>0.1&& Playercon.isGrounded == true)
             {
                 Defens_mainP2 =true;
                 RaiseRock.Def();
                 
             }
 
-            else if(Input.GetAxis("joystick 2 Defense")>=0&& Playercon.isGrounded == true)
+            else if(Input.GetAxis("joystick 2 Defense")<=0.1&& Playercon.isGrounded == true)
             {
                 Defens_mainP2=false;
                 StartCoroutine(attack_cld()); 

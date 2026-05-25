@@ -10,7 +10,7 @@ public class GameManeger : MonoBehaviour
     public int P1Wins = 0;
     public int P2Wins = 0;
     public static int[] playerJoystickIndex = new int[] { -1, -1 };
-    
+    public int joyIndex;    
     
 
     
