@@ -4958,7 +4958,7 @@ Transform:
   m_GameObject: {fileID: 5214025258363864571}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.33467913, y: 0.023000002, z: 1}
+  m_LocalPosition: {x: 0.33467913, y: 0.023000002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5170,6 +5170,7 @@ MonoBehaviour:
   isMoving: 0
   P2isMoving: 0
   DeathDlay: 0.5
+  playerNumber: 0
 --- !u!114 &4587408793910261152
 MonoBehaviour:
   m_ObjectHideFlags: 0

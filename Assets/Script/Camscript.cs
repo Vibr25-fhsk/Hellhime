@@ -18,7 +18,7 @@ public class campscript : MonoBehaviour
         cam.fieldOfView = defoultFOV * (Screen.height / defoultScreenHight);
         if(SceneManager.GetActiveScene().name == "Menue")
         {
-            defoultScreenHight = 1440f;
+            defoultScreenHight = 1080f;
             defoultFOV = 50f;
             if(cam != null)
             {
@@ -28,8 +28,8 @@ public class campscript : MonoBehaviour
 
         if(SceneManager.GetActiveScene().name=="Hellhime")
         {
-            defoultScreenHight = 1440f;
-            defoultFOV = 50f;
+            defoultScreenHight = 1080f;
+            defoultFOV = 70f;
             if(cam != null)
             {
                 cam.fieldOfView = defoultFOV * (Screen.height / defoultScreenHight);

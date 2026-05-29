@@ -31,9 +31,10 @@ public class playercontorl_sc : MonoBehaviour
     
     #region movement
     [SerializeField]private float moveSpeed = 5f;
-    [SerializeField]private float jumpForce = 0.25f;
+    [SerializeField]private float jumpForce = 1f;
     private Rigidbody2D rb;
     private Vector2 moveinput;
+    private Vector2 Hoppvector;
     float horizontalMovement;
     float VerticalMovement;
     public bool isGrounded {get; private set;}
@@ -66,6 +67,8 @@ public class playercontorl_sc : MonoBehaviour
         animscript = GetComponent<Animationscript>();
         animscript.ChangeAnimation(IdleAnim);
         SpriteRender = GetComponent<SpriteRenderer>();
+
+        Hoppvector = new Vector2(rb.linearVelocityX, VerticalMovement * jumpForce);
         
         if(gameObject.tag=="Player1")
         {
@@ -134,7 +137,7 @@ public class playercontorl_sc : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        
+        Hoppvector = new Vector2(rb.linearVelocityX, VerticalMovement * jumpForce);
         
         
         
@@ -240,7 +243,7 @@ public class playercontorl_sc : MonoBehaviour
             
             if(Input.GetButton("joystick 1 axis y")&& isGrounded)
             {
-                rb.AddForce(new Vector2(rb.linearVelocityX, VerticalMovement * jumpForce), ForceMode2D.Impulse);
+                rb.AddForce(Hoppvector.normalized, ForceMode2D.Impulse);
                 P1DustFx.Play();
             }
             if(horizontalMovement>=0.1f)
@@ -263,7 +266,7 @@ public class playercontorl_sc : MonoBehaviour
             VerticalMovement = Input.GetAxisRaw("joystick 2 axis y");
             if(Input.GetButton("joystick 2 axis y")&& isGrounded)
             {
-                rb.AddForce(new Vector2(rb.linearVelocityX, VerticalMovement * jumpForce), ForceMode2D.Impulse);
+                rb.AddForce(Hoppvector.normalized, ForceMode2D.Impulse);
                 P2DustFx.Play();
             }
             if(horizontalMovement>=0.1f)
@@ -336,13 +339,22 @@ public class playercontorl_sc : MonoBehaviour
         
         if(candie)
         {
-           if(other.gameObject.tag=="kastkniv" || other.gameObject.tag=="kastknivP2")
+            if( isFirstPlayer == true && other.gameObject.tag=="kastknivP2")
             {
-            PlayerHP = PlayerHP -10;
-            } 
-            else if(other.gameObject.tag=="dolk" || other.gameObject.tag=="dolkP2")
+                PlayerHP = PlayerHP -10;
+            }
+            else if( isFirstPlayer == false && other.gameObject.tag=="kastkniv")
             {
-            PlayerHP = PlayerHP -20;
+                PlayerHP = PlayerHP -10;
+            }
+
+            if( isFirstPlayer == true && other.gameObject.tag=="dolkP2")
+            {
+                PlayerHP = PlayerHP -20;
+            }
+            else if( isFirstPlayer == false && other.gameObject.tag=="dolk")
+            {
+                PlayerHP = PlayerHP -20;
             }  
         }
         if(other.gameObject.tag=="Ground")

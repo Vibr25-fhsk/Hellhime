@@ -281,7 +281,7 @@ public class attack : MonoBehaviour
     #region instnsiering
     void FixedUpdate()
     {
-        Debug.Log(Input.GetAxis("joystick 2 Defense")+" Defensaxis");
+        
 
         
         
