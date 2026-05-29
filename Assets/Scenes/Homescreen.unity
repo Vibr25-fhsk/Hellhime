@@ -3930,9 +3930,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNumber: 0
   Ps4P1_notConnected: {fileID: -5041722997077940161, guid: 625be1ae470b0e295a7bc0ebc861b3f6, type: 3}
-  Ps4P1_Connected: {fileID: -8079141447694723083, guid: 36cceb0d5e7d8942591193bcdfa319cc, type: 3}
+  Ps4P1_Connected: {fileID: 5753854843259390918, guid: 625be1ae470b0e295a7bc0ebc861b3f6, type: 3}
   Ps4P2_notConnected: {fileID: 5582421059669672592, guid: c0af7bd6be2031196a18b287176b0c1b, type: 3}
-  Ps4P2_Connected: {fileID: -5831493561749356968, guid: 41d361d16ba448f95bfb3e821dfcfa29, type: 3}
+  Ps4P2_Connected: {fileID: 3067589293681247934, guid: c0af7bd6be2031196a18b287176b0c1b, type: 3}
 --- !u!1001 &1950769907
 PrefabInstance:
   m_ObjectHideFlags: 0
