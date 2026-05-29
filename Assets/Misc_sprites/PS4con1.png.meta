@@ -116,10 +116,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5f7550098af11ef80800000000000000
-      internalID: -8079141447694723083
+      spriteID: 6d7cfc5cc66335d198e6ad11bc55e3bb
+      internalID: -1908647700
       vertices: []
       indices: 
       edges: []
@@ -138,10 +138,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 33a8d6da6d851dd10800000000000000
-      internalID: 2148596176288320051
+      spriteID: d04c470093270148498ee764d5d77af0
+      internalID: -803611095
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PS4con1_0: -8079141447694723083
-      PS4con1_1: 2148596176288320051
+      PS4con1_0: -1908647700
+      PS4con1_1: -803611095
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
