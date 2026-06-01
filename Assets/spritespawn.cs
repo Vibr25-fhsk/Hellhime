@@ -14,13 +14,20 @@ public class spritespawn : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (SceneManager.GetActiveScene().name == "Hellhime")
         {
             if (spriteRenderer.enabled == false)
             {
                 spriteRenderer.enabled = true;
+            }
+        }
+        if (SceneManager.GetActiveScene().name == "Homescreen")
+        {
+            if (spriteRenderer.enabled == true)
+            {
+                spriteRenderer.enabled = false;
             }
         }
     }
