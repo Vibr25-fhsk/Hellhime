@@ -163,13 +163,13 @@ public class attack : MonoBehaviour
                 StartCoroutine(attack_cld());
             }
 
-            if(Input.GetButtonDown("joystick 1 Defense") && Playercon.isGrounded == true)
+            if(Input.GetAxis("joystick 1 Defense")>0.5f && Playercon.isGrounded == true)
             {
                 Defens_mainP1 =true;
                 RaiseRock.Def();
                 StartCoroutine(attack_cld());
             }
-            else if(Input.GetButtonUp("joystick 1 Defense") && Playercon.isGrounded == true)
+            else if(Input.GetAxis("joystick 1 Defense")<0.5f && Playercon.isGrounded == true)
             {
                 Defens_mainP1=false;  
             }
@@ -221,13 +221,13 @@ public class attack : MonoBehaviour
                 StartCoroutine(attack_cld());
             }
 
-            if(Input.GetButtonDown("joystick 2 Defense") && Playercon.isGrounded == true)
+            if(Input.GetAxis("joystick 2 Defense")>0.5f && Playercon.isGrounded == true)
             {
                 Defens_mainP2 =true;
                 RaiseRock.Def();
                 
             }
-            else if(Input.GetButtonUp("joystick 2 Defense")&& Playercon.isGrounded == true)
+            else if(Input.GetAxis("joystick 2 Defense")<0.5f && Playercon.isGrounded == true)
             {
                 Defens_mainP2=false;
                 StartCoroutine(attack_cld()); 

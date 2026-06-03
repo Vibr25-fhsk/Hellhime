@@ -145,13 +145,13 @@ public class playercontorl_sc : MonoBehaviour
         if(gameObject.tag=="Player1")
         {
             HealthbarP1.value = PlayerHP;
-            if(rb.linearVelocityX<0 && isMoving)
+            if(rb.linearVelocityX<0.01 && isMoving)
             {
                 
                 transform.rotation = Quaternion.Euler(0,180,0);
                 P1DustFx.Play();
             }
-            else if(rb.linearVelocityX>0 && isMoving)
+            else if(rb.linearVelocityX>-0.01 && isMoving)
             {
                 
                 transform.rotation = Quaternion.Euler(0,0,0);
@@ -191,13 +191,13 @@ public class playercontorl_sc : MonoBehaviour
         if(gameObject.tag=="Player2")
         {
             HealthbarP2.value = PlayerHP;
-            if(rb.linearVelocityX<0 && P2isMoving)
+            if(rb.linearVelocityX<0.01 && P2isMoving)
             {
                 
                 transform.rotation = Quaternion.Euler(0,180,0);
                 P2DustFx.Play();
             }
-            else if(rb.linearVelocityX>0 && P2isMoving)
+            else if(rb.linearVelocityX>-0.01 && P2isMoving)
             {
                 
                 transform.rotation = Quaternion.Euler(0,0,0);
@@ -300,6 +300,10 @@ public class playercontorl_sc : MonoBehaviour
         {
             animscript.ChangeAnimation(IdleAnim);
             
+        }
+        else if (rb.linearVelocity.x >= 0.5 && Attack.isAttacking == false && animscript.CurrentAnimation != RunAnim && animscript.CanchangeAnim == true)
+        {
+            animscript.ChangeAnimation(RunAnim);
         }
         #endregion
 
