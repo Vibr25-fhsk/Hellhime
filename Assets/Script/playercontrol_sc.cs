@@ -37,6 +37,7 @@ public class playercontorl_sc : MonoBehaviour
     private Vector2 Hoppvector;
     float horizontalMovement;
     float VerticalMovement;
+    float MaxVelocity;
     public bool isGrounded {get; private set;}
     [SerializeField]protected bool isMoving;
     [SerializeField]protected bool P2isMoving;
@@ -60,7 +61,7 @@ public class playercontorl_sc : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        MaxVelocity = 3f;
         RaiseRock = GetComponent<WallofStone>();
         PlayerColl = GetComponent<BoxCollider2D>();
         //animscript.ChangeAnimation(RaiseRock.StompAnim);
@@ -145,11 +146,11 @@ public class playercontorl_sc : MonoBehaviour
         #region Player1
         if(gameObject.tag=="Player1")
         {
-            if(isGrounded || rb.velocity.y<1f)
+            if(isGrounded || rb.linearVelocity.y<1f)
             {
                 rb.linearDamping = 0.1f;
             }
-            else if( isGrounded = false && rb.velocity.y>1f )
+            else if( isGrounded == false && rb.linearVelocity.y>MaxVelocity )
             {
                 rb.linearDamping = 5f;
             }
@@ -200,11 +201,11 @@ public class playercontorl_sc : MonoBehaviour
         #region Player2
         if(gameObject.tag=="Player2")
         {
-            if(isGrounded || rb.velocity.y<1f)
+            if(isGrounded || rb.linearVelocity.y<1f)
             {
                 rb.linearDamping = 0.1f;
             }
-            else if( isGrounded = false && rb.velocity.y>1f )
+            else if( isGrounded == false && rb.linearVelocity.y>MaxVelocity )
             {
                 rb.linearDamping = 5f;
             }
@@ -305,13 +306,13 @@ public class playercontorl_sc : MonoBehaviour
 
         if(animscript.CurrentAnimation != Knivkast.ThrowAnim && animscript.CurrentAnimation != Dolkslash.SlashAnim && animscript.CurrentAnimation != RaiseRock.StompAnim)
         {
-            rb.linearVelocity = new Vector2(horizontalMovement * moveSpeed, rb.velocity.y );
+            rb.linearVelocity = new Vector2(horizontalMovement * moveSpeed, rb.linearVelocity.y );
             
 
         }
         else if(animscript.CurrentAnimation ==Knivkast.ThrowAnim || animscript.CurrentAnimation == RaiseRock.StompAnim)
         {
-            rb.linearVelocity = new Vector2(0, rb.velocity.y );
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y );
         }
 
         
