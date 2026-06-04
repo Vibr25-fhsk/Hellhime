@@ -60,6 +60,7 @@ public class playercontorl_sc : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
         RaiseRock = GetComponent<WallofStone>();
         PlayerColl = GetComponent<BoxCollider2D>();
         //animscript.ChangeAnimation(RaiseRock.StompAnim);
@@ -68,7 +69,7 @@ public class playercontorl_sc : MonoBehaviour
         animscript.ChangeAnimation(IdleAnim);
         SpriteRender = GetComponent<SpriteRenderer>();
 
-        Hoppvector = new Vector2(rb.linearVelocityX, VerticalMovement * jumpForce);
+        //Hoppvector = new Vector2(rb.linearVelocityX, jumpForce);
         
         if(gameObject.tag=="Player1")
         {
@@ -137,13 +138,22 @@ public class playercontorl_sc : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        Hoppvector = new Vector2(rb.linearVelocityX, VerticalMovement * jumpForce);
+        Hoppvector = new Vector2(rb.linearVelocityX, jumpForce);
         
         
         
         #region Player1
         if(gameObject.tag=="Player1")
         {
+            if(isGrounded || rb.velocity.y<1f)
+            {
+                rb.linearDamping = 0.1f;
+            }
+            else if( isGrounded = false && rb.velocity.y>1f )
+            {
+                rb.linearDamping = 5f;
+            }
+
             HealthbarP1.value = PlayerHP;
             if(rb.linearVelocityX<0.01 && isMoving)
             {
@@ -190,6 +200,15 @@ public class playercontorl_sc : MonoBehaviour
         #region Player2
         if(gameObject.tag=="Player2")
         {
+            if(isGrounded || rb.velocity.y<1f)
+            {
+                rb.linearDamping = 0.1f;
+            }
+            else if( isGrounded = false && rb.velocity.y>1f )
+            {
+                rb.linearDamping = 5f;
+            }
+
             HealthbarP2.value = PlayerHP;
             if(rb.linearVelocityX<0.01 && P2isMoving)
             {
@@ -286,13 +305,13 @@ public class playercontorl_sc : MonoBehaviour
 
         if(animscript.CurrentAnimation != Knivkast.ThrowAnim && animscript.CurrentAnimation != Dolkslash.SlashAnim && animscript.CurrentAnimation != RaiseRock.StompAnim)
         {
-            rb.linearVelocity = new Vector2(horizontalMovement * moveSpeed, rb.linearVelocity.y );
+            rb.linearVelocity = new Vector2(horizontalMovement * moveSpeed, rb.velocity.y );
             
 
         }
         else if(animscript.CurrentAnimation ==Knivkast.ThrowAnim || animscript.CurrentAnimation == RaiseRock.StompAnim)
         {
-            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y );
+            rb.linearVelocity = new Vector2(0, rb.velocity.y );
         }
 
         

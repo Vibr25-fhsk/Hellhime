@@ -1605,6 +1605,10 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 1.23
       objectReference: {fileID: 0}
+    - target: {fileID: 8275594785624436842, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
+      propertyPath: m_LinearDamping
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7087,8 +7091,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8275594785624436842, guid: 81035a91e89249c57bf630060a11f873, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8275594785624436842, guid: 81035a91e89249c57bf630060a11f873, type: 3}
       propertyPath: m_GravityScale
       value: 1.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 8275594785624436842, guid: 81035a91e89249c57bf630060a11f873, type: 3}
+      propertyPath: m_LinearDamping
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
