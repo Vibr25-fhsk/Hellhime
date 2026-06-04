@@ -61,7 +61,7 @@ public class playercontorl_sc : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        MaxVelocity = 3f;
+        MaxVelocity = 2f;
         RaiseRock = GetComponent<WallofStone>();
         PlayerColl = GetComponent<BoxCollider2D>();
         //animscript.ChangeAnimation(RaiseRock.StompAnim);
