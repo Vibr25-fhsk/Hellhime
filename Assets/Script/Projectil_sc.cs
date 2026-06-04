@@ -15,6 +15,22 @@ public class Projectil_sc : MonoBehaviour
     private AudioSource audiosource;
     public AudioClip KnifeClash;
 
+    private ParticleSystem Sparks1;
+    private ParticleSystem Sparks2;
+
+    void Awake()
+    {
+       
+        if(gameObject.tag=="kastkniv")
+        {
+            Sparks1 = GetComponent<ParticleSystem>();
+        }
+        else if(gameObject.tag=="kastknivP2")
+        {
+            Sparks2 = GetComponent<ParticleSystem>();
+        }
+    }
+
 
     #endregion
     Rigidbody2D rb;
@@ -50,6 +66,7 @@ public class Projectil_sc : MonoBehaviour
         
         if(gameObject.tag=="kastkniv")
         {
+            
             if( kastscript_p1 !=null && kastscript_p1.Knivcount>1)
             {
                 Destroy(gameObject);
@@ -102,6 +119,14 @@ public class Projectil_sc : MonoBehaviour
         if (other.gameObject.CompareTag("kastkniv")||other.gameObject.CompareTag("kastknivP2")||other.gameObject.CompareTag("sten")||other.gameObject.CompareTag("stenP2"))
         {
             //BoxColl.enabled = false;
+            if(gameObject.tag=="kastkniv" && Sparks1!=null)
+            {
+                Sparks1.Play();
+            }
+            else if(gameObject.tag=="kastknivP2" && Sparks2!=null)
+            {
+                Sparks2.Play();
+            }
             Playknifeclash();
             StartCoroutine(DestroyAfterDelay());
         }

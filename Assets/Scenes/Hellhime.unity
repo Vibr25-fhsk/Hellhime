@@ -1549,6 +1549,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 124713282513730977, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
+      propertyPath: SizeModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6595323887347958622, guid: bdd033aa33900b36fa7431a8de9eb4d5, type: 3}
       propertyPath: m_Name
       value: Knivkastare 2
@@ -7033,6 +7037,10 @@ PrefabInstance:
     - target: {fileID: 6595323887347958622, guid: 81035a91e89249c57bf630060a11f873, type: 3}
       propertyPath: m_Name
       value: Knivkastare 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6816098034869823040, guid: 81035a91e89249c57bf630060a11f873, type: 3}
+      propertyPath: ColorModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8089582827969260543, guid: 81035a91e89249c57bf630060a11f873, type: 3}
       propertyPath: jumpForce
