@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Collections;
 using NUnit.Framework;
 using TMPro;
 using UnityEngine;
@@ -10,7 +11,8 @@ public class GameManeger : MonoBehaviour
     public int P1Wins = 0;
     public int P2Wins = 0;
     public static int[] playerJoystickIndex = new int[] { -1, -1 };
-    public int joyIndex;    
+    public int joyIndex;
+    float Delay = 1f;  
     
 
     
@@ -54,13 +56,22 @@ public class GameManeger : MonoBehaviour
         
         
         
+    }
+    public void CorpseCollector()
+    {
+        Korpses = GameObject.FindGameObjectsWithTag("Dead").Length;
         if(Korpses>0)
         {
-            SceneManager.LoadScene("Homescreen");
+            StartCoroutine(LoadDelay());
         }
+    }
+    IEnumerator LoadDelay()
+    {
+        yield return new WaitForSeconds(Delay);
+        SceneManager.LoadScene("Homescreen");
         
     }
-
+    
     void AssignController(int joyIndex)
     {
         for (int p = 0; p < 2; p++)

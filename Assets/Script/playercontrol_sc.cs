@@ -192,6 +192,7 @@ public class playercontorl_sc : MonoBehaviour
                 }
                 WaitForSeconds wait = new WaitForSeconds(DeathDlay);
                 gameObject.tag = "Dead";
+                GM.CorpseCollector();
                 //Destroy(gameObject,DeathDlay);
                 
             }
@@ -238,6 +239,7 @@ public class playercontorl_sc : MonoBehaviour
                 }
                 WaitForSeconds wait = new WaitForSeconds(DeathDlay);
                 gameObject.tag = "Dead";
+                GM.CorpseCollector();
                 //Destroy(gameObject,DeathDlay);
                 
             }
