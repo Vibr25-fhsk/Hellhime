@@ -12,7 +12,8 @@ public class GameManeger : MonoBehaviour
     public int P2Wins = 0;
     public static int[] playerJoystickIndex = new int[] { -1, -1 };
     public int joyIndex;
-    float Delay = 1f;  
+    float Delay = 1f;
+    public Camera cam;
     
 
     
@@ -40,6 +41,10 @@ public class GameManeger : MonoBehaviour
     
     void Update()
     {
+        if(cam==null)
+        {
+            cam = Camera.main;
+        }
         Korpses = GameObject.FindGameObjectsWithTag("Dead").Length;
         //Debug.Log(Korpses);
         // Scanna joystick 1-8

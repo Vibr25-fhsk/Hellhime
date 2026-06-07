@@ -31,7 +31,7 @@ public class playercontorl_sc : MonoBehaviour
     
     #region movement
     [SerializeField]private float moveSpeed = 5f;
-    [SerializeField]private float jumpForce = 1f;
+    [SerializeField]private float jumpForce = 2f;
     private Rigidbody2D rb;
     private Vector2 moveinput;
     private Vector2 Hoppvector;
@@ -265,7 +265,7 @@ public class playercontorl_sc : MonoBehaviour
             
             if(Input.GetButton("joystick 1 axis y")&& isGrounded)
             {
-                rb.AddForce(Hoppvector.normalized, ForceMode2D.Impulse);
+                rb.AddForce(Hoppvector, ForceMode2D.Impulse);
                 P1DustFx.Play();
             }
             if(horizontalMovement>=0.1f)
