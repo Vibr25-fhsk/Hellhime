@@ -41,10 +41,7 @@ public class GameManeger : MonoBehaviour
     
     void Update()
     {
-        if(cam==null)
-        {
-            cam = Camera.main;
-        }
+
         Korpses = GameObject.FindGameObjectsWithTag("Dead").Length;
         //Debug.Log(Korpses);
         // Scanna joystick 1-8
